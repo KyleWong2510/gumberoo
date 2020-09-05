@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import StudentForm from './StudentForm'
-import { setStudentName } from '../actions/index'
+// import { setStudentName } from '../actions/index'
 import { Link, withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
