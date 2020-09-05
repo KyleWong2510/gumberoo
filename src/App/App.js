@@ -1,6 +1,6 @@
 import React from 'react';
 import StudentDashboard from '../StudentDashboard/StudentDashboard'
-
+import { connect } from 'react-redux'
 import './App.scss';
 
 function App() {
@@ -9,5 +9,8 @@ function App() {
   )
 }
 
+const mapStateToProps = ({ setStudentName }) => ({
+  studentName: setStudentName
+})
 
-export default App;
+export default connect(mapStateToProps)(App);

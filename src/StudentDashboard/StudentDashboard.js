@@ -1,31 +1,37 @@
 import React, { useState, useEffect} from 'react'
 import StudentForm from './StudentForm'
+import { setStudentName } from '../actions/index'
+import { Link, withRouter } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
 import './StudentDashboard.scss'
 
 
-function StudentDashboard() {
-  // const [state, setState] = useState({});
-  const [studentName, setStudentName] = useState('')
-
+function StudentDashboard(props) {
 
  return (
     <section className='student-body'>
-      {!studentName && <StudentForm setStudentName={setStudentName}/>}
-      {studentName && 
+      {!props.studentName && <StudentForm />}
+      {props.studentName && 
       <section className='student-dash'>
         <div className='reading'>
           Reading
         </div>
-        <div className='question'>
-          Question
-        </div>
         <div className='animation'>
           Animation
         </div>
-      </section>}
+        <div className='question'>
+          Question
+        </div>
+      </section>
+}
     </section>
     )
 }
-  
 
-export default StudentDashboard
+const mapStateToProps = ({ setStudentName }) => ({
+  studentName: setStudentName
+})
+
+export default connect(mapStateToProps)(StudentDashboard);
