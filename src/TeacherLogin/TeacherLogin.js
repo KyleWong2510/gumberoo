@@ -3,11 +3,14 @@ import './TeacherLogin.scss'
 
 const TeacherLogin = () => {
   const [ teacherInput, setTeacherName ] = useState('')
-
+  
+  const buttonsEnabled = teacherInput.trim() == "";
+  
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log('CLICKED')
   }
-
+  
   return (
     <form className='teacher-login' onSubmit={handleSubmit}>
       <h1>Gumberoo</h1>
@@ -20,9 +23,12 @@ const TeacherLogin = () => {
         onChange={(e) => setTeacherName(e.target.value)}
       />
       <input
+        data-testid='submit-btn'
         className='submit-btn'
+        aria-label='submit button'
         type='submit'
         value='Submit'
+        disabled={buttonsEnabled}
       />
     </form>
   )
