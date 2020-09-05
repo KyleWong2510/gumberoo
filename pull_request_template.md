@@ -24,4 +24,8 @@ Please check the type of change your PR introduces:
 - [ ] No
 <!-- If this introduces a breaking change, please describe the impact and migration path for existing applications below. -->
 ## Other information
+<<<<<<< HEAD
 <!-- Any other information that is important to this PR such as screenshots of how the component looks before and after the change. -->
+=======
+<!-- Any other information that is important to this PR such as screenshots of how the component looks before and after the change. -->
+>>>>>>> 49ea6a2e4d81cd8aaf5ad430b688adb405c87982
