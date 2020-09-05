@@ -1,10 +1,10 @@
 import React from 'react';
-
+import TeacherLogin from '../TeacherLogin/TeacherLogin'
 import './App.scss';
 
 function App() {
   return (
-    <h1>Howdy Pahtnah!</h1>
+    <TeacherLogin />
   )
 }
 
