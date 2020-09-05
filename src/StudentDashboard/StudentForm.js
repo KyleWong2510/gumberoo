@@ -19,7 +19,8 @@ function StudentForm(props) {
           name='studentNameInput' 
           className='student-names-input' 
           onChange={e => setStudentNameInput(e.target.value)}
-          data-testid='nameInput'>
+          data-testid='nameInput'
+        >
           <option>Select Your Name</option> 
           <option value='Bill'>Bill</option>
         </select>
