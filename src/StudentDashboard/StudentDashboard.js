@@ -12,9 +12,14 @@ function StudentDashboard(props) {
 
  return (
     <section className='student-body'>
+      
       {!props.studentName && <StudentForm />}
       {props.studentName && 
       <section className='student-dash'>
+        <header>
+          <h1>Gumberoo</h1>
+          <h4>{props.studentName}</h4>
+        </header>
         <div className='reading'>
           Reading
         </div>
