@@ -35,8 +35,9 @@ function StudentDashboard(props) {
     )
 }
 
-const mapStateToProps = ({ setStudentName }) => ({
-  studentName: setStudentName
+const mapStateToProps = ({ setStudentName, setLesson }) => ({
+  studentName: setStudentName,
+  lesson: setLesson
 })
 
 export default connect(mapStateToProps)(StudentDashboard);

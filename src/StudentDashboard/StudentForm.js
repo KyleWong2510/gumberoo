@@ -2,16 +2,18 @@ import React, { useState } from 'react'
 import './StudentForm.scss'
 // import { setStudentName } from '../actions/index'
 import { Link, withRouter } from 'react-router-dom'
-import { setStudentName } from '../actions/index'
+import { setStudentName, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { lesson } from '../mockData/lesson'
+
 
 
 function StudentForm(props) {
   // const [state, setState] = useState({});
   const [studentNameInput, setStudentNameInput] = useState('')
 
-
+  props.setLesson(lesson)
   return (
       <section className='student-form'>
         <h2>Gumberoo</h2>
@@ -26,12 +28,15 @@ function StudentForm(props) {
         </select>
         <button className='submit-name-button' type='submit' onClick={() => props.setStudentName(studentNameInput)}>Submit</button>
       </section>
-    )
-
-  
+  )
 }
+
+const mapStateToProps = ({ setLesson }) => ({
+  lesson: setLesson
+})
+
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ setStudentName }, dispatch)
+  bindActionCreators({ setStudentName, setLesson }, dispatch)
 )
 
-export default connect(null, mapDispatchToProps)(StudentForm)
+export default connect(mapStateToProps, mapDispatchToProps)(StudentForm)
