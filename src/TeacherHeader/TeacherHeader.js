@@ -4,10 +4,10 @@ import './TeacherHeader.scss'
 const TeacherHeader = () => {
   return (
     <header className='teacher-header'>
-      <h1 className='header-title'>Gumbaroo</h1>
+      <h1 className='header-title'>Gumberoo</h1>
       <section className='header-btn-container'>
-        <button className='header-btn'>Students</button>
-        <button className='header-btn'>Lessons</button>
+        <button>Students</button>
+        <button>Lessons</button>
       </section>
     </header>
   )
