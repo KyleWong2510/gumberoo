@@ -1,10 +1,14 @@
 import React from 'react';
-
+import TeacherHeader from '../TeacherHeader/TeacherHeader'
+import TeacherLogin from '../TeacherLogin/TeacherLogin'
 import './App.scss';
 
 function App() {
   return (
-    <h1>Howdy Pahtnah!</h1>
+    <main className="App">
+      <TeacherHeader />
+      {/* <TeacherLogin /> */}
+    </main>
   )
 }
 
