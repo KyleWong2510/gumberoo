@@ -4,7 +4,9 @@ import './App.scss';
 
 function App() {
   return (
-    <TeacherLogin />
+    <main className="App">
+      <TeacherLogin />
+    </main>
   )
 }
 

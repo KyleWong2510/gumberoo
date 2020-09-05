@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './TeacherLogin.scss'
 
 const TeacherLogin = () => {
   const [ teacherInput, setTeacherName ] = useState('')
@@ -8,9 +9,10 @@ const TeacherLogin = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='teacher-login' onSubmit={handleSubmit}>
       <h1>Gumberoo</h1>
       <input 
+        className='teacher-input'
         type='text'
         value= { teacherInput }
         aria-label='enter teachers first and last name'
@@ -18,6 +20,7 @@ const TeacherLogin = () => {
         onChange={(e) => setTeacherName(e.target.value)}
       />
       <input
+        className='submit-btn'
         type='submit'
         value='Submit'
       />
