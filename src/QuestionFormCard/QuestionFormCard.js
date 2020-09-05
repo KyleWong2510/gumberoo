@@ -1,36 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './QuestionFormCard.scss'
+import AnswerInput from './AnswerInput/AnswerInput'
 
 const QuestionFormCard = () => {
+  const [ questionText, setQuestion ] = useState('')
+  const [ questions, setQuestions ] = useState([])
+  const [ answerText, setAnswer ] = useState('')
+  const [ answers, setAnswers ] = useState([])
+
+  const addQuestion = (e) => {
+    e.preventDefault()
+    setQuestions([
+      ...questions,
+      questionText
+    ])
+    setQuestion('')
+  }
+
+  // questions: [
+  //   {question: {
+  //     reading: '',
+  //     questionText: 'ssfda',
+  //     answers: [
+  //       {answerText: 'asdfsdfaf'},
+  //       {answerText: 'sadfafds'},
+  //       ...
+  //     ]
+  //   }
+  // }]
+
   return (
     <form className='question-form-card'>
       <h2>Create a Question</h2>
       <input 
         className='question-input'
         type='text'
-        // value={}
+        value={questionText}
         aria-label='Question input'
         placeholder='Enter a Question...'
-        // onChange={(e) => }
+        onChange={(e) => setQuestion(e.target.value)}
       />
-      <input 
-        className='answer-input'
-        type='text'
-        // value={}
-        aria-label='Question input'
-        placeholder='Enter an Answer...'
-        // onChange={(e) => }
-      />
-      <input 
-        className='answer-input'
-        type='text'
-        // value={}
-        aria-label='Question input'
-        placeholder='Enter an Answer...'
-        // onChange={(e) => }
-      />
-      <button>Add Question</button>
-      <button>Delete Question</button>
+      <AnswerInput correct={true} required={true}/>
+      <AnswerInput correct={false} required={true}/>
+      
+      <button onClick={addQuestion}>Add Question</button>
+      {/* <button>Delete Question</button> */}
       <button>Add Reading</button>
     </form>
   )
