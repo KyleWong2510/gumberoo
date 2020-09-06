@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './QuestionArea.scss'
 
 function QuestionArea(props) {
   const answers = []
