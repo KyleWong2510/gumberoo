@@ -1,14 +1,16 @@
 import React from "react";
 
-const QuestionInput = ({ setQuestion, questionText }) => {
-  <input
-    className="question-input"
-    type="text"
-    value={questionText}
-    aria-label="Question input"
-    placeholder="Enter a Question..."
-    onChange={(e) => setQuestion(e.target.value)}
-  />;
+const QuestionInput = ({ setQuestionText, questionText }) => {
+  return (
+    <input
+      className="question-input"
+      type="text"
+      value={questionText}
+      aria-label="Question input"
+      placeholder="Enter a Question..."
+      onChange={(e) => setQuestionText(e)}
+    />
+  );
 };
 
 export default QuestionInput;

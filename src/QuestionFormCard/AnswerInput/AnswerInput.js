@@ -1,21 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const AnswerInput = ({ correct, required }) => {
+const AnswerInput = ({ correct, answerText, setAnswerText }) => {
   return (
-    <div>
-      <input
-        className='answer-input'
-        type='text'
-        // value={answerText}
-        aria-label='Question input'
-        placeholder={ correct ? 'Enter Correct Answer...' : 'Enter an Answer...'}
-        isCorrect={correct}
-        isRequired={required}
-        // onChange={(e) => setAnswer(e.target.value)}
-      />
-      <button>+</button>
-      <button>-</button>
-    </div>
+    <input
+      className='answer-input'
+      type='text'
+      value={answerText}
+      aria-label='Question input'
+      placeholder={ correct ? 'Enter Correct Answer...' : 'Enter Incorrect Answer...'}
+      isCorrect={correct}
+      onChange={(e) => setAnswerText(e.target.value)}
+    />
   )
 }
 // answers need to pushed in to answers array

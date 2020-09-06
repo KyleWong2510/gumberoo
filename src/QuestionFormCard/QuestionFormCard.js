@@ -1,60 +1,76 @@
-import React, { useState } from 'react'
-import './QuestionFormCard.scss'
-import AnswerInput from './AnswerInput/AnswerInput'
-import QuestionInput from './QuestionInput/QuestionInput'
+import React, { useState } from "react";
+import "./QuestionFormCard.scss";
+import AnswerInput from "./AnswerInput/AnswerInput";
+import QuestionInput from "./QuestionInput/QuestionInput";
 
 const QuestionFormCard = () => {
-  const [ questionText, setQuestion ] = useState('')
-  const [ questions, setQuestions ] = useState([])
-  const [ answerText, setAnswer ] = useState('')
-  const [ answers, setAnswers ] = useState([])
+  const [question, setQuestion] = useState({});
+  const [questionText, setQuestionText] = useState("");
+  const [correctAnswerText, setCorrectAnswerText] = useState("");
+  const [incorrectAnswerText1, setIncorrectAnswerText1] = useState("")
+  const [incorrectAnswerText2, setIncorrectAnswerText2] = useState("")
+  const [incorrectAnswerText3, setIncorrectAnswerText3] = useState("")
+  const [incorrectAnswers, setIncorrectAnswers] = useState([]);
+  const [correctAnswer, setCorrectAnswer] = useState("");
+  const [lessonTitleText, setLessonTitleText] = useState("");
+  const [lessonQuestions, setLessonQuestions] = useState([]);
 
   const addQuestion = (e) => {
-    e.preventDefault()
-    setQuestions([
-      ...questions,
-      questionText
-    ])
-    setQuestion('')
-  }
+    e.preventDefault();
+    setQuestion(question);
+    setQuestion("");
+  };
 
-  // lesson = {
-    // id: 4,
-  //   questions: [{
-    //   id: 46,
-  //     reading: '',
-  //     questionText: 'What is the King of the Jungle?',
-  //     correctAnswer: 'Lion'
-  //     wrongAnswer: ['4', 'yellow']
-  //   }]
+  // const setQuestionText = (e) => {
+  //   e.preventDefault()
+  //   setQuestionText(questionText)
+  //   setQuestionText('')
   // }
-// create a method that "renderAnswers" that maps over the answers
-// array, & returns JSX element for each answer input, And can validate that
-// one answer is correct & one is incorrect, if not error you need one correct & one 
-// incorrect to save this question".
+
+  // lesson = [
+  //{
+  // id: 34
+  // lessonTitle: 'Africa',
+  // questions: [{
+  //  id: 46,
+  //  reading: '',
+  //  question: 'What is the King of the Jungle?',
+  //  correctAnswer: 'Lion'
+  //  wrongAnswer: ['4', 'yellow']
+  //  }]
+  // }
+  // ]
+  // validate that one answer is correct & one is incorrect, if not error you need one correct & one
+  // incorrect to save this question".
 
   return (
-    // save input of renderAnswers to variable here 
+    // save input of renderAnswers to variable here
     // {}
-    <form className='question-form-card'>
-      <h2>Create a Question</h2>
-      <QuestionInput setQuestion={setQuestion} questionText={questionText}/>
-      
-      {/* render answers variable */}
-      
-      {/* add dropdown to chose incorrect/correct, then add button
-      hit add button, pushes into answers array, answers then render 
-      on the card, text, but have a delete button */}
-      <AnswerInput correct={false} required={true}/>
-      <button>Add Answer</button>
-      {/* Will push into answers array, trigger rerender and boom, magic */}
-      
-      <button onClick={addQuestion}>Add Question</button>
-      {/* <button>Delete Question</button> */}
-      <button>Add Reading</button>
-    </form>
-  )
-}
+    <section>
+      <form className="question-form-card">
+        <input
+          type="text"
+          placeholder="Enter Lesson Title..."
+          value={lessonTitleText}
+          aria-label="Lesson Title Input"
+          onChange={(e) => setLessonTitleText(e.target.value)}
+        />
+        <label htmlFor='assigned-reading'>Add an Assigned Reading</label>
+        <textarea id='assigned-reading' placeholder='Enter text...'></textarea>
+        <QuestionInput setQuestionText={(e) => setQuestionText(e.target.value)} questionText={questionText}/>
+        <AnswerInput correct={true} answerText={correctAnswerText} setAnswerText={setCorrectAnswerText}/>
+        <AnswerInput correct={false} answerText={incorrectAnswerText1} setAnswerText={setIncorrectAnswerText1}/>
+        <AnswerInput correct={false} answerText={incorrectAnswerText2} setAnswerText={setIncorrectAnswerText2}/>
+        <AnswerInput correct={false} answerText={incorrectAnswerText3} setAnswerText={setIncorrectAnswerText3}/>
+        {/* Will push into answers array, trigger rerender and boom, magic */}
+
+        <button onClick={addQuestion}>Add Question</button>
+        {/* <button>Delete Question</button> */}
+      </form>
+      <button>Submit Lesson</button>
+    </section>
+  );
+};
 
 //  Have a Question Input
 //  Have a correct Answer Input
@@ -63,4 +79,4 @@ const QuestionFormCard = () => {
 //  A delete question button, follow the logic
 //  An add Reading button that renders a text area.
 
-export default QuestionFormCard
+export default QuestionFormCard;
