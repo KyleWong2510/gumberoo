@@ -17,12 +17,12 @@ function StudentDashboard(props) {
       {!props.studentName && <StudentForm />}
       {props.studentName && 
       <section className='student-dash'>
-        <header>
-          <h1>Gumberoo</h1>
+        <header className='student-header'>
+          <h1>gumberoo</h1>
           <h4>{props.studentName}</h4>
         </header>
         <div className='reading'>
-        {props.lesson.questions[0].reading}
+           {props.lesson.questions[0].reading}
         </div>
         <div className='animation'>
           Animation

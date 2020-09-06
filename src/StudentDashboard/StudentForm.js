@@ -16,7 +16,7 @@ function StudentForm(props) {
   props.setLesson(lesson)
   return (
       <section className='student-form'>
-        <h2>Gumberoo</h2>
+        <h2>gumberoo</h2>
         <select
           name='studentNameInput' 
           className='student-names-input' 

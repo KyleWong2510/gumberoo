@@ -25,7 +25,7 @@ function QuestionArea(props) {
   
       {answers.map((answer, i) => {
         return (
-          <button key={i++} type='submit'>{answer}</button>
+          <button key={i++} className='question-button' type='submit'>{answer}</button>
         )
       })}
    

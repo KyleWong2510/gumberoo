@@ -1,8 +1,18 @@
 .display-question {
-  font-size: 3vw
+  font-size: 4vw;
+  justify-content: space-evenly;
+  margin-bottom: 5px;
 }
 
-button {
+.question-button {
   width: 40%;
-  font-size: 2vw
+  height: 5%;
+  padding: 10px;
+  font-size: 3vw;
+  border-radius: 5px;
+  margin: 20px;
+  background-color: #CC79A7;
+  border: none;
+  cursor: pointer
 }
+
