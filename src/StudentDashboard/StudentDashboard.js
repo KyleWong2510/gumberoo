@@ -3,6 +3,7 @@ import StudentForm from './StudentForm'
 // import { setStudentName } from '../actions/index'
 import { Link, withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
+import QuestionArea from './QuestionArea';
 import { connect } from 'react-redux'
 
 import './StudentDashboard.scss'
@@ -21,13 +22,13 @@ function StudentDashboard(props) {
           <h4>{props.studentName}</h4>
         </header>
         <div className='reading'>
-          Reading
+        {props.lesson.questions[0].reading}
         </div>
         <div className='animation'>
           Animation
         </div>
         <div className='question'>
-          Question
+          <QuestionArea question={props.lesson.questions[0]} />
         </div>
       </section>
 }
