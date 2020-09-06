@@ -18,7 +18,7 @@ function StudentDashboard(props) {
       {props.studentName && 
       <section className='student-dash'>
         <header className='student-header'>
-          <h1>gumberoo</h1>
+          <h1 className='app-name'>gumberoo</h1>
           <h4>{props.studentName}</h4>
         </header>
         <div className='reading'>
