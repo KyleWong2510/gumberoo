@@ -8,21 +8,26 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 import { rootReducer } from '../reducers';
+import { lesson } from '../mockData/lesson'
 
 
 const store = createStore(rootReducer, {
-  setStudentName:'Bill'
+  setStudentName:'Bill',
+  setLesson: lesson
 })
 describe('StudentDashboards', () => {
-it('Should render the app name and student name', () => {
-const { getByText, getByTestId } = render(
-  <MemoryRouter>
-    <Provider store={store}>
-      <StudentDashboard/>
-    </Provider>
-  </MemoryRouter>
-)
-const appName = getByText('Gumberoo')
-const studentName = getByText('Bill')
-})
+  it('Should render the app name and student name', () => {
+    const { getByText, getByTestId } = render(
+      <MemoryRouter>
+        <Provider store={store}>
+          <StudentDashboard/>
+        </Provider>
+      </MemoryRouter>
+    )
+    const appName = getByText('gumberoo')
+    const studentName = getByText('Bill')
+
+    expect(appName).toBeInTheDocument()
+    expect(studentName).toBeInTheDocument()
+  })
 })

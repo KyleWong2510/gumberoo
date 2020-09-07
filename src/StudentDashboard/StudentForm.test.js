@@ -22,7 +22,7 @@ describe('StudentForm', () => {
       </Provider>
     </MemoryRouter>
   )
-  const appName = getByText('Gumberoo')
+  const appName = getByText('gumberoo')
   const nameInput = getByTestId('nameInput')
  })
 })

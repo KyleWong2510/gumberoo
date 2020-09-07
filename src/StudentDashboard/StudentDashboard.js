@@ -21,14 +21,14 @@ function StudentDashboard(props) {
           <h1 className='app-name'>gumberoo</h1>
           <h4>{props.studentName}</h4>
         </header>
-        <div className='reading'>
-           {props.lesson.questions[0].reading}
+        <div className={props.lesson.questions[props.currentQuestion].reading ? 'reading' : 'hidden'}>
+           {props.lesson.questions[props.currentQuestion].reading}
         </div>
         <div className='animation'>
           Animation
         </div>
         <div className='question'>
-          <QuestionArea question={props.lesson.questions[0]} />
+          <QuestionArea question={props.lesson.questions[props.currentQuestion]} />
         </div>
       </section>
 }
@@ -36,9 +36,10 @@ function StudentDashboard(props) {
     )
 }
 
-const mapStateToProps = ({ setStudentName, setLesson }) => ({
+const mapStateToProps = ({ setStudentName, setLesson, setCurrentQuestion }) => ({
   studentName: setStudentName,
-  lesson: setLesson
+  lesson: setLesson,
+  currentQuestion: setCurrentQuestion
 })
 
 export default connect(mapStateToProps)(StudentDashboard);

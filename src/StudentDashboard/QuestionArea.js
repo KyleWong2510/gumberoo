@@ -1,5 +1,8 @@
 import React from 'react'
 import './QuestionArea.scss'
+import { incrementCurrentQuestion } from '../actions/index';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 function QuestionArea(props) {
   const answers = []
@@ -17,6 +20,11 @@ function QuestionArea(props) {
   const wrongAnswersCopy = props.question.wrong_answers.map(answer => answer)
   shuffle(wrongAnswersCopy, props.question.correctAnswer)
   
+  const answerClick = (e) => {
+    debugger
+    e.preventDefault()
+    props.incrementCurrentQuestion()
+  }
   return (
     <section className='question-area'>
       <h3 className='display-question'>
@@ -25,7 +33,7 @@ function QuestionArea(props) {
   
       {answers.map((answer, i) => {
         return (
-          <button key={i++} className='question-button' type='submit'>{answer}</button>
+          <button key={i++} className='question-button' onClick={e => answerClick(e)} type='submit'>{answer}</button>
         )
       })}
    
@@ -33,4 +41,10 @@ function QuestionArea(props) {
   )
 }
 
-export default QuestionArea
+
+
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ incrementCurrentQuestion }, dispatch)
+)
+
+export default connect(null, mapDispatchToProps)(QuestionArea)

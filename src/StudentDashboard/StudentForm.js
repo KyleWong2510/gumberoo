@@ -18,6 +18,7 @@ function StudentForm(props) {
       <section className='student-form'>
         <h2>gumberoo</h2>
         <select
+          aria-label='select name'
           name='studentNameInput' 
           className='student-names-input' 
           onChange={e => setStudentNameInput(e.target.value)}
@@ -26,13 +27,15 @@ function StudentForm(props) {
           <option>Select Your Name</option> 
           <option value='Bill'>Bill</option>
         </select>
-        <button className='submit-name-button' type='submit' onClick={() => props.setStudentName(studentNameInput)}>Submit</button>
+        <button className='submit-name-button' aria-label=
+        'submit name' type='submit' onClick={() => props.setStudentName(studentNameInput)}>Submit</button>
       </section>
   )
 }
 
-const mapStateToProps = ({ setLesson }) => ({
-  lesson: setLesson
+const mapStateToProps = ({ setLesson, setStudents }) => ({
+  lesson: setLesson,
+  students: setStudents
 })
 
 const mapDispatchToProps = dispatch => (
