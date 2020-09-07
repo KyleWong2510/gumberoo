@@ -10,7 +10,7 @@ export const lesson = {
     {
       reading: null,
       question: 'What is an adjective?',
-      correctAnswer: 'Words that describe a noun?',
+      correctAnswer: 'Words that describe a noun',
       wrong_answers: ['like a Pronoun', 'Adverb', 'Verb']
     },
     {

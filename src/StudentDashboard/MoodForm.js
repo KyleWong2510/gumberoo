@@ -8,7 +8,7 @@ import { lesson } from '../mockData/lesson'
 
 
 
-function StudentForm(props) {
+function MoodForm(props) {
   const [studentNameInput, setStudentNameInput] = useState('')
 
   props.setLesson(lesson)
@@ -31,13 +31,14 @@ function StudentForm(props) {
   )
 }
 
-const mapStateToProps = ({ setLesson, setStudents }) => ({
+const mapStateToProps = ({ setLesson, setStudents, setMood }) => ({
   lesson: setLesson,
-  students: setStudents
+  students: setStudents,
+  mood: setMood
 })
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({ setStudentName, setLesson }, dispatch)
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(StudentForm)
+export default connect(mapStateToProps, mapDispatchToProps)(MoodForm)

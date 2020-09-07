@@ -14,6 +14,16 @@
   background-color: #CC79A7;
   border: none;
   cursor: pointer;
-  border: 3px solid #56B4E9
+  border: 4px ridge #0072B2
 }
+
+
+.question-button:hover,
+.question-button:focus {
+  cursor: pointer;
+  transform: scale(1.33);
+  transition: transform .7s;
+  opacity: .98;
+}
+
 

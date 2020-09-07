@@ -35,3 +35,8 @@ export const incrementCurrentQuestion = () => ({
 export const resetCurrentQuestion = () => ({
   type: 'RESET_CURRENT_QUESTION',
 })
+
+export const incrementScore = score => ({
+  type: 'INCREMENT_SCORE',
+  score
+})
