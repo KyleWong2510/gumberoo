@@ -47,23 +47,44 @@ const QuestionFormCard = () => {
     // save input of renderAnswers to variable here
     // {}
     <form className="question-form-card">
-      <input
-        type="text"
-        placeholder="Enter Lesson Title..."
-        value={lessonTitleText}
-        aria-label="Lesson Title Input"
-        onChange={(e) => setLessonTitleText(e.target.value)}
-      />
-      <label htmlFor='assigned-reading'>Add an Assigned Reading</label>
-      <textarea id='assigned-reading' placeholder='Enter text...'></textarea>
-      <QuestionInput setQuestionText={(e) => setQuestionText(e.target.value)} questionText={questionText}/>
-      <AnswerInput correct={true} answerText={correctAnswerText} setAnswerText={setCorrectAnswerText}/>
-      <AnswerInput correct={false} answerText={incorrectAnswerText1} setAnswerText={setIncorrectAnswerText1}/>
-      <AnswerInput correct={false} answerText={incorrectAnswerText2} setAnswerText={setIncorrectAnswerText2}/>
-      <AnswerInput correct={false} answerText={incorrectAnswerText3} setAnswerText={setIncorrectAnswerText3}/>
+      <section className='question-form-input'>
+        <label htmlFor='lesson-title'>Lesson Title:</label>
+        <input
+          id='lesson-title'
+          type="text"
+          placeholder="Enter Lesson Title..."
+          value={lessonTitleText}
+          aria-label="Lesson Title Input"
+          onChange={(e) => setLessonTitleText(e.target.value)}
+        />
+      </section>
+      <section className='assigned-reading-input'>
+        <label htmlFor='assigned-reading'>Reading:</label>
+        <textarea id='assigned-reading' placeholder='Enter text...'></textarea>
+      </section>
+      <section className='question-form-input'>
+        <label htmlFor='question-input'>Question:</label>
+        <QuestionInput setQuestionText={(e) => setQuestionText(e.target.value)} questionText={questionText}/>
+      </section>
+      <section className='question-form-input'>
+        <label htmlFor='answer-input'>Correct Answer:</label>
+        <AnswerInput correct={true} answerText={correctAnswerText} setAnswerText={setCorrectAnswerText}/>
+      </section>
+      <section className='question-form-input'>
+        <label htmlFor='answer-input'>Incorrect Answer:</label>
+        <AnswerInput correct={false} answerText={incorrectAnswerText1} setAnswerText={setIncorrectAnswerText1}/>
+      </section>
+      <section className='question-form-input'>
+        <label htmlFor='answer-input'>Incorrect Answer:</label>
+        <AnswerInput correct={false} answerText={incorrectAnswerText2} setAnswerText={setIncorrectAnswerText2}/>
+      </section>
+      <section className='question-form-input'>
+        <label htmlFor='answer-input'>Incorrect Answer:</label>
+        <AnswerInput correct={false} answerText={incorrectAnswerText3} setAnswerText={setIncorrectAnswerText3}/>
+      </section>
       {/* Will push into answers array, trigger rerender and boom, magic */}
 
-      <button onClick={addQuestion}>Add Question</button>
+      <button className='add-question-btn' onClick={addQuestion}>Add Question</button>
       {/* <button>Delete Question</button> */}
     </form>
 

@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 const AnswerInput = ({ correct, answerText, setAnswerText }) => {
   return (
     <input
+      id='answer-input'
       className='answer-input'
       type='text'
       value={answerText}
