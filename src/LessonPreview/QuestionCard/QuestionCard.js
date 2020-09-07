@@ -1,11 +1,21 @@
 import React from 'react'
 
-const LessonCard = ()=> {
+const QuestionCard = ({ id, question, allAnswers, reading})=> {
+  let correctAnswer = allAnswers.find(answer => answer.correct === true).desc
+  let incorrectAnswers = allAnswers
+    .filter(answer => answer.correct === false)
+    .map(answer => <p>{answer.desc}</p>)
+    
   return (
     <section>
-      <h1>Howdy</h1>
+      <p>{reading}</p>
+      <p>{question}</p>
+      <p>Correct Answer: {correctAnswer}</p>
+      <p>Incorrect Answers:</p>
+      {incorrectAnswers}
+      <button>Delete</button>
     </section>
   )
 }
 
-export default LessonCard
+export default QuestionCard
