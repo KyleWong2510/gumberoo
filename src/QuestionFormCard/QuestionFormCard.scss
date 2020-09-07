@@ -1,6 +1,49 @@
 .question-form-card {
+  align-items: center;
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 50vw
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.question-form-input {
+  display: flex;
+  height: 5%;
+  justify-content: space-between;
+  width: 70%;
+
+  label {
+    padding: 2%;
+    text-align: end;
+    width: 30%
+  }
+
+  input {
+    padding: 1%;
+    width: 70%
+  }
+}
+
+.assigned-reading-input {
+  display: flex;
+  height: 15%;
+  justify-content: space-between;
+  width: 70%;
+
+  label {
+    padding: 2%;
+    text-align: end;
+    width: 30%
+  }
+
+  textarea {
+    padding: 1%;
+    width: 70%
+  }
+}
+
+.add-question-btn {
+  height: 5%;
+  width: 15%;
 }

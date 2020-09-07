@@ -46,26 +46,48 @@ const QuestionFormCard = () => {
   return (
     // save input of renderAnswers to variable here
     // {}
-      <form className="question-form-card">
+    <form className="question-form-card">
+      <section className='question-form-input'>
+        <label htmlFor='lesson-title'>Lesson Title:</label>
         <input
+          id='lesson-title'
           type="text"
           placeholder="Enter Lesson Title..."
           value={lessonTitleText}
           aria-label="Lesson Title Input"
           onChange={(e) => setLessonTitleText(e.target.value)}
         />
-        <label htmlFor='assigned-reading'>Add an Assigned Reading</label>
+      </section>
+      <section className='assigned-reading-input'>
+        <label htmlFor='assigned-reading'>Reading:</label>
         <textarea id='assigned-reading' placeholder='Enter text...'></textarea>
+      </section>
+      <section className='question-form-input'>
+        <label htmlFor='question-input'>Question:</label>
         <QuestionInput setQuestionText={(e) => setQuestionText(e.target.value)} questionText={questionText}/>
+      </section>
+      <section className='question-form-input'>
+        <label htmlFor='answer-input'>Correct Answer:</label>
         <AnswerInput correct={true} answerText={correctAnswerText} setAnswerText={setCorrectAnswerText}/>
+      </section>
+      <section className='question-form-input'>
+        <label htmlFor='answer-input'>Incorrect Answer:</label>
         <AnswerInput correct={false} answerText={incorrectAnswerText1} setAnswerText={setIncorrectAnswerText1}/>
+      </section>
+      <section className='question-form-input'>
+        <label htmlFor='answer-input'>Incorrect Answer:</label>
         <AnswerInput correct={false} answerText={incorrectAnswerText2} setAnswerText={setIncorrectAnswerText2}/>
+      </section>
+      <section className='question-form-input'>
+        <label htmlFor='answer-input'>Incorrect Answer:</label>
         <AnswerInput correct={false} answerText={incorrectAnswerText3} setAnswerText={setIncorrectAnswerText3}/>
-        {/* Will push into answers array, trigger rerender and boom, magic */}
+      </section>
+      {/* Will push into answers array, trigger rerender and boom, magic */}
 
-        <button onClick={addQuestion}>Add Question</button>
-        {/* <button>Delete Question</button> */}
-      </form>
+      <button className='add-question-btn' onClick={addQuestion}>Add Question</button>
+      {/* <button>Delete Question</button> */}
+    </form>
+
   );
 };
 
