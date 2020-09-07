@@ -5,6 +5,7 @@ import { isLoading } from './isLoading'
 import { hasErrored } from './hasErrored'
 import { setCurrentQuestion } from './setCurrentQuestion' 
 import { setStudents } from './setStudents'
+import { setLessonOver } from './setLessonOver'
 
 export const rootReducer = combineReducers({
   setStudentName,
@@ -12,5 +13,6 @@ export const rootReducer = combineReducers({
   hasErrored,
   setLesson,
   setCurrentQuestion,
-  setStudents
+  setStudents,
+  setLessonOver
 })

@@ -40,3 +40,8 @@ export const incrementScore = score => ({
   type: 'INCREMENT_SCORE',
   score
 })
+
+export const setLessonOver= bool => ({
+  type: 'SET_LESSON_OVER',
+  lessonOver: bool
+})

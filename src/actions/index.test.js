@@ -72,4 +72,17 @@ describe('actions', () => {
 
     expect(result).toEqual(expectedAction)
   })
+
+  it('Should set lessonOver', () => {
+    const bool = true;
+
+    const expectedAction = {
+      type: 'SET_LESSON_OVER',
+      lessonOver: true
+    }
+
+    const result = actions.setLessonOver(bool)
+
+    expect(result).toEqual(expectedAction)
+  })
 })
