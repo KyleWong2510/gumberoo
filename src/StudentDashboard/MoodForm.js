@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './StudentForm.scss'
+import './MoodForm.scss'
 import { Link, withRouter } from 'react-router-dom'
 import { setStudentName, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
@@ -14,12 +14,21 @@ function MoodForm(props) {
   
   return (
       <section className='student-form'>
-        <h2>gumberoo</h2>
-          <h3 class='finished-message'>Great job {props.studentName}</h3>
+          <h3 className='finished-message'>Great job {props.studentName}</h3>
           <br></br>
           <h4>How do you feel?</h4>
-          <textarea className='student-mood-input' placeholder='Type here how you feel, or just hit submit'></textarea>
-          <button className='submit-mood-button' aria-label='submit mood' type='submit'>Submit</button>
+          <textarea 
+            className='student-mood-input' 
+            placeholder='Type here how you feel, or just hit submit'
+            onChange={e => setStudentMoodInput(e.target.value)}>
+          </textarea>
+          <button 
+            className='submit-mood-button' 
+            aria-label='submit mood' 
+            type='submit'
+          >
+            Submit
+          </button>
       </section>
   )
 }

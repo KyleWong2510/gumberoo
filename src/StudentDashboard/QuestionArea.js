@@ -1,7 +1,6 @@
 import React from 'react'
 import './QuestionArea.scss'
-import { incrementCurrentQuestion, setLessonOver } from '../actions/index';
-import MoodForm from './MoodForm'
+import { incrementScore, incrementCurrentQuestion, setLessonOver } from '../actions/index';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -21,8 +20,10 @@ function QuestionArea(props) {
   shuffle(answersCopy)
   
   const answerClick = (e) => {
+    if(e.target.value) {
+      props.incrementScore(1)
+    }
     if(props.lesson.questions.length === (props.currentQuestion + 1)) {
-      debugger
       props.setLessonOver(true)
     }
     e.preventDefault()
@@ -36,7 +37,7 @@ function QuestionArea(props) {
   
       {answers.map((answer, i) => {
         return (
-          <button key={i++} className='question-button' onClick={e => answerClick(e)} type='submit'>{answer.desc}</button>
+          <button key={i++} className='question-button' value={answer.correct} onClick={e => answerClick(e)} type='submit'>{answer.desc}</button>
         )
       })}
    
@@ -44,15 +45,16 @@ function QuestionArea(props) {
   )
 }
 
-const mapStateToProps = ({ setCurrentQuestion, setLesson, setLessonOver }) => ({
+const mapStateToProps = ({ setCurrentQuestion, setLesson, setLessonOver, setScore }) => ({
   currentQuestion: setCurrentQuestion,
   lesson: setLesson,
-  lessonOver: setLessonOver
+  lessonOver: setLessonOver,
+  score: setScore
 })
 
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ incrementCurrentQuestion, setLessonOver }, dispatch)
+  bindActionCreators({ incrementCurrentQuestion, setLessonOver, incrementScore }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionArea)
