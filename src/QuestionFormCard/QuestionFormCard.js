@@ -3,23 +3,46 @@ import "./QuestionFormCard.scss";
 import AnswerInput from "./AnswerInput/AnswerInput";
 import QuestionInput from "./QuestionInput/QuestionInput";
 
-const QuestionFormCard = () => {
-  const [question, setQuestion] = useState({});
+const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQuestions}) => {
+  let [question, setQuestion] = useState({});
   const [questionText, setQuestionText] = useState("");
   const [correctAnswerText, setCorrectAnswerText] = useState("");
   const [incorrectAnswerText1, setIncorrectAnswerText1] = useState("")
   const [incorrectAnswerText2, setIncorrectAnswerText2] = useState("")
   const [incorrectAnswerText3, setIncorrectAnswerText3] = useState("")
   const [incorrectAnswers, setIncorrectAnswers] = useState([]);
-  const [lessonTitleText, setLessonTitleText] = useState("");
   const [readingText, setReadingText] = useState("")
 
   const addQuestion = (e) => {
     e.preventDefault();
+    // setIncorrectAnswers(incorrectAnswerText1) - let's figure out how to use setState
     incorrectAnswers.push(incorrectAnswerText1, incorrectAnswerText2, incorrectAnswerText3)
-    setQuestion({id : Date.now(), reading: readingText, question: questionText, correctAnswer: correctAnswerText, wrongAnswer:incorrectAnswers});
-    // setQuestion(""); - will uncomment when post is completed
+    createQuestion()
+    setQuestions([...questions, question])
+    clearInputs()
   };
+
+  const createQuestion = () => {
+    question = {
+      id: Date.now(),
+      question: questionText,
+      correctAnswer: correctAnswerText,
+      incorrectAnswers: incorrectAnswers,
+      reading: readingText
+    }
+    setQuestion(question)
+  }
+
+  const clearInputs = () => {
+    setQuestionText('')
+    setCorrectAnswerText('')
+    setIncorrectAnswerText1('')
+    setIncorrectAnswerText2('')
+    setIncorrectAnswerText3('')
+    setIncorrectAnswers([]);
+    setReadingText('')
+    document.getElementById('assigned-reading').value = ''
+  }
 
   // const setQuestionText = (e) => {
   //   e.preventDefault()
