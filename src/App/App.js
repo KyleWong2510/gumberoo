@@ -1,10 +1,11 @@
 import React from 'react';
+import TeacherDashBoard from '../TeacherDashboard/TeacherDashboard'
 
 import './App.scss';
 
 function App() {
   return (
-    <h1>Howdy Pahtnah!</h1>
+    <TeacherDashBoard />
   )
 }
 
