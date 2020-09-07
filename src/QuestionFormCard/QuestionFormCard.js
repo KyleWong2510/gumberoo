@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./QuestionFormCard.scss";
 import AnswerInput from "./AnswerInput/AnswerInput";
 import QuestionInput from "./QuestionInput/QuestionInput";
 
 const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQuestions}) => {
-  let [question, setQuestion] = useState({});
+  const [question, setQuestion] = useState({});
   const [questionText, setQuestionText] = useState("");
   const [correctAnswerText, setCorrectAnswerText] = useState("");
   const [incorrectAnswerText1, setIncorrectAnswerText1] = useState("")
@@ -15,22 +15,24 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
 
   const addQuestion = (e) => {
     e.preventDefault();
-    // setIncorrectAnswers(incorrectAnswerText1) - let's figure out how to use setState
+    // setIncorrectAnswers([...incorrectAnswers, incorrectAnswerText1]) 
+    // setIncorrectAnswers([...incorrectAnswers, incorrectAnswerText2]) 
+    // setIncorrectAnswers([...incorrectAnswers, incorrectAnswerText3]) 
     incorrectAnswers.push(incorrectAnswerText1, incorrectAnswerText2, incorrectAnswerText3)
     createQuestion()
-    setQuestions([...questions, question])
+    let newState = [...questions, question]
+    setQuestions(newState)
     clearInputs()
   };
 
-  const createQuestion = () => {
-    question = {
+  const createQuestion = async () => {
+    await setQuestion({
       id: Date.now(),
       question: questionText,
       correctAnswer: correctAnswerText,
       incorrectAnswers: incorrectAnswers,
       reading: readingText
-    }
-    setQuestion(question)
+    })
   }
 
   const clearInputs = () => {
