@@ -1,38 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./QuestionFormCard.scss";
 import AnswerInput from "./AnswerInput/AnswerInput";
 import QuestionInput from "./QuestionInput/QuestionInput";
 
 const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQuestions}) => {
-  const [question, setQuestion] = useState({});
   const [questionText, setQuestionText] = useState("");
   const [correctAnswerText, setCorrectAnswerText] = useState("");
   const [incorrectAnswerText1, setIncorrectAnswerText1] = useState("")
   const [incorrectAnswerText2, setIncorrectAnswerText2] = useState("")
   const [incorrectAnswerText3, setIncorrectAnswerText3] = useState("")
-  const [incorrectAnswers, setIncorrectAnswers] = useState([]);
   const [readingText, setReadingText] = useState("")
 
   const addQuestion = (e) => {
     e.preventDefault();
-    // setIncorrectAnswers([...incorrectAnswers, incorrectAnswerText1]) 
-    // setIncorrectAnswers([...incorrectAnswers, incorrectAnswerText2]) 
-    // setIncorrectAnswers([...incorrectAnswers, incorrectAnswerText3]) 
-    incorrectAnswers.push(incorrectAnswerText1, incorrectAnswerText2, incorrectAnswerText3)
     createQuestion()
-    let newState = [...questions, question]
-    setQuestions(newState)
     clearInputs()
   };
 
-  const createQuestion = async () => {
-    await setQuestion({
-      id: Date.now(),
-      question: questionText,
-      correctAnswer: correctAnswerText,
-      incorrectAnswers: incorrectAnswers,
-      reading: readingText
-    })
+  const createQuestion = () => {
+    setQuestions([...questions, {
+      desc: questionText,
+      reading: readingText,
+      answers: [
+        {desc: correctAnswerText, correct: true},
+        {desc: incorrectAnswerText1, correct: false},
+        {desc: incorrectAnswerText2, correct: false},
+        {desc: incorrectAnswerText3, correct: false}
+      ]
+    }])
   }
 
   const clearInputs = () => {
@@ -41,36 +36,11 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
     setIncorrectAnswerText1('')
     setIncorrectAnswerText2('')
     setIncorrectAnswerText3('')
-    setIncorrectAnswers([]);
     setReadingText('')
     document.getElementById('assigned-reading').value = ''
   }
 
-  // const setQuestionText = (e) => {
-  //   e.preventDefault()
-  //   setQuestionText(questionText)
-  //   setQuestionText('')
-  // }
-
-  // lesson = [
-  // {
-  // id: 34
-  // lessonTitle: 'Africa',
-  // questions: [{
-  //  id: 46,
-  //  reading: '',
-  //  question: 'What is the King of the Jungle?',
-  //  correctAnswer: 'Lion'
-  //  wrongAnswer: ['4', 'yellow']
-  //  }]
-  // }
-  // ]
-  // validate that one answer is correct & one is incorrect, if not error you need one correct & one
-  // incorrect to save this question".
-
   return (
-    // save input of renderAnswers to variable here
-    // {}
     <form className="question-form-card">
       <section className='question-form-input'>
         <label htmlFor='lesson-title'>Lesson Title:</label>
@@ -107,20 +77,10 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
         <label htmlFor='answer-input'>Incorrect Answer:</label>
         <AnswerInput correct={false} answerText={incorrectAnswerText3} setAnswerText={setIncorrectAnswerText3}/>
       </section>
-      {/* Will push into answers array, trigger rerender and boom, magic */}
-
       <button className='add-question-btn' onClick={addQuestion}>Add Question</button>
       {/* <button>Delete Question</button> */}
     </form>
-
   );
 };
-
-//  Have a Question Input
-//  Have a correct Answer Input
-//  A Wrong Answer Input with plus and minus buttons next to it, follow the logic
-//  A new Question button
-//  A delete question button, follow the logic
-//  An add Reading button that renders a text area.
 
 export default QuestionFormCard;

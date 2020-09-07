@@ -6,7 +6,7 @@ import LessonPreview from '../LessonPreview/LessonPreview'
 const CreateLesson = () => {
   const [questions, setQuestions] = useState([])
   const [lessonTitleText, setLessonTitleText] = useState("");
-
+  
   return (
     <section className='create-lesson'>
       <QuestionFormCard 
@@ -17,6 +17,7 @@ const CreateLesson = () => {
       />
       <LessonPreview 
         lessonTitleText={lessonTitleText} 
+        setLessonTitleText={setLessonTitleText}
         questions={questions}
       />
     </section>
