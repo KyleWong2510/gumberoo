@@ -11,14 +11,15 @@ const QuestionFormCard = () => {
   const [incorrectAnswerText2, setIncorrectAnswerText2] = useState("")
   const [incorrectAnswerText3, setIncorrectAnswerText3] = useState("")
   const [incorrectAnswers, setIncorrectAnswers] = useState([]);
-  const [correctAnswer, setCorrectAnswer] = useState("");
   const [lessonTitleText, setLessonTitleText] = useState("");
-  const [lessonQuestions, setLessonQuestions] = useState([]);
+  const [readingText, setReadingText] = useState("")
 
   const addQuestion = (e) => {
     e.preventDefault();
-    setQuestion(question);
-    setQuestion("");
+    incorrectAnswers.push(incorrectAnswerText1, incorrectAnswerText2, incorrectAnswerText3)
+    const id = Date.now()
+    setQuestion({id : id, reading: readingText, question: questionText, correctAnswer: correctAnswerText, wrongAnswer:incorrectAnswers});
+    // setQuestion(""); - will uncomment when post is completed
   };
 
   // const setQuestionText = (e) => {
@@ -28,7 +29,7 @@ const QuestionFormCard = () => {
   // }
 
   // lesson = [
-  //{
+  // {
   // id: 34
   // lessonTitle: 'Africa',
   // questions: [{
@@ -60,7 +61,7 @@ const QuestionFormCard = () => {
       </section>
       <section className='assigned-reading-input'>
         <label htmlFor='assigned-reading'>Reading:</label>
-        <textarea id='assigned-reading' placeholder='Enter text...'></textarea>
+        <textarea id='assigned-reading' onChange={(e) => setReadingText(e.target.value)}placeholder='Enter text...'></textarea>
       </section>
       <section className='question-form-input'>
         <label htmlFor='question-input'>Question:</label>
