@@ -7,6 +7,10 @@ const CreateLesson = () => {
   const [questions, setQuestions] = useState([])
   const [lessonTitleText, setLessonTitleText] = useState("");
   
+  const deleteQuestion = (e) => {
+    setQuestions(questions.filter(ques => ques.id != e.target.parentNode.id))
+  }
+
   return (
     <section className='create-lesson'>
       <QuestionFormCard 
@@ -19,6 +23,7 @@ const CreateLesson = () => {
         lessonTitleText={lessonTitleText} 
         setLessonTitleText={setLessonTitleText}
         questions={questions}
+        deleteQuestion={deleteQuestion}
       />
     </section>
   )

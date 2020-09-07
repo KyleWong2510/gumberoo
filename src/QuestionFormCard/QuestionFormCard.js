@@ -19,6 +19,7 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
 
   const createQuestion = () => {
     setQuestions([...questions, {
+      id: Date.now(),
       desc: questionText,
       reading: readingText,
       answers: [
