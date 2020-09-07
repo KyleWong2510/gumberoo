@@ -2,14 +2,13 @@ import React from 'react';
 import TeacherHeader from '../TeacherHeader/TeacherHeader'
 import TeacherLogin from '../TeacherLogin/TeacherLogin'
 import './App.scss';
-import QuestionFormCard from '../QuestionFormCard/QuestionFormCard';
-
+import CreateLesson from '../CreateLesson/CreateLesson'
 function App() {
   return (
     <main className="App">
       <TeacherHeader />
       {/* <TeacherLogin /> */}
-      <QuestionFormCard />
+      <CreateLesson />
     </main>
   )
 }
