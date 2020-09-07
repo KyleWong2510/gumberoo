@@ -9,29 +9,23 @@ import { lesson } from '../mockData/lesson'
 
 
 function MoodForm(props) {
-  const [studentNameInput, setStudentNameInput] = useState('')
+  const [studentMoodInput, setStudentMoodInput] = useState('')
 
-  props.setLesson(lesson)
+  
   return (
       <section className='student-form'>
         <h2>gumberoo</h2>
-        <select
-          aria-label='select name'
-          name='studentNameInput' 
-          className='student-names-input' 
-          onChange={e => setStudentNameInput(e.target.value)}
-          data-testid='nameInput'
-        >
-          <option>Select Your Name</option> 
-          <option value='Bill'>Bill</option>
-        </select>
-        <button className='submit-name-button' aria-label=
-        'submit name' type='submit' onClick={() => props.setStudentName(studentNameInput)}>Submit</button>
+          <h3 class='finished-message'>Great job {props.studentName}</h3>
+          <br></br>
+          <h4>How do you feel?</h4>
+          <textarea className='student-mood-input' placeholder='Type here how you feel, or just hit submit'></textarea>
+          <button className='submit-mood-button' aria-label='submit mood' type='submit'>Submit</button>
       </section>
   )
 }
 
-const mapStateToProps = ({ setLesson, setStudents, setMood }) => ({
+const mapStateToProps = ({ setLesson, setStudents, setMood, setStudentName }) => ({
+  studentName: setStudentName,
   lesson: setLesson,
   students: setStudents,
   mood: setMood
