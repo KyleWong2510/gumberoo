@@ -11,9 +11,11 @@ describe('TeacherHeader', () => {
     const title = getByText('Gumberoo')
     const studentsBtn = getByRole('button', { name: 'Students' })
     const lessonsBtn = getByRole('button', { name: 'Lessons' })
-
+    const createLessonBtn = getByRole('button', { name: 'Create a Lesson'})
+ 
     expect(title).toBeInTheDocument()
     expect(studentsBtn).toBeInTheDocument()
     expect(lessonsBtn).toBeInTheDocument()
+    expect(createLessonBtn).toBeInTheDocument()
   })
 })

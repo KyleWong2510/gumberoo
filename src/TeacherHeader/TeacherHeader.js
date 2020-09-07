@@ -8,6 +8,7 @@ const TeacherHeader = () => {
       <section className='header-btn-container'>
         <button>Students</button>
         <button>Lessons</button>
+        <button>Create a Lesson</button>
       </section>
     </header>
   )
