@@ -17,8 +17,7 @@ const QuestionFormCard = () => {
   const addQuestion = (e) => {
     e.preventDefault();
     incorrectAnswers.push(incorrectAnswerText1, incorrectAnswerText2, incorrectAnswerText3)
-    const id = Date.now()
-    setQuestion({id : id, reading: readingText, question: questionText, correctAnswer: correctAnswerText, wrongAnswer:incorrectAnswers});
+    setQuestion({id : Date.now(), reading: readingText, question: questionText, correctAnswer: correctAnswerText, wrongAnswer:incorrectAnswers});
     // setQuestion(""); - will uncomment when post is completed
   };
 
