@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
-    "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/user-event": "^7.2.1",
     "jest-cli": "^26.4.2",
     "node-sass": "^4.14.1",
@@ -14,8 +13,10 @@
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "redux-devtools": "^3.7.0",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.26.10"
   },
   "scripts": {
     "start": "react-scripts start",
