@@ -23,9 +23,9 @@ export const reset = () => ({
   type: 'RESET'
 })
 
-export const addLesson = lesson => ({
+export const addLesson = lessons => ({
   type: 'ADD_LESSON',
-  lesson
+  lessons
 })
 
 export const isLoading = bool => ({
