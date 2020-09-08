@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { setStudentName, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { lesson } from '../mockData/lesson'
+import { lesson } from '../mockData/mockData'
 
 
 

@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 import { rootReducer } from '../reducers';
-import { lesson } from '../mockData/lesson'
+import { lesson } from '../mockData/mockData'
 
 
 const store = createStore(rootReducer, {

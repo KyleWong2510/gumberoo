@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 import { rootReducer } from '../reducers';
-import { lesson } from '../mockData/lesson'
+import { lesson } from '../mockData/mockData'
 
 
 const store = createStore(rootReducer, {
@@ -60,7 +60,7 @@ describe('StudentDashboards', () => {
     expect(answer).toBeInTheDocument()
   })
 
-  it('Should render the lessons first question and answers', () => {
+  it('Should render the lessons second question and answers on click', () => {
     const { getByText } = render(
       <MemoryRouter>
         <Provider store={store}>
