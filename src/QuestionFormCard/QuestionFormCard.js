@@ -79,7 +79,6 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
         <AnswerInput correct={false} answerText={incorrectAnswerText3} setAnswerText={setIncorrectAnswerText3}/>
       </section>
       <button className='add-question-btn' onClick={addQuestion}>Add Question</button>
-      {/* <button>Delete Question</button> */}
     </form>
   );
 };

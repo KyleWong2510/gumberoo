@@ -16,9 +16,16 @@
 }
 
 .question-cards-container {
+  display: flex;
+  flex-direction: column;
   height: 80%;
   overflow: scroll;
-  width: 100%
+  width: 100%;
+}
+
+.no-questions-message { 
+  margin-top: 35%;
+  text-align: center;
 }
 
 .generate-lesson-btn {

@@ -9,7 +9,7 @@ const QuestionCard = ({ id, question, allAnswers, reading, deleteQuestion})=> {
 
   return (
     <section id={id} key={id} className='question-card'>
-      <p className='question-card-reading'>Reading: {reading}</p>
+      {reading && <p className='question-card-reading'>Reading: {reading}</p>}
       <p>Question: {question}</p>
       <p>Correct Answer: {correctAnswer}</p>
       <p>Incorrect Answers:</p>

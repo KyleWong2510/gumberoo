@@ -24,7 +24,7 @@ let questionCards
     <section className='lesson-preview'>
       <h1 className='lesson-preview-title'>{lessonTitleText}</h1>
       <section className='question-cards-container'>
-        {questionCards}
+        {questions.length ? questionCards : <p className='no-questions-message'>No questions yet</p>}
       </section>
       <button className='generate-lesson-btn'>Generate Lesson</button>
     </section>

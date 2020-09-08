@@ -1,6 +1,12 @@
 .question-card {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 3%;
   max-height: 30%;
+
+  button {
+    justify-self: center;
+  }
 }
 
 .question-card-reading {
