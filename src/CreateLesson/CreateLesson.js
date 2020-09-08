@@ -23,6 +23,7 @@ const CreateLesson = () => {
         lessonTitleText={lessonTitleText} 
         setLessonTitleText={setLessonTitleText}
         questions={questions}
+        setQuestions={setQuestions}
         deleteQuestion={deleteQuestion}
       />
     </section>
