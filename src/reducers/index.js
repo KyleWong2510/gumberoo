@@ -1,6 +1,22 @@
 import { combineReducers } from 'redux'
-import { lessons } from './setLesson'
+import { setStudentName } from './setStudentName'
+import { setLesson } from './setLesson'
+import { isLoading } from './isLoading'
+import { hasErrored } from './hasErrored'
+import { setCurrentQuestion } from './setCurrentQuestion' 
+import { setStudents } from './setStudents'
+import { setLessonOver } from './setLessonOver'
+import { setScore } from './setScore'
+import { addLesson } from './addLesson'
 
 export const rootReducer = combineReducers({
-  lessons
+  setStudentName,
+  isLoading,
+  hasErrored,
+  setLesson,
+  setCurrentQuestion,
+  setStudents,
+  setLessonOver, 
+  setScore,
+  addLesson
 })

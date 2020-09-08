@@ -3,7 +3,7 @@ import "./LessonPreview.scss";
 import QuestionCard from "./QuestionCard/QuestionCard";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { setLesson } from "../actions";
+import { addLesson } from "../actions";
 
 const LessonPreview = ({
   questions,
@@ -11,7 +11,7 @@ const LessonPreview = ({
   lessonTitleText,
   setLessonTitleText,
   deleteQuestion,
-  setLesson,
+  addLesson,
 }) => {
 
   const createLesson = (e) => {
@@ -20,7 +20,7 @@ const LessonPreview = ({
       name: lessonTitleText,
       questions: questions,
     };
-    setLesson(lesson);
+    addLesson(lesson);
     clearLesson();
   };
 
@@ -65,7 +65,7 @@ const LessonPreview = ({
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
-      setLesson,
+      addLesson,
     },
     dispatch
   );
