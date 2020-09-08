@@ -1,8 +1,20 @@
 import React from 'react'
 import './LessonPreview.scss'
 import QuestionCard from './QuestionCard/QuestionCard'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { setLesson } from '../actions'
 
-const LessonPreview = ({questions, setLessonTitleText, lessonTitleText, deleteQuestion}) => {
+const LessonPreview = ({ questions, lessonTitleText, deleteQuestion, setLesson }) => {
+
+const createLesson = (e) => {
+  e.preventDefault()
+  const lesson = {
+    name: lessonTitleText,
+    questions: questions
+  }
+  setLesson(lesson)
+}
 
 let questionCards
   if(questions.length !== 0) {
@@ -26,9 +38,17 @@ let questionCards
       <section className='question-cards-container'>
         {questions.length ? questionCards : <p className='no-questions-message'>No questions yet</p>}
       </section>
-      <button className='generate-lesson-btn'>Generate Lesson</button>
+      <button onClick={createLesson} className='generate-lesson-btn'>Generate Lesson</button>
     </section>
   )
 }
 
-export default LessonPreview
+const mapDispatchToProps = dispatch => (
+  bindActionCreators(
+    {
+      setLesson
+    }, dispatch
+  )
+)
+
+export default connect(null, mapDispatchToProps)(LessonPreview)
