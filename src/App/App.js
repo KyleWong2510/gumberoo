@@ -1,11 +1,17 @@
 import React from 'react';
 import StudentDashboard from '../StudentDashboard/StudentDashboard'
 import { connect } from 'react-redux'
+import TeacherHeader from '../TeacherHeader/TeacherHeader'
+import TeacherLogin from '../TeacherLogin/TeacherLogin'
 import './App.scss';
-
+import CreateLesson from '../CreateLesson/CreateLesson'
 function App() {
   return (
-    <StudentDashboard />
+    <main className="App">
+      <TeacherHeader />
+      {/* <TeacherLogin /> */}
+      <CreateLesson />
+    </main>
   )
 }
 

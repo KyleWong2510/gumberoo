@@ -1,0 +1,30 @@
+.teacher-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 15vh;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 3%;
+  width: 100vw;
+}
+
+.header-btn-container {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 60%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 30%;
+}
+
+.header-btn-container button {
+  height: 100%;
+  width: 40%;
+}
+/*# sourceMappingURL=TeacherHeader.css.map */

@@ -23,6 +23,11 @@ export const reset = () => ({
   type: 'RESET'
 })
 
+export const addLesson = lesson => ({
+  type: 'ADD_LESSON',
+  lesson
+})
+
 export const isLoading = bool => ({
   type: 'IS_LOADING',
   isLoading: bool
