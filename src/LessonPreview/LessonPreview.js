@@ -22,9 +22,11 @@ let questionCards
 
   return (
     <section className='lesson-preview'>
-      <h1>{lessonTitleText}</h1>
-      {questionCards}
-      <button>Create Lesson</button>
+      <h1 className='lesson-preview-title'>{lessonTitleText}</h1>
+      <section className='question-cards-container'>
+        {questionCards}
+      </section>
+      <button className='generate-lesson-btn'>Generate Lesson</button>
     </section>
   )
 }

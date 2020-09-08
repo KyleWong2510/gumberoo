@@ -8,9 +8,9 @@ const QuestionCard = ({ id, question, allAnswers, reading, deleteQuestion})=> {
     .map(answer => <p>{answer.desc}</p>)
 
   return (
-    <section id={id} key={id}className='question-card-wrapper'>
-      <p>{reading}</p>
-      <p>{question}</p>
+    <section id={id} key={id} className='question-card'>
+      <p className='question-card-reading'>Reading: {reading}</p>
+      <p>Question: {question}</p>
       <p>Correct Answer: {correctAnswer}</p>
       <p>Incorrect Answers:</p>
       {incorrectAnswers}
