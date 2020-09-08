@@ -1,0 +1,20 @@
+.teacher-header {
+  display: flex;
+  height: 15vh;
+  justify-content: space-between;
+  padding: 3%;
+  width: 100vw;
+}
+
+.header-btn-container {
+  align-self: flex-end;
+  display: flex;
+  height: 60%;
+  justify-content: space-between;
+  width: 30%;
+
+  button {
+    height: 100%;
+    width: 40%
+  }
+}
