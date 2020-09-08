@@ -17,7 +17,8 @@ function MoodForm(props) {
           <h3 className='finished-message'>Great job {props.studentName}</h3>
           <br></br>
           <h4>How do you feel?</h4>
-          <textarea 
+          <textarea
+            maxLength='100'
             className='student-mood-input' 
             placeholder='Type here how you feel, or just hit submit'
             onChange={e => setStudentMoodInput(e.target.value)}>
