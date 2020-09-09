@@ -12,8 +12,9 @@
   }
 
   button {
-    height: 10%;
+    height: 3.4vh;
     justify-self: center;
+    padding: 1%;
     width: 14%;
   }
 }
@@ -27,3 +28,7 @@
   max-height: 35%;
   overflow: scroll;
 }
+
+// .incorrect-answers {
+//   text-align: center;
+// }
