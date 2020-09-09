@@ -1,17 +1,29 @@
 .question-card {
+  align-items: center;
+  border-bottom: solid 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 3%;
-  max-height: 40%;
+  max-height: 50%;
+  padding: 2%;
+
+  p {
+    width: 100%
+  }
 
   button {
-    height: 5%;
+    height: 10%;
     justify-self: center;
+    width: 14%;
   }
 }
 
+.question-card-category {
+  font-weight: 600;
+}
+
 .question-card-reading {
-  max-height: 25%;
+  border-bottom: solid 1px;
+  max-height: 35%;
   overflow: scroll;
 }

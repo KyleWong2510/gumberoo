@@ -10,8 +10,8 @@ function App() {
     <main className="App">
       {/* <TeacherHeader />
       {/* <TeacherLogin /> */}
-      {/* <CreateLesson /> */}
-      <StudentDashboard />
+      <CreateLesson />
+      {/* <StudentDashboard /> */}
 
     </main>
   )
