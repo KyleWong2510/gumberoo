@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, fireEvent, getByTestId, getByPlaceholderText } from '@testing-library/react';
+import { render, fireEvent, getByTestId, getByPlaceholderText, getByDisplayValue } from '@testing-library/react';
 import QuestionFormCard from './QuestionFormCard';
 import QuestionInput from './QuestionInput/QuestionInput';
 
@@ -47,5 +47,41 @@ describe('QuestionFormCard', () => {
     const { getByRole } = render(<QuestionFormCard />)
     const addQuestionBtn = getByRole('button')
     expect(addQuestionBtn).toBeInTheDocument()
+  })
+
+  it('should change inputs when entering information', () => {
+    const mockSetLessonTitleText = jest.fn()
+    const { getByPlaceholderText, getByTestId, getByDisplayValue } = render(<QuestionFormCard setLessonTitleText={mockSetLessonTitleText}/>)
+    const lessonTitleInput = getByPlaceholderText('Enter Lesson Title...')
+    const readingInput = getByPlaceholderText('Enter text...')
+    const questionInput = getByPlaceholderText('Enter a Question...')
+    const correctInput = getByPlaceholderText('Enter Correct Answer...')
+    const incorrect1Input = getByTestId('incorrect1')
+    const incorrect2Input = getByTestId('incorrect2')
+    const incorrect3Input = getByTestId('incorrect3')
+
+    fireEvent.change(lessonTitleInput, { target: { value: 'Lessons about life' }})
+    fireEvent.change(readingInput, { target: { value: 'Read me or perish' }})
+    fireEvent.change(questionInput, { target: { value: 'How old, in dog years, is Willie Nelson\'s beard?' }})
+    fireEvent.change(correctInput, { target: { value: '45' }})
+    fireEvent.change(incorrect1Input, { target: { value: 'Baseball' }})
+    fireEvent.change(incorrect2Input, { target: { value: 'Thermal Inversion' }})
+    fireEvent.change(incorrect3Input, { target: { value: 'Potato clock' }})
+
+    const newLesson = getByDisplayValue('Read me or perish')
+    const newReading = getByDisplayValue('Lessons about life')
+    const newQuestion = getByDisplayValue('How old, in dog years, is Willie Nelson\'s beard?')
+    const newCorrect = getByDisplayValue('45')
+    const newIncorrect1 = getByDisplayValue('Baseball')
+    const newIncorrect2 = getByDisplayValue('Thermal Inversion')
+    const newIncorrect3 = getByDisplayValue('Potato clock')
+
+    expect(newLesson).toBeInTheDocument()
+    expect(newReading).toBeInTheDocument()
+    expect(newQuestion).toBeInTheDocument()
+    expect(newCorrect).toBeInTheDocument()
+    expect(newIncorrect1).toBeInTheDocument()
+    expect(newIncorrect2).toBeInTheDocument()
+    expect(newIncorrect3).toBeInTheDocument()
   })
 })
