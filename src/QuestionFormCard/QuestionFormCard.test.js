@@ -84,4 +84,38 @@ describe('QuestionFormCard', () => {
     expect(newIncorrect2).toBeInTheDocument()
     expect(newIncorrect3).toBeInTheDocument()
   })
+
+  it('should fire a function on click after filling out the form', () => {
+    const mockSetQuestions = jest.fn()
+    const { getByPlaceholderText, getByTestId, getByRole } = render(
+      <QuestionFormCard 
+        questions={[]} 
+        setQuestions={mockSetQuestions}
+      />
+    )
+    const questionInput = getByPlaceholderText('Enter a Question...')
+    const correctInput = getByPlaceholderText('Enter Correct Answer...')
+    const incorrect1Input = getByTestId('incorrect1')
+    const addQuestionBtn = getByRole('button')
+
+    fireEvent.change(questionInput, { target: { value: 'How old, in dog years, is Willie Nelson\'s beard?' }})
+    fireEvent.change(correctInput, { target: { value: '45' }})
+    fireEvent.change(incorrect1Input, { target: { value: 'Baseball' }})
+    fireEvent.click(addQuestionBtn)
+
+    expect(mockSetQuestions).toHaveBeenCalledTimes(1)
+  })
+
+  it('should not allow a user to click if the required fields are incomplete', () => {
+    const mockSetQuestions = jest.fn()
+    const { getByRole } = render(
+      <QuestionFormCard 
+        questions={[]} 
+        setQuestions={mockSetQuestions}
+      />
+    )
+    const addQuestionBtn = getByRole('button')
+    fireEvent.click(addQuestionBtn)
+    expect(mockSetQuestions).toHaveBeenCalledTimes(0)
+  })
 })
