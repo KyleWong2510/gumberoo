@@ -4,7 +4,7 @@ import './TeacherHeader.scss'
 const TeacherHeader = () => {
   return (
     <header className='teacher-header'>
-      <h1 className='header-title'>Gumberoo</h1>
+      <h1 className='header-title'>gumberoo</h1>
       <section className='header-btn-container'>
         <button>Students</button>
         <button>Lessons</button>

@@ -2,7 +2,7 @@
   display: flex;
   height: 15vh;
   justify-content: space-between;
-  padding: 3%;
+  padding: 3% 3% 1%;
   width: 100vw;
 }
 
@@ -11,10 +11,11 @@
   display: flex;
   height: 60%;
   justify-content: space-between;
-  width: 30%;
+  width: 40%;
 
   button {
     height: 100%;
-    width: 40%
+    padding: 1%;
+    width: 25%
   }
 }
