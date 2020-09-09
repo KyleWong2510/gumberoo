@@ -1,7 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, fireEvent } from '@testing-library/react';
-import { Provider } from 'react-redux';
 import AnswerInput from './AnswerInput';
 
 describe('AnswerInput', () => {
@@ -21,7 +20,7 @@ describe('AnswerInput', () => {
     const mockSetAnswerText = jest.fn()
     const { getByPlaceholderText } = render(<AnswerInput correct={false} setAnswerText={mockSetAnswerText} />)
     const input = getByPlaceholderText('Enter Incorrect Answer...')
-    fireEvent.change(input, {target: {value: 'Test'}})
-    expect(mockSetAnswerText).toHaveBeenCalledTimes(1)
+    fireEvent.change(input, {target: {value: 'X'}})
+    expect(mockSetAnswerText).toHaveBeenCalled()
   })
 })
