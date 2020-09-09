@@ -5,10 +5,10 @@ import { Provider } from 'react-redux';
 import TeacherHeader from './TeacherHeader';
 
 describe('TeacherHeader', () => {
-  it('should render a title and two buttons', () => {
+  it('should render a title and three buttons', () => {
     const { getByText, getByRole } = render(<TeacherHeader />)
     
-    const title = getByText('Gumberoo')
+    const title = getByText('gumberoo')
     const studentsBtn = getByRole('button', { name: 'Students' })
     const lessonsBtn = getByRole('button', { name: 'Lessons' })
     const createLessonBtn = getByRole('button', { name: 'Create a Lesson'})
