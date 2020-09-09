@@ -8,7 +8,7 @@ import CreateLesson from '../CreateLesson/CreateLesson'
 function App() {
   return (
     <main className="App">
-      {/* <TeacherHeader />
+      <TeacherHeader />
       {/* <TeacherLogin /> */}
       <CreateLesson />
       {/* <StudentDashboard /> */}

@@ -11,6 +11,11 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
   const [incorrectAnswerText3, setIncorrectAnswerText3] = useState("")
   const [readingText, setReadingText] = useState("")
 
+  const isEnabled = 
+    questionText.trim() == '' ||
+    correctAnswerText.trim() == '' ||
+    incorrectAnswerText1.trim() == '' 
+
   const addQuestion = (e) => {
     e.preventDefault();
     createQuestion()
@@ -60,25 +65,44 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
       </section>
       <section className='question-form-input'>
         <label htmlFor='question-input'>Question:</label>
-        <QuestionInput setQuestionText={(e) => setQuestionText(e.target.value)} questionText={questionText}/>
+        <QuestionInput 
+          setQuestionText={(e) => setQuestionText(e.target.value)} 
+          questionText={questionText}
+        />
       </section>
       <section className='question-form-input'>
         <label htmlFor='answer-input'>Correct Answer:</label>
-        <AnswerInput correct={true} answerText={correctAnswerText} setAnswerText={setCorrectAnswerText}/>
+        <AnswerInput 
+          correct={true} 
+          answerText={correctAnswerText} 
+          setAnswerText={setCorrectAnswerText}
+        />
       </section>
       <section className='question-form-input'>
         <label htmlFor='answer-input'>Incorrect Answer:</label>
-        <AnswerInput correct={false} answerText={incorrectAnswerText1} setAnswerText={setIncorrectAnswerText1}/>
+        <AnswerInput 
+          correct={false} 
+          answerText={incorrectAnswerText1} 
+          setAnswerText={setIncorrectAnswerText1}
+        />
       </section>
       <section className='question-form-input'>
         <label htmlFor='answer-input'>Incorrect Answer:</label>
-        <AnswerInput correct={false} answerText={incorrectAnswerText2} setAnswerText={setIncorrectAnswerText2}/>
+        <AnswerInput 
+          correct={false} 
+          answerText={incorrectAnswerText2} 
+          setAnswerText={setIncorrectAnswerText2}
+        />
       </section>
       <section className='question-form-input'>
         <label htmlFor='answer-input'>Incorrect Answer:</label>
-        <AnswerInput correct={false} answerText={incorrectAnswerText3} setAnswerText={setIncorrectAnswerText3}/>
+        <AnswerInput 
+          correct={false} 
+          answerText={incorrectAnswerText3} 
+          setAnswerText={setIncorrectAnswerText3}
+        />
       </section>
-      <button className='add-question-btn' onClick={addQuestion}>Add Question</button>
+      <button className='add-question-btn' disabled={isEnabled} onClick={addQuestion}>Add Question</button>
     </form>
   );
 };
