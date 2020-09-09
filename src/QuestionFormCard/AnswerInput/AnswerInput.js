@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
-const AnswerInput = ({ correct, answerText, setAnswerText }) => {
+const AnswerInput = ({ correct, answerText, setAnswerText, testId }) => {
   return (
     <input
       id='answer-input'
+      data-testid={testId}
       className='answer-input'
       type='text'
       value={answerText}

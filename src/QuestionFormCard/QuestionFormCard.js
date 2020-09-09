@@ -61,7 +61,7 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
       </section>
       <section className='assigned-reading-input'>
         <label htmlFor='assigned-reading'>Reading:</label>
-        <textarea id='assigned-reading' onChange={(e) => setReadingText(e.target.value)}placeholder='Enter text...'></textarea>
+        <textarea id='assigned-reading' onChange={(e) => setReadingText(e.target.value)} placeholder='Enter text...'></textarea>
       </section>
       <section className='question-form-input'>
         <label htmlFor='question-input'>Question:</label>
@@ -73,30 +73,34 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
       <section className='question-form-input'>
         <label htmlFor='answer-input'>Correct Answer:</label>
         <AnswerInput 
+          testId='correct'
           correct={true} 
           answerText={correctAnswerText} 
           setAnswerText={setCorrectAnswerText}
         />
       </section>
       <section className='question-form-input'>
-        <label htmlFor='answer-input'>Incorrect Answer:</label>
+        <label htmlFor='answer-input'>Incorrect Answer 1:</label>
         <AnswerInput 
+          testId='incorrect1'
           correct={false} 
           answerText={incorrectAnswerText1} 
           setAnswerText={setIncorrectAnswerText1}
         />
       </section>
       <section className='question-form-input'>
-        <label htmlFor='answer-input'>Incorrect Answer:</label>
+        <label htmlFor='answer-input'>Incorrect Answer 2:</label>
         <AnswerInput 
+          testId='incorrect2'
           correct={false} 
           answerText={incorrectAnswerText2} 
           setAnswerText={setIncorrectAnswerText2}
         />
       </section>
       <section className='question-form-input'>
-        <label htmlFor='answer-input'>Incorrect Answer:</label>
+        <label htmlFor='answer-input'>Incorrect Answer 3:</label>
         <AnswerInput 
+          testId='incorrect3'
           correct={false} 
           answerText={incorrectAnswerText3} 
           setAnswerText={setIncorrectAnswerText3}
