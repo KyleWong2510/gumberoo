@@ -3,3 +3,7 @@ node_js:
   - 13
 notifications:
   email: false
+deploy:
+  provider: heroku
+  api_key: 
+    secure: "2722b210-2e7a-41d2-b78c-8aefb1f45ed0"
