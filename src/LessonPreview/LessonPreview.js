@@ -14,6 +14,8 @@ const LessonPreview = ({
   addLesson,
 }) => {
 
+  const isEnabled = lessonTitleText.trim() === '' || questions.length < 1
+
   const createLesson = (e) => {
     e.preventDefault();
     const lesson = {
@@ -55,7 +57,7 @@ const LessonPreview = ({
           <p className="no-questions-message">No questions yet</p>
         )}
       </section>
-      <button onClick={createLesson} className="generate-lesson-btn">
+      <button disabled={isEnabled} onClick={createLesson} className="generate-lesson-btn">
         Generate Lesson
       </button>
     </section>

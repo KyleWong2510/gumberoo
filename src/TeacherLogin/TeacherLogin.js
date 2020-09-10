@@ -4,7 +4,8 @@ import './TeacherLogin.scss'
 const TeacherLogin = () => {
   const [ teacherInput, setTeacherName ] = useState('')
   
-  const buttonsEnabled = teacherInput.trim() == "";
+  //eslint-disable-next-line
+  const isEnabled = teacherInput.trim() == "";
   
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -28,7 +29,7 @@ const TeacherLogin = () => {
         aria-label='submit button'
         type='submit'
         value='Submit'
-        disabled={buttonsEnabled}
+        disabled={isEnabled}
       />
     </form>
   )
