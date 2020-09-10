@@ -15,12 +15,13 @@
   letter-spacing: 0.3ch;
   background: #ffffff;
   position: relative;
+  width: 90%;
   
   &::before {
       content: '';
       border: 2px solid #353535;
       display: block;
-      width: 100%;
+      width: 90%;
       height: 100%;
       position: absolute;
       top: 50%;
