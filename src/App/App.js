@@ -1,16 +1,12 @@
 import React from 'react';
-<<<<<<< HEAD
-import TeacherDashBoard from '../TeacherDashboard/TeacherDashboard'
-
-=======
 import { Switch, Route } from 'react-router-dom'
 import StudentDashboard from '../StudentDashboard/StudentDashboard'
 import { connect } from 'react-redux'
 import TeacherHeader from '../TeacherHeader/TeacherHeader'
+import TeacherDashBoard from '../TeacherDashboard/TeacherDashboard'
 import TeacherLogin from '../TeacherLogin/TeacherLogin'
 import TeacherRoster from '../TeacherRoster/TeacherRoster'
 import TeacherLessons from '../TeacherLessons/TeacherLessons'
->>>>>>> master
 import './App.scss';
 import CreateLesson from '../CreateLesson/CreateLesson'
 
@@ -23,8 +19,9 @@ function App() {
           <TeacherLogin />
         </Route>
         <Route path="/teacherdashboard">
-        <TeacherHeader />
-        <TeacherDashBoard />
+          <TeacherHeader />
+          <TeacherDashBoard />
+        </Route >
         <Route path='/createlesson'>
           <TeacherHeader />
           <CreateLesson />
