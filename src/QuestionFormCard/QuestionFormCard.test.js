@@ -118,4 +118,6 @@ describe('QuestionFormCard', () => {
     fireEvent.click(addQuestionBtn)
     expect(mockSetQuestions).toHaveBeenCalledTimes(0)
   })
+
+  // test that inputs clear after click
 })
