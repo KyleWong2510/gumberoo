@@ -1,17 +1,17 @@
-import { setStudentName } from './setStudentName'
+import { setStudent } from './setStudent'
 
 describe('setStudentName reducer', () => {
   it('should return the initial state', () => {
     const expected = ''
-    const result = setStudentName(undefined, {})
+    const result = setStudent(undefined, {})
     expect(result).toEqual(expected)
   })
 
   it('should set the name in state', () => {
     const expected = 'BAM'
-    const result = setStudentName(undefined, {
-      type: 'SET_STUDENT_NAME',
-      studentName: 'BAM'
+    const result = setStudent(undefined, {
+      type: 'SET_STUDENT',
+      student: 'BAM'
     })
     expect(result).toEqual(expected)
   })
@@ -19,12 +19,12 @@ describe('setStudentName reducer', () => {
   it('should reset the state', () => {
     const expected = ''
 
-    setStudentName(undefined, {
-      type: 'SET_STUDENT_NAME',
-      studentName: 'BAM'
+    setStudent(undefined, {
+      type: 'SET_STUDENT',
+      student: 'BAM'
     })
 
-    const result = setStudentName(undefined, {
+    const result = setStudent(undefined, {
       type: 'RESET'
     })
     

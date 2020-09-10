@@ -9,9 +9,19 @@ export const setStudents = students => ({
 })
 
 
-export const setStudentName = studentName => ({
-  type: 'SET_STUDENT_NAME',
-  studentName
+export const setStudent= student => ({
+  type: 'SET_STUDENT',
+  student
+})
+
+export const setLessons= lessons => ({
+  type: 'SET_STUDENT',
+  lessons
+})
+
+export const setTeacher = teacher => ({
+  type: 'SET_TEACHER',
+  teacher
 })
 
 export const hasErrored = message => ({

@@ -2,14 +2,14 @@ import * as actions from './index'
 
 describe('actions', () => {
   it('Should set the player name', () => {
-    const studentName = 'Bill'
+    const student = 'Bill'
 
     const expectedAction = {
-      type: 'SET_STUDENT_NAME',
-      studentName: 'Bill'
+      type: 'SET_STUDENT',
+      student: 'Bill'
     }
 
-    const result = actions.setStudentName(studentName)
+    const result = actions.setStudent(student)
 
     expect(result).toEqual(expectedAction)
   })

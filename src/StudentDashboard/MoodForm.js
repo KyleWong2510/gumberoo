@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './MoodForm.scss'
 // import { Link, withRouter } from 'react-router-dom'
-import { setStudentName, setLesson } from '../actions/index'
+import { setStudent, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 // import { lesson } from '../mockData/mockData'
@@ -35,15 +35,15 @@ function MoodForm(props) {
   )
 }
 
-const mapStateToProps = ({ setLesson, setStudents, setMood, setStudentName }) => ({
-  studentName: setStudentName,
+const mapStateToProps = ({ setLesson, setStudents, setMood, setStudent }) => ({
+  studentName: setStudent,
   lesson: setLesson,
   students: setStudents,
   mood: setMood
 })
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ setStudentName, setLesson }, dispatch)
+  bindActionCreators({ setStudent, setLesson }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoodForm)
