@@ -1,8 +1,8 @@
-import React, { useState, useEffect} from 'react'
+import React from 'react'
 import StudentForm from './StudentForm'
 import MoodForm from './MoodForm'
 import { incrementCurrentQuestion, setLessonOver } from '../actions/index'
-import { Link, withRouter } from 'react-router-dom'
+// import { Link, withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import QuestionArea from './QuestionArea';
 import { connect } from 'react-redux'

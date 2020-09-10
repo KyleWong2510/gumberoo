@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import './MoodForm.scss'
-import { Link, withRouter } from 'react-router-dom'
-import { setStudent, setLesson } from '../actions/index'
+// import { Link, withRouter } from 'react-router-dom'
+import { setStudentName, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { lesson } from '../mockData/mockData'
+// import { lesson } from '../mockData/mockData'
 
 
 
 function MoodForm(props) {
+  //eslint-disable-next-line
   const [studentMoodInput, setStudentMoodInput] = useState('')
 
   
