@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './StudentForm.scss'
+import { getStudents } from '../thunks/getStudents'
+import { getLesson } from '../thunks/getLesson'
 // import { Link, withRouter } from 'react-router-dom'
 import { setStudent, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
@@ -12,6 +14,7 @@ function StudentForm(props) {
   const [studentNameInput, setStudentNameInput] = useState('')
 
   props.setLesson(lesson)
+  // this will be props.getLesson(props.lessonId)
   return (
       <section className='student-form'>
         <h2>gumberoo</h2>
@@ -37,7 +40,7 @@ const mapStateToProps = ({ setLesson, setStudents }) => ({
 })
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ setStudent, setLesson }, dispatch)
+  bindActionCreators({ setStudent, setLesson, getLesson, getStudents }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentForm)

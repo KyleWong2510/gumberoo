@@ -12,6 +12,19 @@ function MoodForm(props) {
   //eslint-disable-next-line
   const [studentMoodInput, setStudentMoodInput] = useState('')
 
+  const postScore = (e) => {
+    e.preventDefault() 
+    const url = 'https://gumberoo-backend.herokuapp.com/api/v1/lessons/#{props.student.id}'
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({lesson: props.lesson.id, score: props.score, mood: studentMoodInput})
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
   
   return (
       <section className='student-form'>
@@ -28,6 +41,7 @@ function MoodForm(props) {
             className='submit-mood-button' 
             aria-label='submit mood' 
             type='submit'
+            onClick={postScore}
           >
             Submit
           </button>
@@ -35,11 +49,11 @@ function MoodForm(props) {
   )
 }
 
-const mapStateToProps = ({ setLesson, setStudents, setMood, setStudent }) => ({
+const mapStateToProps = ({ setLesson, setStudents,  setStudent, setScore }) => ({
   studentName: setStudent,
   lesson: setLesson,
   students: setStudents,
-  mood: setMood
+  score: setScore
 })
 
 const mapDispatchToProps = dispatch => (
