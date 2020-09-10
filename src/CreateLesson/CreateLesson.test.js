@@ -47,9 +47,9 @@ describe('CreateLesson', () => {
     
     fireEvent.click(button)
 
-    const displayedReading = getByText('Reading: Today we learning about recycling')
-    const displayedQuestion = getByText('Question: What material can be recycled?')
-    const displayedCorrectAnswer = getByText('Correct Answer: paper')
+    const displayedReading = getByText('Today we learning about recycling')
+    const displayedQuestion = getByText('What material can be recycled?')
+    const displayedCorrectAnswer = getByText('paper')
     const displayedIncorrectAnswer1 = getByText('batteries')
     const displayedIncorrectAnswer2 = getByText('candy wrappers')
     const displayedIncorrectAnswer3 = getByText('toothpaste container')
@@ -98,9 +98,9 @@ describe('CreateLesson', () => {
     
     fireEvent.click(button)
 
-    const displayedReading = getByText('Reading: Today we learning about recycling')
-    const displayedQuestion = getByText('Question: What material can be recycled?')
-    const displayedCorrectAnswer = getByText('Correct Answer: paper')
+    const displayedReading = getByText('Today we learning about recycling')
+    const displayedQuestion = getByText('What material can be recycled?')
+    const displayedCorrectAnswer = getByText('paper')
     const displayedIncorrectAnswer1 = getByText('batteries')
     const displayedIncorrectAnswer2 = getByText('candy wrappers')
     const displayedIncorrectAnswer3 = getByText('toothpaste container')
@@ -119,7 +119,7 @@ describe('CreateLesson', () => {
     expect(noQuestions).toBeInTheDocument()
   })
 
-  it.only('should be able to save a lesson', () => {
+  it('should be able to save a lesson', () => {
     const { getByText, getByPlaceholderText, getByTestId } = render(
       <BrowserRouter>
         <Provider store={store}>
@@ -154,9 +154,9 @@ describe('CreateLesson', () => {
     
     fireEvent.click(button)
 
-    const displayedReading = getByText('Reading: Today we learning about recycling')
-    const displayedQuestion = getByText('Question: What material can be recycled?')
-    const displayedCorrectAnswer = getByText('Correct Answer: paper')
+    const displayedReading = getByText('Today we learning about recycling', {exact: false})
+    const displayedQuestion = getByText('What material can be recycled?')
+    const displayedCorrectAnswer = getByText('paper')
     const displayedIncorrectAnswer1 = getByText('batteries')
     const displayedIncorrectAnswer2 = getByText('candy wrappers')
     const displayedIncorrectAnswer3 = getByText('toothpaste container')
