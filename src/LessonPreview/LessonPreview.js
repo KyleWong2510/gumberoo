@@ -14,7 +14,7 @@ const LessonPreview = ({
   addLesson,
 }) => {
 
-  const isEnabled = lessonTitleText.trim() == '' || questions.length < 1
+  const isEnabled = lessonTitleText.trim() === '' || questions.length < 1
 
   const createLesson = (e) => {
     e.preventDefault();

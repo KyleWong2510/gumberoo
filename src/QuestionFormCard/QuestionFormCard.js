@@ -12,9 +12,9 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
   const [readingText, setReadingText] = useState("")
 
   const isEnabled = 
-    questionText.trim() == '' ||
-    correctAnswerText.trim() == '' ||
-    incorrectAnswerText1.trim() == '' 
+    questionText.trim() === '' ||
+    correctAnswerText.trim() === '' ||
+    incorrectAnswerText1.trim() === '' 
 
   const addQuestion = (e) => {
     e.preventDefault();
