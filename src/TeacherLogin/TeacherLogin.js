@@ -4,6 +4,7 @@ import './TeacherLogin.scss'
 const TeacherLogin = () => {
   const [ teacherInput, setTeacherName ] = useState('')
   
+  //eslint-disable-next-line
   const isEnabled = teacherInput.trim() == "";
   
   const handleSubmit = (e) => {

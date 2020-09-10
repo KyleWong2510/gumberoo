@@ -8,6 +8,7 @@ const CreateLesson = () => {
   const [lessonTitleText, setLessonTitleText] = useState("");
   
   const deleteQuestion = (e) => {
+    //eslint-disable-next-line
     setQuestions(questions.filter(ques => ques.id != e.target.parentNode.id))
   }
 

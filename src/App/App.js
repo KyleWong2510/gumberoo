@@ -30,7 +30,7 @@ function App() {
           <TeacherLessons />
         </Route>
       </Switch>
-      {/* <StudentDashboard /> */}
+      <StudentDashboard />
 
     </main>
   )
