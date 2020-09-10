@@ -12,7 +12,7 @@ import { lesson } from '../mockData/mockData'
 
 
 const store = createStore(rootReducer, {
-  setStudentName:'Bill',
+  setStudent:'Bill',
   setLesson: lesson
 })
 describe('StudentDashboards', () => {

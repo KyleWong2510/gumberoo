@@ -17,7 +17,7 @@ const questionProp =  {
 
 
 const store = createStore(rootReducer, {
-  setStudentName:'Bill',
+  setStudent:'Bill',
   setLesson: lesson
 })
 
