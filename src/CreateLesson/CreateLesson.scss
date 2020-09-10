@@ -1,0 +1,19 @@
+.create-lesson {
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  width: 100vw;
+}
+
+.page-title {
+  display: flex;
+    flex-direction: column;
+    height: 10%;
+    justify-content: center;
+    text-align: center;
+}
+
+.create-lesson-body {
+  display: flex;
+  height: 90%
+}

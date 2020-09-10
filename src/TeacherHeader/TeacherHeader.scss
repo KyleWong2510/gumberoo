@@ -1,0 +1,31 @@
+.teacher-header {
+  display: flex;
+  height: 15vh;
+  justify-content: space-between;
+  padding: 3% 3% 1%;
+  width: 100vw;
+}
+
+.header-btn-container {
+  align-self: flex-end;
+  display: flex;
+  height: 60%;
+  justify-content: space-between;
+  width: 40%;
+
+}
+
+.header-btn {
+  height: 100%;
+  padding: 1.5%;
+  text-align: center;
+  text-decoration: none;
+  width: 25%;
+
+}
+
+.header-btn:link,
+.header-btn:visited {
+  color: black;
+  text-decoration: none
+}
