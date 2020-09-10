@@ -68,15 +68,30 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
       </section>
       <section className='question-form-input'>
         <label htmlFor='answer-input'>Incorrect Answer:</label>
-        <AnswerInput correct={false} answerText={incorrectAnswerText1} setAnswerText={setIncorrectAnswerText1}/>
+        <AnswerInput 
+          testId='incorrect1'
+          correct={false} 
+          answerText={incorrectAnswerText1} 
+          setAnswerText={setIncorrectAnswerText1}
+        />
       </section>
       <section className='question-form-input'>
         <label htmlFor='answer-input'>Incorrect Answer:</label>
-        <AnswerInput correct={false} answerText={incorrectAnswerText2} setAnswerText={setIncorrectAnswerText2}/>
+        <AnswerInput 
+          testId='incorrect2'
+          correct={false} 
+          answerText={incorrectAnswerText2} 
+          setAnswerText={setIncorrectAnswerText2}
+        />
       </section>
       <section className='question-form-input'>
         <label htmlFor='answer-input'>Incorrect Answer:</label>
-        <AnswerInput correct={false} answerText={incorrectAnswerText3} setAnswerText={setIncorrectAnswerText3}/>
+        <AnswerInput 
+          testId='incorrect3'
+          correct={false} 
+          answerText={incorrectAnswerText3} 
+          setAnswerText={setIncorrectAnswerText3}
+        />
       </section>
       <button className='add-question-btn' onClick={addQuestion}>Add Question</button>
     </form>
