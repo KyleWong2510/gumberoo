@@ -20,3 +20,30 @@ export const lesson = {
     // }
   ]
 }
+
+export const teacherLesson = {
+    name: 'North American Mammals',
+    questions: [
+      {desc: 'What is the largest North American Mammal',
+        reading: 'Today we learned about North American Mammals, how cool!',
+        answers:[
+          {
+            desc: 'Dolphin',
+            correct: false,
+          },
+          {
+            desc: 'Grizzly Bear',
+            correct: false,
+          },
+          {
+            desc: 'Bison',
+            correct: true,
+          },
+          {
+            desc: 'Mountain Lion',
+            correct: false
+          }
+        ]
+      }
+    ]
+}

@@ -10,7 +10,6 @@ const AnswerInput = ({ correct, answerText, setAnswerText, testId }) => {
       value={answerText}
       aria-label='Question input'
       placeholder={ correct ? 'Enter Correct Answer...' : 'Enter Incorrect Answer...'}
-      // isCorrect={correct}
       onChange={(e) => setAnswerText(e.target.value)}
     />
   )
