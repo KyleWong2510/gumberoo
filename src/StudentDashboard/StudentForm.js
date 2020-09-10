@@ -26,7 +26,7 @@ function StudentForm(props) {
           <option value='Bill'>Bill</option>
         </select>
         <button className='submit-name-button' aria-label=
-        'submit name' type='submit' onClick={() => props.setStudentName(studentNameInput)}>Submit</button>
+        'submit name' type='submit' onClick={() => props.setStudent(studentNameInput)}>Submit</button>
       </section>
   )
 }
@@ -37,7 +37,7 @@ const mapStateToProps = ({ setLesson, setStudents }) => ({
 })
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ setStudentName, setLesson }, dispatch)
+  bindActionCreators({ setStudent, setLesson }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentForm)

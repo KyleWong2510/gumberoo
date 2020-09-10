@@ -1,4 +1,4 @@
-import { isLoading, hasErrored, setStudents } from '../actions'
+import { isLoading, hasErrored, setTeacher } from '../actions'
 
 export const getStudents = (teacherId) => {
   const url =` https://gumberoo-backend.herokuapp.com/api/v1/teachers/${teacherId}/students`
@@ -12,7 +12,7 @@ export const getStudents = (teacherId) => {
       }
       const data = await response.json()
       dispatch(isLoading(false))
-      dispatch(setStudents( data.data ))
+      dispatch(setTeacher( data.data ))
     } catch (error) {
       dispatch(hasErrored(error.message))
     }

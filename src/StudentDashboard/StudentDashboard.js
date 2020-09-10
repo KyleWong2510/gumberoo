@@ -38,8 +38,8 @@ function StudentDashboard(props) {
     )
 }
 
-const mapStateToProps = ({ setStudentName, setLesson, setCurrentQuestion, setLessonOver, setScore }) => ({
-  studentName: setStudentName,
+const mapStateToProps = ({ setStudent, setLesson, setCurrentQuestion, setLessonOver, setScore }) => ({
+  studentName: setStudent,
   lesson: setLesson,
   currentQuestion: setCurrentQuestion,
   lessonOver: setLessonOver,
