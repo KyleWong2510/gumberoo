@@ -7,10 +7,10 @@ const TeacherHeader = () => {
     <header className='teacher-header'>
       <h1 className='header-title'>gumberoo</h1>
       <section className='header-btn-container'>
-        <Link className='header-btn'>
+        <Link to='students' className='header-btn'>
           Students
         </Link>
-        <Link className='header-btn'>
+        <Link to='lessons' className='header-btn'>
           Lessons
         </Link>
         <Link to='/createlesson' className='header-btn'>
