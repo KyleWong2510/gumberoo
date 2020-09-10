@@ -1,6 +1,6 @@
 import React from 'react'
 import './TeacherHeader.scss'
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const TeacherHeader = () => {
   return (
