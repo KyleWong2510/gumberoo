@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './StudentForm.scss'
-import { Link, withRouter } from 'react-router-dom'
+// import { Link, withRouter } from 'react-router-dom'
 import { setStudentName, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
