@@ -20,7 +20,9 @@ function QuestionArea(props) {
   shuffle(answersCopy)
   
   const answerClick = (e) => {
-    if(e.target.value) {
+    debugger
+    console.log(e.target.value === "true")
+    if(e.target.value === "true") {
       props.incrementScore(1)
     }
     if(props.lesson.questions.length === (props.currentQuestion + 1)) {

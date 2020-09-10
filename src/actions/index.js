@@ -14,6 +14,11 @@ export const setStudent= student => ({
   student
 })
 
+export const setLessons= lessons => ({
+  type: 'SET_STUDENT',
+  lessons
+})
+
 export const setTeacher = teacher => ({
   type: 'SET_TEACHER',
   teacher
