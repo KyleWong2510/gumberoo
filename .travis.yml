@@ -6,4 +6,4 @@ notifications:
 deploy:
   provider: heroku
   api_key: 
-    secure: "22733512-298b-4733-8ef9-5e7336632a46"
+    secure: "2722b210-2e7a-41d2-b78c-8aefb1f45ed0"
