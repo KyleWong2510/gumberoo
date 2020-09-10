@@ -6,14 +6,13 @@ import TeacherHeader from '../TeacherHeader/TeacherHeader'
 import TeacherLogin from '../TeacherLogin/TeacherLogin'
 import TeacherRoster from '../TeacherRoster/TeacherRoster'
 import TeacherLessons from '../TeacherLessons/TeacherLessons'
-import Modal from '../Modal/Modal'
 import './App.scss';
 import CreateLesson from '../CreateLesson/CreateLesson'
 
 function App() {
   return (
     <main className="App">
-      {/* <Switch>
+      <Switch>
         <Route path='/login'>
           <TeacherHeader />
           <TeacherLogin />
@@ -31,9 +30,7 @@ function App() {
           <TeacherLessons />
         </Route>
       </Switch>
-      <StudentDashboard /> */}
-
-      <Modal />
+      {/* <StudentDashboard /> */}
     </main>
   )
 }

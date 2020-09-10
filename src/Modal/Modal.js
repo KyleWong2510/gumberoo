@@ -1,10 +1,10 @@
 import React from 'react'
 import './Modal.scss'
 
-const Modal = ({ content }) => {
+const Modal = ({ content, toggleDisplay }) => {
   return (
     <section className='modal'>
-      <button>X</button>
+      <button onClick={toggleDisplay}>X</button>
       {content}
     </section>
   )

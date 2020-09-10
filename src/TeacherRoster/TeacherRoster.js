@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Modal from '../Modal/Modal'
 import './TeacherRoster.scss'
 
 const TeacherRoster = () => {
+  const [ isAddingStudent, toggleAddStudent ] = useState(false)
+
   return (
     <main className='teacher-roster'>
       <h1>Students</h1>
-      <button>Add a Student</button>
+      {isAddingStudent && <Modal toggleDisplay={() => toggleAddStudent(false)}/>}
+      <button onClick={() => toggleAddStudent(true)}>Add a Student</button>
     </main>
   )
 }
