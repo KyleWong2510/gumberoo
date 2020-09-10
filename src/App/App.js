@@ -17,8 +17,8 @@ function App() {
   )
 }
 
-const mapStateToProps = ({ setStudentName }) => ({
-  studentName: setStudentName
+const mapStateToProps = ({ setStudent }) => ({
+  student: setStudent
 })
 
 export default connect(mapStateToProps)(App);

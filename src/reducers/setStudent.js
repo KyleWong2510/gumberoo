@@ -1,4 +1,5 @@
-const initialState = {};
+const initialState = '';
+//have to change this to an object when it comes time
 
 export const setStudent = (state = initialState, action) => {
   switch (action.type) {

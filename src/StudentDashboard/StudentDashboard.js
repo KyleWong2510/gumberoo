@@ -16,12 +16,12 @@ function StudentDashboard(props) {
  return (
     <section className='student-body'>
       {props.lessonOver && <MoodForm />}
-      {!props.studentName && <StudentForm />}
-      {(props.studentName && !props.lessonOver) && 
+      {!props.student && <StudentForm />}
+      {(props.student && !props.lessonOver) && 
         <section className='student-dash'>
           <header className='student-header'>
             <h1 className='app-name'>gumberoo</h1>
-            <h4>{props.studentName}</h4>
+            <h4>{props.student}</h4>
           </header>
           <div className={props.lesson.questions[props.currentQuestion].reading ? 'reading' : 'hidden'}>
            {props.lesson.questions[props.currentQuestion].reading}
@@ -39,7 +39,7 @@ function StudentDashboard(props) {
 }
 
 const mapStateToProps = ({ setStudent, setLesson, setCurrentQuestion, setLessonOver, setScore }) => ({
-  studentName: setStudent,
+  student: setStudent,
   lesson: setLesson,
   currentQuestion: setCurrentQuestion,
   lessonOver: setLessonOver,
