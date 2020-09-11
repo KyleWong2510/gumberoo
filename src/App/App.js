@@ -29,8 +29,17 @@ function App() {
           <TeacherHeader />
           <TeacherLessons />
         </Route>
-      </Switch>
-      <StudentDashboard />
+        <Route 
+          exact path='/:teacherId/:lessonId' 
+          render={({ match }) => {
+          const { teacherId, lessonId } = match.params
+          return <StudentDashboard 
+            lessonId={lessonId} 
+            teacherId={teacherId} />
+          }}
+        />
+      </Switch> 
+  
     </main>
   )
 }

@@ -1,31 +1,41 @@
-import { getTeacher } from '../getTeacher'
-import { isLoading, hasErrored, setTeacher } from '../../actions'
+import { getStudents } from '../getStudents'
+import { lesson } from '../../mockData/mockData'
+import { isLoading, hasErrored, setStudents } from '../../actions'
 
-describe('getTeacher', () => {
+describe('getStudents', () => {
   let mockTeacherId
-  let mockTeacher
+  let mockStudents
   let mockUrl
   let mockDispatch
 
   beforeEach(() => {
     mockTeacherId = 1
-    mockTeacher = {
-      "id": 1,
-      "first_name": "test teacher",
-      "last_name": "test teacher last"
-    }
-    mockUrl = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${mockTeacherId}`
+    mockStudents = [   
+      {   
+          "teacher": 1,   
+          "id": 1,   
+          "first_name": "newStudent1First",   
+          "last_name": "newStudent1Last"
+      },   
+      {   
+          "teacher": 1,   
+          "id": 2,   
+          "first_name": "newStudent2First",   
+          "last_name": "newStudent2Last" 
+      }   
+    ]   
+    mockUrl = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${mockTeacherId}/students`
     mockDispatch = jest.fn()
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
       json: () => Promise.resolve({
-        data: mockTeacher
+        data: mockStudents
       })
     }))
   })
 
   it('calls dispatch with isLoading(true)', () => {
-    const thunk = getTeacher(mockTeacherId)
+    const thunk = getStudents(mockTeacherId)
 
     thunk(mockDispatch)
 
@@ -33,7 +43,7 @@ describe('getTeacher', () => {
   })
 
   it('calls fetch with the correct param', async () => {
-    const thunk = getTeacher(mockTeacherId)
+    const thunk = getStudents(mockTeacherId)
 
     await thunk(mockDispatch)
 
@@ -46,7 +56,7 @@ describe('getTeacher', () => {
       statusText: 'Something went wrong'
     }))
     
-    const thunk = getTeacher(mockTeacherId) // again, this is the inner function that is returned
+    const thunk = getStudents(mockTeacherId) // again, this is the inner function that is returned
     
     await thunk(mockDispatch)
     
@@ -54,19 +64,19 @@ describe('getTeacher', () => {
   })
 
   it('should dispatch isLoading(false) if response was ok', async () => {
-    const thunk = getTeacher(mockTeacherId)
+    const thunk = getStudents(mockTeacherId)
     await thunk(mockDispatch)
 
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
   })
 
   it('should dispatch setTeacher with the correct params', async () => {
-    const thunk = getTeacher(mockTeacherId)
+    const thunk = getStudents(mockTeacherId)
 
-    mockDispatch = jest.fn().mockImplementation(() => mockTeacher)
+    mockDispatch = jest.fn().mockImplementation(() => mockStudents)
 
     await thunk(mockDispatch)
 
-    expect(mockDispatch).toHaveBeenCalledWith(setTeacher(mockTeacher))
+    expect(mockDispatch).toHaveBeenCalledWith(setStudents(mockStudents))
   })
 })

@@ -14,9 +14,14 @@ function StudentForm(props) {
   const [studentNameInput, setStudentNameInput] = useState('')
 
   props.setLesson(lesson)
-  // this will be props.getLesson(props.lessonId)
+  const students = props.students.map((student, i)=> {
+    return (
+      <option value={student.id} key={i++}>{student.first_name}</option>
+    )
+  })
   return (
-      <section className='student-form'>
+    <section className='student-form'>
+    {props.isLoading && <p>loading</p>}
         <h2>gumberoo</h2>
         <select
           aria-label='select name'
@@ -26,7 +31,7 @@ function StudentForm(props) {
           data-testid='nameInput'
         >
           <option>Select Your Name</option> 
-          <option value='Bill'>Bill</option>
+          {students}
         </select>
         <button className='submit-name-button' aria-label=
         'submit name' type='submit' onClick={() => props.setStudent(studentNameInput)}>Submit</button>
@@ -34,9 +39,10 @@ function StudentForm(props) {
   )
 }
 
-const mapStateToProps = ({ setLesson, setStudents }) => ({
+const mapStateToProps = ({ setLesson, setStudents, isLoading }) => ({
   lesson: setLesson,
-  students: setStudents
+  students: setStudents,
+  isLoading: isLoading
 })
 
 const mapDispatchToProps = dispatch => (

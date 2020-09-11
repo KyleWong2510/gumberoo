@@ -12,8 +12,9 @@ import { lesson } from '../mockData/mockData'
 
 
 const store = createStore(rootReducer, {
-    setStudent:'Bill',
-    setLesson: lesson
+    setStudent: 'Bill',
+    setLesson: lesson,
+    setStudents: [{first_name: 'Bill'}]
 })
 describe('StudentForm', () => {
   it('should render without crashing', () => {
