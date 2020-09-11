@@ -1,5 +1,8 @@
 import React from 'react'
 import './TeacherLessons.scss'
+import { connect } from "react-redux";
+import { setLessons } from "../actions";
+import { bindActionCreators } from "redux";
 
 const TeacherLessons = () => {
 
@@ -12,6 +15,7 @@ const TeacherLessons = () => {
 
 
 
+
   return (
     <main className='teacher-lessons'>
       <h1>Lessons</h1>
@@ -20,7 +24,13 @@ const TeacherLessons = () => {
   )
 }
 
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      setLessons,
+    },
+    dispatch
+  );
 
 
-
-export default TeacherLessons
+export default connect(null, mapDispatchToProps)(TeacherLessons)
