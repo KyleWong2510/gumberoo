@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import Modal from '../Modal/Modal'
 import CreateStudentForm from '../CreateStudentForm/CreateStudentForm'
+import StudentDetails from '../StudentDetails/StudentDetails'
 import './TeacherRoster.scss'
 
 const TeacherRoster = () => {
   const [ isAddingStudent, toggleAddStudent ] = useState(false)
   const [ isViewingStudentDetails, toggleStudentDetails] = useState(false)
-  const [ foundStudent, setFoundStudent ] = useState(null)
+  const [ foundStudent, setFoundStudent ] = useState({})
 
   let students = [   
     {   
@@ -42,7 +43,7 @@ const TeacherRoster = () => {
     if (isViewingStudentDetails === true) {
       return (
         <Modal 
-          content={<p>{foundStudent.first_name}</p>}
+          content={<StudentDetails student={foundStudent}/>}
           toggleDisplay={() => toggleStudentDetails(false)}
         />
       )
