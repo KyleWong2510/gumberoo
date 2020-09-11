@@ -11,7 +11,8 @@ const CreateStudentForm = ({ completeForm }) => {
   }
 
   const isEnabled = 
-    studentFirstName.trim() === '' || studentLastName.trim() === ''
+    studentFirstName.trim() === '' || 
+    studentLastName.trim() === ''
 
   return (
     <form className='create-student-form' onSubmit={(e) => createStudent(e)}>
