@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import StudentDashboard from '../StudentDashboard/StudentDashboard'
 import { connect } from 'react-redux'
@@ -8,8 +8,29 @@ import TeacherRoster from '../TeacherRoster/TeacherRoster'
 import TeacherLessons from '../TeacherLessons/TeacherLessons'
 import './App.scss';
 import CreateLesson from '../CreateLesson/CreateLesson'
+import { getStudents } from '../thunks/getStudents'
+import { getLesson } from '../thunks/getLesson'
+// import { Link, withRouter } from 'react-router-dom'
+import { setStudent, setLesson } from '../actions/index'
+import { bindActionCreators } from 'redux'
 
-function App() {
+function App(props) {
+
+  // const [error, setError] = useState('')
+
+
+  // const getTeachersStudents = async () => {
+  //   await props.getStudents(props.teacherId)
+  // }
+
+  // useEffect(() => {
+  //   try {
+  //     getTeachersStudents()
+  //   } catch (error) {
+  //     setError(error)
+  //   }
+  // }, [])
+
   return (
     <main className="App">
       <Switch>
@@ -35,7 +56,9 @@ function App() {
           const { teacherId, lessonId } = match.params
           return <StudentDashboard 
             lessonId={lessonId} 
-            teacherId={teacherId} />
+            teacherId={teacherId}
+            // students={props.getStudents(teacherId)}
+            />
           }}
         />
       </Switch> 
@@ -44,8 +67,13 @@ function App() {
   )
 }
 
-const mapStateToProps = ({ setStudent }) => ({
-  student: setStudent
+const mapStateToProps = ({ setStudent, setStudents }) => ({
+  student: setStudent,
+  students: setStudents
 })
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ setStudent, setLesson, getLesson, getStudents }, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

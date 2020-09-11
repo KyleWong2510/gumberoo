@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import StudentForm from './StudentForm'
 import MoodForm from './MoodForm'
 import { incrementCurrentQuestion, setLessonOver } from '../actions/index'
@@ -14,16 +14,30 @@ import './StudentDashboard.scss'
 
 
 function StudentDashboard(props) {
-  // props.getStudents(parseInt(props.teacherId))
+  // const [error, setError] = useState('')
+
+
+  // const getTeachersStudents = async () => {
+  //   await props.getStudents(props.teacherId)
+  // }
+
+  // useEffect(() => {
+  //   try {
+  //     getTeachersStudents(props.teacherId)
+  //   } catch (error) {
+  //     setError(error)
+  //   }
+  // }, [])
   return (
     <section className='student-body'>
       {props.lessonOver && <MoodForm />}
-      {!props.student && <StudentForm lessonId={props.lessonId} teacherId={props.teacherId}/>}
-      {(props.student && !props.lessonOver) && 
+      {!props.studentId && <StudentForm lessonId={props.lessonId} teacherId={props.teacherId}/>}
+      {(props.studentId && !props.lessonOver) && 
         <section className='student-dash'>
           <header className='student-header'>
             <h1 className='app-name'>gumberoo</h1>
-            <h4>{props.student}</h4>
+            <h2>{props.lesson.name}</h2>
+            <h4>{`${props.student.first_name} ${props.student.last_name}`}</h4>
           </header>
           <div className={props.lesson.questions[props.currentQuestion].reading ? 'reading' : 'hidden'}>
           {props.lesson.questions[props.currentQuestion].reading}
@@ -40,18 +54,20 @@ function StudentDashboard(props) {
   )
 }
 
-const mapStateToProps = ({ setStudent, setLesson, setCurrentQuestion, setLessonOver, setScore, isLoading, hasErrored }) => ({
+const mapStateToProps = ({ setStudent, setLesson, setCurrentQuestion, setLessonOver, setScore, isLoading, hasErrored, setStudents, setStudentId}) => ({
   student: setStudent,
+  students: setStudents,
   lesson: setLesson,
   currentQuestion: setCurrentQuestion,
   lessonOver: setLessonOver,
   score: setScore,
   isLoading: isLoading,
-  hasErrored: hasErrored
+  hasErrored: hasErrored,
+  studentId: setStudentId
 })
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ incrementCurrentQuestion, setLessonOver, getStudents, getLesson }, dispatch)
+  bindActionCreators({ incrementCurrentQuestion, setLessonOver, getLesson, getStudents }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps )(StudentDashboard);

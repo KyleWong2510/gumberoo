@@ -12,9 +12,14 @@ import { lesson } from '../mockData/mockData'
 
 
 const store = createStore(rootReducer, {
-    setStudent: 'Bill',
+    setStudent: {
+      id: 4,
+      first_name: 'Bill',
+      last_name: 'Wilke'
+    },
     setLesson: lesson,
-    setStudents: [{first_name: 'Bill'}]
+    setStudents: [{id: 4, first_name: 'Bill', lastName: 'Wilke'}],
+    // setStudentId: 2
 })
 describe('StudentForm', () => {
   it('should render without crashing', () => {
@@ -56,7 +61,7 @@ describe('StudentForm', () => {
 
   const nameDropdown = getByTestId('nameInput')
 
-  fireEvent.change(nameDropdown, {target: { value: 'Bill'}})
+  fireEvent.change(nameDropdown, {target: { value: 4}})
   
   const nameChange = getByDisplayValue('Bill')
 

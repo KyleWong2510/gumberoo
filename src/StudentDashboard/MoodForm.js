@@ -14,7 +14,7 @@ function MoodForm(props) {
 
   const postScore = (e) => {
     e.preventDefault() 
-    const url = 'https://gumberoo-backend.herokuapp.com/api/v1/lessons/#{props.student.id}'
+    const url = `https://gumberoo-backend.herokuapp.com/api/v1/lessons/${props.student.id}`
     fetch(url, {
       method: 'POST',
       headers: {
@@ -41,7 +41,7 @@ function MoodForm(props) {
             className='submit-mood-button' 
             aria-label='submit mood' 
             type='submit'
-            onClick={postScore}
+            onClick={e => postScore(e)}
           >
             Submit
           </button>
@@ -50,7 +50,7 @@ function MoodForm(props) {
 }
 
 const mapStateToProps = ({ setLesson, setStudents,  setStudent, setScore }) => ({
-  studentName: setStudent,
+  student: setStudent,
   lesson: setLesson,
   students: setStudents,
   score: setScore

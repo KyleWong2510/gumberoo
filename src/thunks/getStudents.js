@@ -1,12 +1,14 @@
 import { isLoading, hasErrored, setStudents } from '../actions'
 
 export const getStudents = (teacherId) => {
+  debugger
   const url = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${teacherId}/students`
 
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
       const response = await fetch(url) 
+      console.log(response)
       if(!response.ok) {
         throw Error(response.statusText)
       }
