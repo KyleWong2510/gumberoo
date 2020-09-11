@@ -67,7 +67,7 @@ const TeacherRoster = () => {
       {renderStudentNames()}
       {renderAddStudentModal()}
       {renderStudentDetailsModal()}
-      <button onClick={() => toggleAddStudent(true)}>Add a Student</button>
+      <button className='add-student-btn' onClick={() => toggleAddStudent(true)}>Add a Student</button>
     </main>
   )
 }
