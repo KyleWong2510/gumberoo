@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { setLessons } from "../actions";
 import { bindActionCreators } from "redux";
 
-const TeacherLessons = (props) => {
+const TeacherLessons = ({students, lessons}) => {
   const [error, setError] = useState('')
 
 // Upon load of test Teacher:
@@ -20,8 +20,6 @@ const TeacherLessons = (props) => {
   //   //eslint-disable-next-line
   //   setLessons(lessons.filter(lesson => lesson.id != e.target.parentNode.id))
   // }
-
-  const lessons = []
 
   return (
     <main className='teacher-lessons'>

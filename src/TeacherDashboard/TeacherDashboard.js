@@ -1,34 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import './TeacherDashboard.scss'
-import { connect, useDispatch, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getLessons } from "../thunks/getLessons";
 import { getStudents } from "../thunks/getStudents"
 import { getTeacher } from "../thunks/getTeacher"
 
 const TeacherDashboard = (props) => {
-  const [error, setError] = useState('')
 
-  const getTeacherInformation = async () => {
-    await props.getTeacher()
-  }
-
-  const getTeachersStudents = async () => {
-    await props.getStudents()
-  }
-
-  const getTeachersLessons = async () => {
-    await props.getLessons()
-  }
-
-  useEffect(async () => {
-    try{
-      getTeacherInformation()
-      getTeachersStudents()
-      getTeachersLessons()
-    } catch(error) {
-      setError(error)
-    }
+  useEffect (() => {
+    async function fetchData() {
+      await props.getTeacher()
+      await props.getStudents()
+      await props.getLessons()
+    } 
+    fetchData()
   }, [])
 
   return (
