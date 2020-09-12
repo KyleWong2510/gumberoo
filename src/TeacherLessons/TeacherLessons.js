@@ -2,11 +2,30 @@ import React, { useState } from "react";
 import "./TeacherLessons.scss";
 import LessonCard from "./LessonCard/LessonCard";
 import { connect } from "react-redux";
+import Modal from '../Modal/Modal'
 // import { setLessons } from "../actions";
 // import { bindActionCreators } from "redux";
 
 const TeacherLessons = ({ students, lessons }) => {
-  // eslint-disable-next-line
+  const [foundLesson, setFoundLesson] = useState({})
+
+  const findLesson = (e) => {
+    const foundTheLesson = lessons.find(lesson => +e.target.parentNode.id === lesson.id)
+    setFoundLesson(foundTheLesson)
+    // toggleLessonDetails(true)
+  }
+
+  const renderLessonDetailsModal = () => {
+    if (isViewingStudentDetails) {
+      return (
+        <Modal 
+        // need to create a lesson Details Component
+          content={<LessonDetails lesson={foundLesson}/>}
+          toggleDisplay={() => toggleStudentDetails(false)}
+        />
+      )
+    } 
+  }
 
   // Upon load of test Teacher:
   // a GET will occur to grab the existing lessons saved for a teacher.
@@ -33,6 +52,7 @@ const TeacherLessons = ({ students, lessons }) => {
               key={lesson.id}
               lessonLink={lesson.link}
               lessonTitle={lesson.name}
+              findLesson={findLesson}
             />
           );
         }))
