@@ -15,6 +15,7 @@ const TeacherDashboard = (props) => {
       await props.getLessons()
     } 
     fetchData()
+    // eslint-disable-next-line 
   }, [])
 
   return (
