@@ -9,10 +9,14 @@ import { connect } from 'react-redux'
 
 
 function MoodForm(props) {
-  //eslint-disable-next-line
-  const [studentMoodInput, setStudentMoodInput] = useState('')
-  let [isSubmitted, setIsSumbitted] = useState(false)
 
+  const [studentMoodInput, setStudentMoodInput] = useState('')
+  
+  let [isSubmitted, setIsSumbitted] = useState(false)
+  
+  const score = (props.score / props.lesson.questions.length)
+  
+  const roundedScore = Math.round(score*100)
 
   const postScore = () => {
     setIsSumbitted(true)
@@ -22,7 +26,7 @@ function MoodForm(props) {
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({lesson: props.lesson.id, score: props.score, mood: studentMoodInput})
+      body: JSON.stringify({lesson: props.lesson.id, score: roundedScore, mood: studentMoodInput})
     })
     .then(res => console.log(res))
     .catch(err => console.log(err))

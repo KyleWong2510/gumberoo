@@ -8,6 +8,8 @@ import { getLesson } from '../thunks/getLesson'
 import { bindActionCreators } from 'redux'
 import QuestionArea from './QuestionArea';
 import { connect } from 'react-redux'
+import Spritesheet from 'react-responsive-spritesheet'
+import panda from './assets/PandaJumpAndRandom.png'
 
 
 import './StudentDashboard.scss'
@@ -22,8 +24,12 @@ function StudentDashboard(props) {
   }
   const getTeachersLesson = async () => {
     await props.getLesson(props.lessonId)
-  } 
+  }
+  
+  const motivationalTalk = ['Good luck!', 'Great job!', 'You got this!', 'I want some bamboo', 'Nice pick!']
 
+  const random = Math.floor(Math.random() * motivationalTalk.length);
+  
   useEffect(() => {
     try {
       getTeachersStudents()
@@ -50,7 +56,20 @@ function StudentDashboard(props) {
           {props.lesson.questions[props.currentQuestion].reading}
           </div>
           <div className='animation'>
-            Animation
+            <div className='anim-container'>
+              <Spritesheet
+                className='pig'
+                image={panda}
+                widthFrame={108.615}
+                heightFrame={109.69}
+                steps={11}
+                fps={5.6}
+                loop={true}
+                />
+            </div>
+            <div className='speech-bubble'>
+            {motivationalTalk[random]}
+            </div>
           </div>
           <div className='question'>
             <QuestionArea question={props.lesson.questions[props.currentQuestion]} />
