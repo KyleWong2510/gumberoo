@@ -12,7 +12,7 @@ export const getTeacher = (teacherId) => {
       }
       const data = await response.json()
       dispatch(isLoading(false))
-      dispatch(setTeacher( data.data ))
+      dispatch(setTeacher( data ))
     } catch (error) {
       dispatch(hasErrored(error.message))
     }

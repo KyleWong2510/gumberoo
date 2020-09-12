@@ -12,21 +12,16 @@ import { lesson } from '../mockData/mockData'
 
 function StudentForm(props) {
   const [studentNameInput, setStudentNameInput] = useState('')
-  // props.getStudents(parseInt(props.teacherId))
-  props.setLesson(lesson)
-  // const students = props.students.map((student, i)=> {
-  //   return (
-  //     <option value={student.id} key={i++}>{student.first_name}</option>
-  //   )
-  // })
-  const bill = {
-    id: 4,
-    first_name: 'Bill',
-    last_name: 'Wilke'
-  }
-  const students = [bill]
+
+
+  const students = props.students.map((student, i)=> {
+    return (
+      <option value={student.id} key={i++}>{student.first_name}</option>
+    )
+  })
+  
   const setStudentValues = (e) => {
-    let student = students.find(student => student.id === parseInt(studentNameInput))
+    let student = props.students.find(student => student.id === parseInt(studentNameInput))
     props.setStudentId(studentNameInput)
     props.setStudent(student)
   }
@@ -44,9 +39,9 @@ function StudentForm(props) {
           data-testid='nameInput'
         >
           <option>Select Your Name</option>
-          <option value={bill.id} id={bill.id}>Bill</option>
+
+          {students}
         </select>
-          {/* {students} */}
         <button className='submit-name-button' aria-label=
         'submit name' type='submit' onClick={e => setStudentValues(e)}>Submit</button>
       </section>

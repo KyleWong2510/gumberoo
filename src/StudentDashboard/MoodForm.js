@@ -11,10 +11,12 @@ import { connect } from 'react-redux'
 function MoodForm(props) {
   //eslint-disable-next-line
   const [studentMoodInput, setStudentMoodInput] = useState('')
+  let [isSubmitted, setIsSumbitted] = useState(false)
 
-  const postScore = (e) => {
-    e.preventDefault() 
-    const url = `https://gumberoo-backend.herokuapp.com/api/v1/lessons/${props.student.id}`
+
+  const postScore = () => {
+    setIsSumbitted(true)
+    const url = `https://cors-anywhere.herokuapp.com/https://gumberoo-backend.herokuapp.com/api/v1/lessons/${props.student.id}`
     fetch(url, {
       method: 'POST',
       headers: {
@@ -27,8 +29,11 @@ function MoodForm(props) {
   }
   
   return (
-      <section className='student-form'>
-          <h3 className='finished-message'>Great job {props.studentName}</h3>
+     <section className='student-form'>
+      {!isSubmitted && 
+        <section className='students-mood-form'>
+          
+         <h3 className='finished-message'>Great job {props.studentName}</h3>
           <br></br>
           <h4>How do you feel?</h4>
           <textarea
@@ -41,10 +46,17 @@ function MoodForm(props) {
             className='submit-mood-button' 
             aria-label='submit mood' 
             type='submit'
-            onClick={e => postScore(e)}
+            onClick={() => postScore()}
           >
             Submit
           </button>
+        </section>
+    }
+      {isSubmitted && 
+        <section className='students-mood-form'>
+          <h3>Return to your teacher!</h3>
+        </section>
+    }
       </section>
   )
 }

@@ -14,20 +14,24 @@ import './StudentDashboard.scss'
 
 
 function StudentDashboard(props) {
-  // const [error, setError] = useState('')
+  const [error, setError] = useState('')
 
 
-  // const getTeachersStudents = async () => {
-  //   await props.getStudents(props.teacherId)
-  // }
+  const getTeachersStudents = async () => {
+    await props.getStudents(props.teacherId)
+  }
+  const getTeachersLesson = async () => {
+    await props.getLesson(props.lessonId)
+  } 
 
-  // useEffect(() => {
-  //   try {
-  //     getTeachersStudents(props.teacherId)
-  //   } catch (error) {
-  //     setError(error)
-  //   }
-  // }, [])
+  useEffect(() => {
+    try {
+      getTeachersStudents()
+      getTeachersLesson()
+    } catch (error) {
+      setError(error)
+    }
+  }, [])
   return (
     <section className='student-body'>
       {props.lessonOver && <MoodForm />}
