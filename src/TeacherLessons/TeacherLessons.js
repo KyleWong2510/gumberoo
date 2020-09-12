@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import './TeacherLessons.scss'
 import LessonCard from './LessonCard/LessonCard'
 import { connect } from "react-redux";
-import { setLessons } from "../actions";
-import { bindActionCreators } from "redux";
+// import { setLessons } from "../actions";
+// import { bindActionCreators } from "redux";
 
 const TeacherLessons = ({students, lessons}) => {
+  // eslint-disable-next-line
   const [error, setError] = useState('')
 
 // Upon load of test Teacher:

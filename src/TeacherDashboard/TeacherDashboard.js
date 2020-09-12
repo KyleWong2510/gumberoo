@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './TeacherDashboard.scss'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -9,7 +9,7 @@ import { getTeacher } from "../thunks/getTeacher"
 const TeacherDashboard = (props) => {
 
   useEffect (() => {
-    async function fetchData() {
+    async function fetchData(props) {
       await props.getTeacher()
       await props.getStudents()
       await props.getLessons()
