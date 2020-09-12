@@ -13,18 +13,39 @@ const LessonPreview = ({
   deleteQuestion,
   addLesson,
 }) => {
-
+  const teacherId = 1
   const isEnabled = lessonTitleText.trim() === '' || questions.length < 1
 
   const createLesson = (e) => {
     e.preventDefault();
+    const formattedQuestions = questions.map(question => {
+      return {
+        question: question.question,
+        reading: question.reading,
+        answers: question.answers
+      }
+    })
     const lesson = {
-      name: lessonTitleText,
-      questions: questions,
+      lesson: {
+        name: lessonTitleText,
+        questions: formattedQuestions,
+      }
     };
+    postLesson(lesson)
     addLesson(lesson);
     clearLesson();
   };
+
+  const postLesson = (lesson) => {
+    const url = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${teacherId}/lessons/`
+    return fetch(url, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(lesson)
+    })
+      .then(res => console.log(res))
+      .catch(err => console.error(err))
+  }
 
   const clearLesson = () => {
     setQuestions([])
@@ -38,7 +59,7 @@ const LessonPreview = ({
         <QuestionCard
           key={question.id}
           id={question.id}
-          question={question.desc}
+          question={question.question}
           allAnswers={question.answers}
           reading={question.reading}
           deleteQuestion={deleteQuestion}
@@ -68,8 +89,7 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       addLesson,
-    },
-    dispatch
+    }, dispatch
   );
 
 export default connect(null, mapDispatchToProps)(LessonPreview);

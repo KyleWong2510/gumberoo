@@ -1,7 +1,8 @@
 import { isLoading, hasErrored, setLessons } from '../actions'
 
 export const getLessons = (teacherId) => {
-  const url = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${teacherId}/lessons`
+  
+  const url = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/1/lessons`
 
   return async (dispatch) => {
     try {

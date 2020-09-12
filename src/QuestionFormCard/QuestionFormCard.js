@@ -25,13 +25,13 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
   const createQuestion = () => {
     setQuestions([...questions, {
       id: Date.now(),
-      desc: questionText,
+      question: questionText,
       reading: readingText,
       answers: [
-        {desc: correctAnswerText, correct: true},
-        {desc: incorrectAnswerText1, correct: false},
-        {desc: incorrectAnswerText2, correct: false},
-        {desc: incorrectAnswerText3, correct: false}
+        {answer: correctAnswerText, correct: 'true'},
+        {answer: incorrectAnswerText1, correct: 'false'},
+        {answer: incorrectAnswerText2, correct: 'false'},
+        {answer: incorrectAnswerText3, correct: 'false'}
       ]
     }])
   }
