@@ -16,18 +16,31 @@ const TeacherLessons = ({students, lessons}) => {
 // Lesson Title <- clickable for stats on the lesson
 // Lesson Link
 
+
   // State of the lessons added from Redux? Or delete from store via redux
   // const deleteLesson = (e) => {
   //   //eslint-disable-next-line
   //   setLessons(lessons.filter(lesson => lesson.id != e.target.parentNode.id))
   // }
 
+  let lessonCard
   return (
     <main className='teacher-lessons'>
       <h1>Lessons</h1>
 
       {lessons.length ? (
-        <LessonCard /> ) : (
+        lessonCard = lessons.map(lesson => {
+          console.log(lesson);
+          return(
+            <LessonCard  
+              id={lesson.id}
+              key={lesson.id}
+              lessonLink={lesson.link}
+              lessonTitle={lesson.name}
+            />
+          )
+        })
+         ) : (
           <p className="no-lessons-message">Please click on the "Create a Lesson" Tab to create a lessson.</p>
         )
       }

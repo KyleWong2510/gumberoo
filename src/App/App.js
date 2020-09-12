@@ -40,7 +40,7 @@ function App(props) {
           <TeacherHeader />
           <TeacherLessons />
         </Route>
-        <Route 
+        {/* <Route 
           exact path='/:teacherId/:lessonId' 
           render={({ match }) => {
           const { teacherId, lessonId } = match.params
@@ -49,7 +49,7 @@ function App(props) {
             teacherId={teacherId}
             />
           }}
-        />
+        /> */}
       </Switch> 
   
     </main>
