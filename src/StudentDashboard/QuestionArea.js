@@ -1,5 +1,6 @@
 import React from 'react'
 import './QuestionArea.scss'
+import AnswerButton from './AnswerButton'
 import { incrementScore, incrementCurrentQuestion, setLessonOver } from '../actions/index';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -37,7 +38,7 @@ function QuestionArea(props) {
   
       {answers.map((answer, i) => {
         return (
-          <button key={i++} className='question-button' value={answer.correct} onClick={e => answerClick(e)} type='submit'>{answer.answer}</button>
+          <AnswerButton key={i++} answer={answer} />
         )
       })}
    

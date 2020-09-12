@@ -24,13 +24,11 @@ describe('getStudents', () => {
           "last_name": "newStudent2Last" 
       }   
     ]   
-    mockUrl = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${mockTeacherId}/students`
+    mockUrl = `https://cors-anywhere.herokuapp.com/https://gumberoo-backend.herokuapp.com/api/v1/teachers/${mockTeacherId}/students`
     mockDispatch = jest.fn()
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
-      json: () => Promise.resolve({
-        data: mockStudents
-      })
+      json: () => Promise.resolve(mockStudents)
     }))
   })
 

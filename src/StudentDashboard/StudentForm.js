@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './StudentForm.scss'
 import { getStudents } from '../thunks/getStudents'
 import { getLesson } from '../thunks/getLesson'
-// import { Link, withRouter } from 'react-router-dom'
 import { setStudent, setLesson, setStudentId } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -26,8 +25,10 @@ function StudentForm(props) {
     props.setStudent(student)
   }
   return (
-    <section className='student-form'>
+    <section className='parent-section'>
     {props.isLoading && <p>loading</p>}
+    {!props.isLoading &&
+      <section className='student-form'>
         <h2>gumberoo</h2>
         <select
           aria-label='select name'
@@ -35,15 +36,15 @@ function StudentForm(props) {
           name='studentNameInput' 
           className='student-names-input' 
           onChange={e => setStudentNameInput(e.target.value)}
-          // onChange={e => setStudentId(e.target.id)}
           data-testid='nameInput'
         >
           <option>Select Your Name</option>
-
           {students}
         </select>
         <button className='submit-name-button' aria-label=
         'submit name' type='submit' onClick={e => setStudentValues(e)}>Submit</button>
+        </section>
+        }
       </section>
   )
 }

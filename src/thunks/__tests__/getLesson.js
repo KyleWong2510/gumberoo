@@ -2,7 +2,7 @@ import { getLesson } from '../getLesson'
 import { lesson } from '../../mockData/mockData'
 import { isLoading, hasErrored, setLesson } from '../../actions'
 
-describe('getStudents', () => {
+describe('getLesson', () => {
   let mockTeacherId
   let mockLesson
   let mockLessonId
@@ -13,7 +13,7 @@ describe('getStudents', () => {
     mockTeacherId = 1
     mockLessonId = 1
     mockLesson = lesson 
-    mockUrl =  `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${mockTeacherId}/${mockLessonId}`
+    mockUrl =  `https://cors-anywhere.herokuapp.com/https://gumberoo-backend.herokuapp.com/api/v1/lessons/${mockLessonId}`
     mockDispatch = jest.fn()
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
