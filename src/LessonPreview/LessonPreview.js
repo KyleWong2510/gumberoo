@@ -13,7 +13,7 @@ const LessonPreview = ({
   deleteQuestion,
   addLesson,
 }) => {
-
+  const teacherId = 1
   const isEnabled = lessonTitleText.trim() === '' || questions.length < 1
 
   const createLesson = (e) => {
@@ -23,8 +23,20 @@ const LessonPreview = ({
       questions: questions,
     };
     addLesson(lesson);
+    postLesson(lesson)
     clearLesson();
   };
+
+  const postLesson = (lesson) => {
+    const url = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${teacherId}/lessons`
+    return fetch(url, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(lesson)
+    })
+      .then(res => console.log(res))
+      .catch(err => console.error(err))
+  }
 
   const clearLesson = () => {
     setQuestions([])
