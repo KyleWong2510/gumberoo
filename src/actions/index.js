@@ -8,6 +8,10 @@ export const setStudents = students => ({
   students
 })
 
+export const addStudent = student => ({
+  type: 'ADD_STUDENT',
+  student
+})
 
 export const setStudent= student => ({
   type: 'SET_STUDENT',

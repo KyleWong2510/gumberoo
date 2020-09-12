@@ -2,9 +2,9 @@ import React from 'react'
 import './QuestionCard.scss'
 
 const QuestionCard = ({ id, question, allAnswers, reading, deleteQuestion})=> {
-  let correctAnswer = allAnswers.find(answer => answer.correct === true).answer
+  let correctAnswer = allAnswers.find(answer => answer.correct === 'true').answer
   let incorrectAnswers = allAnswers
-    .filter(answer => answer.correct === false)
+    .filter(answer => answer.correct === 'false')
     .map(answer => <p className='incorrect-answers'>{answer.answer}</p>)
 
   return (

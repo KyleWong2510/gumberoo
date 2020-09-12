@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import './CreateStudentForm.scss'
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { addStudent } from "../actions";
 
-const CreateStudentForm = ({ completeForm }) => {
+const CreateStudentForm = ({ completeForm, addStudent }) => {
   const [studentFirstName, setStudentFirstName] = useState('')
   const [studentLastName, setStudentLastName] = useState('')
   
@@ -13,7 +16,7 @@ const CreateStudentForm = ({ completeForm }) => {
 
   const postStudent = () => {
     const url = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${teacherId}/students/`  
-    return fetch(`https://cors-anywhere.herokuapp.com/${url}`, {
+    return fetch(url, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -22,7 +25,7 @@ const CreateStudentForm = ({ completeForm }) => {
           {
             first_name: studentFirstName,
             last_name: studentLastName,
-            age: 10
+            age: null
           }
         ]
       })
@@ -34,9 +37,13 @@ const CreateStudentForm = ({ completeForm }) => {
   const createStudent = (e) => {
     e.preventDefault()
     postStudent()
+    addStudent({
+      first_name: studentFirstName,
+      last_name: studentLastName,
+      age: null
+    })
     completeForm()
   }
-
 
   return (
     <form className='create-student-form' onSubmit={(e) => createStudent(e)}>
@@ -73,4 +80,11 @@ const CreateStudentForm = ({ completeForm }) => {
   )
 }
 
-export default CreateStudentForm
+const mapDispatchToProps = (dispatch) => 
+  bindActionCreators(
+    {
+      addStudent
+    }, dispatch
+  )
+
+export default connect(null, mapDispatchToProps)(CreateStudentForm)

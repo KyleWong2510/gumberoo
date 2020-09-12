@@ -27,10 +27,10 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
       question: questionText,
       reading: readingText,
       answers: [
-        {answer: correctAnswerText, correct: true},
-        {answer: incorrectAnswerText1, correct: false},
-        {answer: incorrectAnswerText2, correct: false},
-        {answer: incorrectAnswerText3, correct: false}
+        {answer: correctAnswerText, correct: 'true'},
+        {answer: incorrectAnswerText1, correct: 'false'},
+        {answer: incorrectAnswerText2, correct: 'false'},
+        {answer: incorrectAnswerText3, correct: 'false'}
       ]
     }])
   }

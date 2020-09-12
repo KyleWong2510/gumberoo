@@ -29,7 +29,7 @@ const LessonPreview = ({
 
   const postLesson = (lesson) => {
     const url = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${teacherId}/lessons/`
-    return fetch(`https://cors-anywhere.herokuapp.com/${url}`, {
+    return fetch(url, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(lesson)
@@ -80,8 +80,7 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       addLesson,
-    },
-    dispatch
+    }, dispatch
   );
 
 export default connect(null, mapDispatchToProps)(LessonPreview);
