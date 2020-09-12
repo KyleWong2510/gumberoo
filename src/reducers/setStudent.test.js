@@ -1,8 +1,8 @@
 import { setStudent } from './setStudent'
 
-describe('setStudentName reducer', () => {
+describe('setStudent reducer', () => {
   it('should return the initial state', () => {
-    const expected = ''
+    const expected = null
     const result = setStudent(undefined, {})
     expect(result).toEqual(expected)
   })
@@ -17,7 +17,7 @@ describe('setStudentName reducer', () => {
   })
 
   it('should reset the state', () => {
-    const expected = ''
+    const expected = null
 
     setStudent(undefined, {
       type: 'SET_STUDENT',

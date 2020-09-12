@@ -5,7 +5,7 @@ const QuestionCard = ({ id, question, allAnswers, reading, deleteQuestion})=> {
   let correctAnswer = allAnswers.find(answer => answer.correct === true).desc
   let incorrectAnswers = allAnswers
     .filter(answer => answer.correct === false)
-    .map(answer => <p className='incorrect-answers'>{answer.desc}</p>)
+    .map((answer, i )=> <p key={i++} className='incorrect-answers'>{answer.desc}</p>)
 
   return (
     <section id={id} key={id} className='question-card'>
