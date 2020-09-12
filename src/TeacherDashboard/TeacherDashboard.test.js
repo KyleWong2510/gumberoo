@@ -6,7 +6,7 @@ import TeacherDashboard from './TeacherDashboard';
 import { BrowserRouter } from 'react-router-dom';
 
 describe('TeacherDashboard', () =>{
-  it.only('should display an about me and a joke', () => {
+  it.skip('should display an about me and a joke', () => {
     const { getByText, getByRole } = render(<BrowserRouter><TeacherDashboard /></BrowserRouter>)
 
     const welcomeMessage = getByText('Welcome', {exact: false})
