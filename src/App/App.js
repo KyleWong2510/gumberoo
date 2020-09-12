@@ -42,6 +42,7 @@ function App() {
 
 const mapStateToProps = ({ setStudent }) => ({
   student: setStudent
+  // lessons: setLesssons
 })
 
 export default connect(mapStateToProps)(App);
