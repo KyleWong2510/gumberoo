@@ -18,8 +18,7 @@
 }
 
 
-.question-button:hover,
-.question-button:focus {
+.question-button:hover {
   cursor: pointer;
   transform: scale(1.33);
   transition: transform .7s;

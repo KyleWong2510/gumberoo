@@ -1,7 +1,7 @@
 import { isLoading, hasErrored, setLesson } from '../actions'
 
-export const getLesson = (teacherId, lessonId) => {
-  const url =` https://gumberoo-backend.herokuapp.com/api/v1/teachers/${teacherId}/${lessonId}`
+export const getLesson = (lessonId) => {
+  const url = `https://gumberoo-backend.herokuapp.com/api/v1/lessons/${lessonId}`
 
   return async (dispatch) => {
     try {
@@ -12,7 +12,7 @@ export const getLesson = (teacherId, lessonId) => {
       }
       const data = await response.json()
       dispatch(isLoading(false))
-      dispatch(setLesson( data.data ))
+      dispatch(setLesson( data ))
     } catch (error) {
       dispatch(hasErrored(error.message))
     }

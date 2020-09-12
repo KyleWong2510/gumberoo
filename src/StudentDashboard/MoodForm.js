@@ -11,13 +11,31 @@ import { connect } from 'react-redux'
 function MoodForm(props) {
   //eslint-disable-next-line
   const [studentMoodInput, setStudentMoodInput] = useState('')
+  let [isSubmitted, setIsSumbitted] = useState(false)
 
+
+  const postScore = () => {
+    setIsSumbitted(true)
+    const url = `https://cors-anywhere.herokuapp.com/https://gumberoo-backend.herokuapp.com/api/v1/lessons/${props.student.id}`
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({lesson: props.lesson.id, score: props.score, mood: studentMoodInput})
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
   
   return (
-      <section className='student-form'>
-          <h3 className='finished-message'>Great job {props.studentName}</h3>
+     <section className='student-form'>
+      {!isSubmitted && 
+        <section className='students-mood-form'>
+          
+         <h3 className='finished-message'>Great job {props.studentName}</h3>
           <br></br>
-          <h4>How do you feel?</h4>
+          <h3 className='finished-message'>How do you feel?</h3>
           <textarea
             maxLength='100'
             className='student-mood-input' 
@@ -28,18 +46,26 @@ function MoodForm(props) {
             className='submit-mood-button' 
             aria-label='submit mood' 
             type='submit'
+            onClick={() => postScore()}
           >
             Submit
           </button>
+        </section>
+    }
+      {isSubmitted && 
+        <section className='students-mood-form'>
+          <h3>Return to your teacher!</h3>
+        </section>
+    }
       </section>
   )
 }
 
-const mapStateToProps = ({ setLesson, setStudents, setMood, setStudent }) => ({
-  studentName: setStudent,
+const mapStateToProps = ({ setLesson, setStudents,  setStudent, setScore }) => ({
+  student: setStudent,
   lesson: setLesson,
   students: setStudents,
-  mood: setMood
+  score: setScore
 })
 
 const mapDispatchToProps = dispatch => (
