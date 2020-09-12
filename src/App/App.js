@@ -15,7 +15,7 @@ import { getLesson } from '../thunks/getLesson'
 import { setStudent, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
 
-function App(props) {
+function App() {
 
   return (
     <main className="App">
@@ -23,10 +23,10 @@ function App(props) {
         <Route path='/login'>
           <TeacherHeader />
           <TeacherLogin />
-        </Route>
         <Route path="/teacherdashboard">
           <TeacherHeader />
           <TeacherDashBoard />
+        </Route>
         </Route>
         <Route path='/createlesson'>
           <TeacherHeader />
