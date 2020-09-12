@@ -2,28 +2,13 @@ import React, { useState } from 'react'
 import Modal from '../Modal/Modal'
 import CreateStudentForm from '../CreateStudentForm/CreateStudentForm'
 import StudentDetails from '../StudentDetails/StudentDetails'
+import { connect } from "react-redux";
 import './TeacherRoster.scss'
 
-const TeacherRoster = () => {
+const TeacherRoster = ({ students }) => {
   const [ isAddingStudent, toggleAddStudent ] = useState(false)
   const [ isViewingStudentDetails, toggleStudentDetails] = useState(false)
   const [ foundStudent, setFoundStudent ] = useState({})
-
-  let students = [   
-    {   
-      "teacher": 1,   
-      "id": 1,   
-      "first_name": "Marley",   
-      "last_name": "Bronson",   
-      "age": 9   
-    }, {   
-      "teacher": 1,   
-      "id": 2,   
-      "first_name": "Caroline",   
-      "last_name": "Podesta",   
-      "age": 10   
-    }   
-  ]
 
   const renderStudentNames = () => {
     return students.map(student => {
@@ -72,6 +57,8 @@ const TeacherRoster = () => {
   )
 }
 
+const mapStateToProps = ({ setStudents }) => ({
+  students: setStudents
+})
 
-
-export default TeacherRoster
+export default connect(mapStateToProps)(TeacherRoster)
