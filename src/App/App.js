@@ -14,10 +14,10 @@ function App() {
   return (
     <main className="App">
       <Switch>
-        <Route path='/login'>
+        {/* <Route path='/login'>
           <TeacherHeader />
           <TeacherLogin />
-        </Route>
+        </Route> */}
         <Route path="/teacherdashboard">
           <TeacherHeader />
           <TeacherDashBoard />
@@ -35,13 +35,14 @@ function App() {
           <TeacherLessons />
         </Route>
       </Switch>
-      <StudentDashboard />
+      {/* <StudentDashboard /> */}
     </main>
   )
 }
 
 const mapStateToProps = ({ setStudent }) => ({
   student: setStudent
+  // lessons: setLesssons
 })
 
 export default connect(mapStateToProps)(App);

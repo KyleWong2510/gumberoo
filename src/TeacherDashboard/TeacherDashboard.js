@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './TeacherDashboard.scss'
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { getLessons } from "../thunks/getLessons";
+import { getStudents } from "../thunks/getStudents"
+import { getTeacher } from "../thunks/getTeacher"
 
-const TeacherDashboard = () => {
+
+const TeacherDashboard = (props) => {
+  const [error, setError] = useState('')
+
+  const getTeacherInformation = async () => {
+    await props.getTeacher()
+  }
+
+  const getTeachersStudents = async () => {
+    await props.getStudents
+  }
+
+  useEffect(() =>{
+    try{
+      getTeacherInformation()
+    } catch(error) {
+      setError(error)
+    }
+  }, [])
 
   return (
     <section className="teacherDashBoard">
@@ -19,4 +42,21 @@ const TeacherDashboard = () => {
   )
 }
 
-export default TeacherDashboard;
+const mapStateToProps = ({ setStudents, setLessons, setTeacher }) => ({
+ students: setStudents,
+ lessons: setLessons,
+ teacher: setTeacher
+})
+
+const mapDispatchToProps = (dispatch) => 
+  bindActionCreators(
+    {
+      getLessons, 
+      getStudents,
+      getTeacher
+    },
+    dispatch
+  )
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeacherDashboard);
