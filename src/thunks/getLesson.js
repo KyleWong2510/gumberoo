@@ -1,7 +1,7 @@
 import { isLoading, hasErrored, setLesson } from '../actions'
 
 export const getLesson = (lessonId) => {
-  const url = `https://cors-anywhere.herokuapp.com/https://gumberoo-backend.herokuapp.com/api/v1/lessons/${lessonId}`
+  const url = `https://gumberoo-backend.herokuapp.com/api/v1/lessons/${lessonId}`
 
   return async (dispatch) => {
     try {
