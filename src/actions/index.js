@@ -8,9 +8,15 @@ export const setStudents = students => ({
   students
 })
 
+<<<<<<< HEAD
 export const addStudent = student => ({
   type: 'ADD_STUDENT',
   student
+=======
+export const setStudentId = studentId => ({
+  type: 'SET_STUDENT_ID',
+  studentId
+>>>>>>> master
 })
 
 export const setStudent= student => ({

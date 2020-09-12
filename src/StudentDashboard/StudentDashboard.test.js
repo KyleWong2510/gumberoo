@@ -12,8 +12,14 @@ import { lesson } from '../mockData/mockData'
 
 
 const store = createStore(rootReducer, {
-  setStudent:'Bill',
-  setLesson: lesson
+  setStudent: {
+    id: 4,
+    first_name: 'Bill',
+    last_name: 'Wilke'
+  },
+  setLesson: lesson,
+  setStudents: [{id: 4, first_name: 'Bill', lastName: 'Wilke'}],
+  setStudentId: 4
 })
 describe('StudentDashboards', () => {
   it('Should render the app name and student name', () => {
@@ -25,7 +31,7 @@ describe('StudentDashboards', () => {
       </MemoryRouter>
     )
     const appName = getByText('gumberoo')
-    const studentName = getByText('Bill')
+    const studentName = getByText('Bill Wilke')
 
     expect(appName).toBeInTheDocument()
     expect(studentName).toBeInTheDocument()

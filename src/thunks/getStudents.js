@@ -1,7 +1,7 @@
 import { isLoading, hasErrored, setStudents } from '../actions'
 
-export const getStudents = () => {
-  const url =`https://cors-anywhere.herokuapp.com/https://gumberoo-backend.herokuapp.com/api/v1/teachers/1/students/`
+export const getStudents = (teacherId) => {
+  const url = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${teacherId}/students`
 
   return async (dispatch) => {
     try {
@@ -12,7 +12,7 @@ export const getStudents = () => {
       }
       const data = await response.json()
       dispatch(isLoading(false))
-      dispatch(setStudents(data))
+      dispatch(setStudents( data))
     } catch (error) {
       dispatch(hasErrored(error.message))
     }

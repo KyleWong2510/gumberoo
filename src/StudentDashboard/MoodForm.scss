@@ -1,10 +1,10 @@
 .student-mood-input {
   height: 15vh;
-
+  margin-top: 2vh;
 }
 
 .submit-mood-button {
-  margin-top: 15vh;
+  margin-top: 10vh;
   height: 5vh;
   width: 15vw;
   background-color: #CC79A7;
@@ -13,8 +13,14 @@
   cursor: pointer;
   border: 4px ridge #0072B2
 }
-h4 {
+
+
+.students-mood-form {
+  display: flex;
   text-align: center;
-  margin: auto;
-  margin-bottom: 10px;
+  // flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px 10px 10px 10px;
 }

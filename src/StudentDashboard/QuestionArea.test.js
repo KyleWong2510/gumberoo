@@ -11,8 +11,8 @@ import { lesson } from '../mockData/mockData'
 
 const questionProp =  {
   reading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-  desc: 'Which is NOT a planet?',
-  answers: [{desc: 'Pluto', correct: true}, {desc: 'Venus', correct: false}, {desc: 'Jupiter', correct: false}, {desc: 'Mars', correct: false}]
+  question: 'Which is NOT a planet?',
+  answers: [{answer: 'Pluto', correct: true}, {answer: 'Venus', correct: false}, {answer: 'Jupiter', correct: false}, {answer: 'Mars', correct: false}]
 }
 
 
@@ -20,7 +20,6 @@ const store = createStore(rootReducer, {
   setStudent:'Bill',
   setLesson: lesson
 })
-
 describe('QuestionArea', () => {
   it('should render without crashing', () => {
     const { getByText } = render(
