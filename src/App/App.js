@@ -19,14 +19,14 @@ function App() {
 
   return (
     <main className="App">
+        <Route exact path='/'>
+          <TeacherHeader />
+          <TeacherDashBoard />
+        </Route>
       <Switch>
         <Route path='/login'>
           <TeacherHeader />
           <TeacherLogin />
-        <Route path="/teacherdashboard">
-          <TeacherHeader />
-          <TeacherDashBoard />
-        </Route>
         </Route>
         <Route path='/createlesson'>
           <TeacherHeader />
