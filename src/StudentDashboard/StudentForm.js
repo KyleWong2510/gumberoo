@@ -6,8 +6,6 @@ import { setStudent, setLesson, setStudentId } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-
-
 function StudentForm(props) {
   const [studentNameInput, setStudentNameInput] = useState('')
 

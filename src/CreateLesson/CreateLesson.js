@@ -10,6 +10,7 @@ const CreateLesson = () => {
   const deleteQuestion = (e) => {
     //eslint-disable-next-line
     setQuestions(questions.filter(ques => ques.id != e.target.parentNode.id))
+    console.log(questions)
   }
 
   return (

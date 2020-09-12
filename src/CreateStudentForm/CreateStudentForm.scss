@@ -1,0 +1,29 @@
+.create-student-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 90%;
+  width: 100%;
+
+  section {
+    height: 10%;
+    width: 50%;
+  }
+}
+
+.student-name-label {
+  height: 100%;
+  width: 40%
+}
+
+.student-name-input {
+  height: 100%;
+  padding: 2%;
+  width: 60%;
+}
+
+.create-student-submit-btn {
+  height: 10%;
+  width: 20%
+}
