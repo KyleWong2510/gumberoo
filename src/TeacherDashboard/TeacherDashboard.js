@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './TeacherDashboard.scss'
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getLessons } from "../thunks/getLessons";
 import { getStudents } from "../thunks/getStudents"
@@ -18,7 +18,7 @@ const TeacherDashboard = (props) => {
     await props.getStudents
   }
 
-  useEffect(() =>{
+  useEffect(async () => {
     try{
       getTeacherInformation()
     } catch(error) {
