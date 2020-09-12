@@ -40,7 +40,7 @@ const TeacherRoster = () => {
   }
 
   const renderStudentDetailsModal = () => {
-    if (isViewingStudentDetails === true) {
+    if (isViewingStudentDetails) {
       return (
         <Modal 
           content={<StudentDetails student={foundStudent}/>}

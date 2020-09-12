@@ -34,12 +34,12 @@ function QuestionArea(props) {
   return (
     <section className='question-area'>
       <h3 className='display-question'>
-        {props.question.desc}
+        {props.question.question}
       </h3>
   
       {answers.map((answer, i) => {
         return (
-          <button key={i++} className='question-button' value={answer.correct} onClick={e => answerClick(e)} type='submit'>{answer.desc}</button>
+          <button key={i++} className='question-button' value={answer.correct} onClick={e => answerClick(e)} type='submit'>{answer.answer}</button>
         )
       })}
    

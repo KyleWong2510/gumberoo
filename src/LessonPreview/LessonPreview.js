@@ -22,14 +22,14 @@ const LessonPreview = ({
       name: lessonTitleText,
       questions: questions,
     };
-    addLesson(lesson);
     postLesson(lesson)
+    addLesson(lesson);
     clearLesson();
   };
 
   const postLesson = (lesson) => {
-    const url = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${teacherId}/lessons`
-    return fetch(url, {
+    const url = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${teacherId}/lessons/`
+    return fetch(`https://cors-anywhere.herokuapp.com/${url}`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(lesson)
@@ -50,7 +50,7 @@ const LessonPreview = ({
         <QuestionCard
           key={question.id}
           id={question.id}
-          question={question.desc}
+          question={question.question}
           allAnswers={question.answers}
           reading={question.reading}
           deleteQuestion={deleteQuestion}
