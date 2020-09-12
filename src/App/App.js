@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 import StudentDashboard from '../StudentDashboard/StudentDashboard'
 import { connect } from 'react-redux'
@@ -15,21 +15,6 @@ import { setStudent, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
 
 function App(props) {
-
-  // const [error, setError] = useState('')
-
-
-  // const getTeachersStudents = async () => {
-  //   await props.getStudents(props.teacherId)
-  // }
-
-  // useEffect(() => {
-  //   try {
-  //     getTeachersStudents()
-  //   } catch (error) {
-  //     setError(error)
-  //   }
-  // }, [])
 
   return (
     <main className="App">
@@ -57,7 +42,6 @@ function App(props) {
           return <StudentDashboard 
             lessonId={lessonId} 
             teacherId={teacherId}
-            // students={props.getStudents(teacherId)}
             />
           }}
         />

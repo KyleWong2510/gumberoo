@@ -11,7 +11,6 @@ export const getLesson = (lessonId) => {
         throw Error(response.statusText)
       }
       const data = await response.json()
-      console.log(data)
       dispatch(isLoading(false))
       dispatch(setLesson( data ))
     } catch (error) {

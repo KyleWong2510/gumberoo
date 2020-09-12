@@ -31,9 +31,12 @@ function StudentDashboard(props) {
     } catch (error) {
       setError(error)
     }
+    // eslint-disable-next-line
   }, [])
+
   return (
     <section className='student-body'>
+      {error && <p>Error</p>}
       {props.lessonOver && <MoodForm />}
       {!props.studentId && <StudentForm lessonId={props.lessonId} teacherId={props.teacherId}/>}
       {(props.studentId && !props.lessonOver) && 

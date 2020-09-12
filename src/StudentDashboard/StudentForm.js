@@ -5,7 +5,6 @@ import { getLesson } from '../thunks/getLesson'
 import { setStudent, setLesson, setStudentId } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { lesson } from '../mockData/mockData'
 
 
 

@@ -20,16 +20,6 @@ function QuestionArea(props) {
   const answersCopy = props.question.answers.map(answer => answer)
   shuffle(answersCopy)
   
-  const answerClick = (e) => {
-    if(e.target.value === "true") {
-      props.incrementScore(1)
-    }
-    if(props.lesson.questions.length === (props.currentQuestion + 1)) {
-      props.setLessonOver(true)
-    }
-    e.preventDefault()
-    props.incrementCurrentQuestion()
-  }
   return (
     <section className='question-area'>
       <h3 className='display-question'>

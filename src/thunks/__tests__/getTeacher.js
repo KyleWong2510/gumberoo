@@ -18,9 +18,7 @@ describe('getTeacher', () => {
     mockDispatch = jest.fn()
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
-      json: () => Promise.resolve({
-         teacher: mockTeacher
-      })
+      json: () => Promise.resolve(mockTeacher)
     }))
   })
 

@@ -35,7 +35,7 @@ function MoodForm(props) {
           
          <h3 className='finished-message'>Great job {props.studentName}</h3>
           <br></br>
-          <h4>How do you feel?</h4>
+          <h3 className='finished-message'>How do you feel?</h3>
           <textarea
             maxLength='100'
             className='student-mood-input' 
