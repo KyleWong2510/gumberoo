@@ -27,7 +27,7 @@ function App(props) {
         <Route path="/teacherdashboard">
           <TeacherHeader />
           <TeacherDashBoard />
-        </Route >
+        </Route>
         <Route path='/createlesson'>
           <TeacherHeader />
           <CreateLesson />

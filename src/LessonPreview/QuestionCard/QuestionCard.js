@@ -1,11 +1,11 @@
 import React from 'react'
 import './QuestionCard.scss'
 
-const QuestionCard = ({ id, question, allAnswers, reading, deleteQuestion})=> {
-  let correctAnswer = allAnswers.find(answer => answer.correct === true).desc
+const QuestionCard = ({ id, question, allAnswers, reading, deleteQuestion })=> {
+  let correctAnswer = allAnswers.find(answer => answer.correct === 'true').answer
   let incorrectAnswers = allAnswers
-    .filter(answer => answer.correct === false)
-    .map((answer, i )=> <p key={i++} className='incorrect-answers'>{answer.desc}</p>)
+    .filter(answer => answer.correct === 'false')
+    .map((answer, i )=> <p key={i++} className='incorrect-answers'>{answer.answer}</p>)
 
   return (
     <section id={id} key={id} className='question-card'>
