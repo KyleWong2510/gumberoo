@@ -14,7 +14,7 @@ describe('getTeacher', () => {
       "first_name": "test teacher",
       "last_name": "test teacher last"
     }
-    mockUrl = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${mockTeacherId}`
+    mockUrl = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/${mockTeacherId}/`
     mockDispatch = jest.fn()
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,

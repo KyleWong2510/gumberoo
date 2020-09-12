@@ -19,7 +19,7 @@ export const setStudent= student => ({
 })
 
 export const setLessons= lessons => ({
-  type: 'SET_STUDENT',
+  type: 'SET_LESSONS',
   lessons
 })
 

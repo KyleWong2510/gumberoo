@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import StudentDashboard from '../StudentDashboard/StudentDashboard'
 import { connect } from 'react-redux'
 import TeacherHeader from '../TeacherHeader/TeacherHeader'
+import TeacherDashBoard from '../TeacherDashboard/TeacherDashboard'
 import TeacherLogin from '../TeacherLogin/TeacherLogin'
 import TeacherRoster from '../TeacherRoster/TeacherRoster'
 import TeacherLessons from '../TeacherLessons/TeacherLessons'
@@ -23,6 +24,10 @@ function App(props) {
           <TeacherHeader />
           <TeacherLogin />
         </Route>
+        <Route path="/teacherdashboard">
+          <TeacherHeader />
+          <TeacherDashBoard />
+        </Route >
         <Route path='/createlesson'>
           <TeacherHeader />
           <CreateLesson />

@@ -12,7 +12,7 @@ export const getLessons = (teacherId) => {
       }
       const data = await response.json()
       dispatch(isLoading(false))
-      dispatch(setLessons( data.data ))
+      dispatch(setLessons(data))
     } catch (error) {
       dispatch(hasErrored(error.message))
     }
