@@ -4,13 +4,8 @@ import './QuestionCard.scss'
 const QuestionCard = ({ id, question, allAnswers, reading, deleteQuestion})=> {
   let correctAnswer = allAnswers.find(answer => answer.correct === 'true').answer
   let incorrectAnswers = allAnswers
-<<<<<<< HEAD
-    .filter(answer => answer.correct === 'false')
-    .map(answer => <p className='incorrect-answers'>{answer.answer}</p>)
-=======
     .filter(answer => answer.correct === false)
-    .map((answer, i )=> <p key={i++} className='incorrect-answers'>{answer.desc}</p>)
->>>>>>> master
+    .map((answer, i )=> <p key={i++} className='incorrect-answers'>{answer.answer}</p>)
 
   return (
     <section id={id} key={id} className='question-card'>
