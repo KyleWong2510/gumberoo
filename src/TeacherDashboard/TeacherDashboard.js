@@ -6,7 +6,6 @@ import { getLessons } from "../thunks/getLessons";
 import { getStudents } from "../thunks/getStudents"
 import { getTeacher } from "../thunks/getTeacher"
 
-
 const TeacherDashboard = (props) => {
   const [error, setError] = useState('')
 
@@ -15,12 +14,18 @@ const TeacherDashboard = (props) => {
   }
 
   const getTeachersStudents = async () => {
-    await props.getStudents
+    await props.getStudents()
+  }
+
+  const getTeachersLessons = async () => {
+    await props.getLessons()
   }
 
   useEffect(async () => {
     try{
-      getTeacherInformation()
+      await getTeacherInformation()
+      await getTeachersStudents()
+      // await getTeachersLessons()
     } catch(error) {
       setError(error)
     }
@@ -28,7 +33,7 @@ const TeacherDashboard = (props) => {
 
   return (
     <section className="teacherDashBoard">
-      <h1>Welcome, Teacher</h1>
+      <h1>Welcome, {props.teacher.first_name}</h1>
       <h3>gumberoo is an app aimed to help Teachers achieve a check of understanding from their students.  A teacher may create a lesson 
         based on topics taught, and the app will auto generate a link that may be shared for all students.  Based on the results of the 
         lesson, the teacher will be able to review results to see how well a student was able to digest that topic. 

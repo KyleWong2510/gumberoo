@@ -8,18 +8,6 @@ import { bindActionCreators } from "redux";
 const TeacherLessons = (props) => {
   const [error, setError] = useState('')
 
-  // const getTeachersLessons = async () => {
-    // await props.getLessons(props.teacher.ID)
-  // }
-
-  // useEffect(() => {
-    // try{
-        // getTeachersLessons()
-    // } catch {
-      // setError(error)
-    // }
-  // }, [])
-
 // Upon load of test Teacher:
 // a GET will occur to grab the existing lessons saved for a teacher. 
 // whenever a new lesson is created - it is saved to the store and will
