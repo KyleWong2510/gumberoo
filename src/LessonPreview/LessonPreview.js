@@ -19,8 +19,10 @@ const LessonPreview = ({
   const createLesson = (e) => {
     e.preventDefault();
     const lesson = {
-      name: lessonTitleText,
-      questions: questions,
+      lesson: {
+        name: lessonTitleText,
+        questions: questions,
+      }
     };
     postLesson(lesson)
     addLesson(lesson);
