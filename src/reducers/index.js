@@ -8,6 +8,8 @@ import { setStudents } from './setStudents'
 import { setLessonOver } from './setLessonOver'
 import { setScore } from './setScore'
 import { addLesson } from './addLesson'
+import { setLessons } from './setLessons'
+import { setTeacher } from './setTeacher'
 
 export const rootReducer = combineReducers({
   setStudent,
@@ -18,5 +20,7 @@ export const rootReducer = combineReducers({
   setStudents,
   setLessonOver, 
   setScore,
-  addLesson
+  addLesson,
+  setLessons,
+  setTeacher
 })
