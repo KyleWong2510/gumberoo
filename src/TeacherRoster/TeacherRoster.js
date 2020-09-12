@@ -19,7 +19,7 @@ const TeacherRoster = ({ students }) => {
   }
 
   const findStudent = (e) => {
-    const found = students.find(student => e.target.id == student.id)
+    const found = students.find(student => +e.target.id === student.id)
     setFoundStudent(found)
     toggleStudentDetails(true)
   }

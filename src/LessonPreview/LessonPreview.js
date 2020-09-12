@@ -18,10 +18,17 @@ const LessonPreview = ({
 
   const createLesson = (e) => {
     e.preventDefault();
+    const formattedQuestions = questions.map(question => {
+      return {
+        question: question.question,
+        reading: question.reading,
+        answers: question.answers
+      }
+    })
     const lesson = {
       lesson: {
         name: lessonTitleText,
-        questions: questions,
+        questions: formattedQuestions,
       }
     };
     postLesson(lesson)
