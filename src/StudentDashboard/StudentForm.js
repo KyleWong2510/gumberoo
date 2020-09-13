@@ -3,8 +3,9 @@ import './StudentForm.scss'
 import { getStudents } from '../thunks/getStudents'
 import { getLesson } from '../thunks/getLesson'
 import { setStudent, setLesson, setStudentId } from '../actions/index'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 function StudentForm(props) {
   const [studentNameInput, setStudentNameInput] = useState('')
@@ -12,7 +13,7 @@ function StudentForm(props) {
 
   const students = props.students.map((student, i)=> {
     return (
-      <option value={student.id} key={i++}>{student.first_name}</option>
+      <option value={student.id} key={i++}>{`${student.first_name} ${student.last_name}`}</option>
     )
   })
   
@@ -35,7 +36,7 @@ function StudentForm(props) {
           onChange={e => setStudentNameInput(e.target.value)}
           data-testid='nameInput'
         >
-          <option>Select Your Name</option>
+          <option value={null}>Select Your Name</option>
           {students}
         </select>
         <button className='submit-name-button' aria-label=
@@ -46,10 +47,25 @@ function StudentForm(props) {
   )
 }
 
-const mapStateToProps = ({ setLesson, setStudents, isLoading }) => ({
+StudentForm.propTypes = {
+  getLesson: PropTypes.func.isRequired,
+  getStudent: PropTypes.func,
+  isLoading: PropTypes.bool.isRequired,
+  lesson: PropTypes.object.isRequired,
+  lessonId: PropTypes.string.isRequired,
+  setLesson: PropTypes.func.isRequired,
+  setStudent: PropTypes.func.isRequired,
+  setStudentId: PropTypes.func.isRequired,
+  students: PropTypes.array.isRequired,
+  teacherId: PropTypes.string.isRequired,
+  hasErrored: PropTypes.string.isRequired
+}
+
+const mapStateToProps = ({ setLesson, setStudents, isLoading, hasErrored }) => ({
   lesson: setLesson,
   students: setStudents,
-  isLoading: isLoading
+  isLoading: isLoading,
+  hasErrored: hasErrored
 })
 
 const mapDispatchToProps = dispatch => (

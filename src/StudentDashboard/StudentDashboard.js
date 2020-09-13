@@ -10,7 +10,7 @@ import QuestionArea from './QuestionArea';
 import { connect } from 'react-redux'
 import Spritesheet from 'react-responsive-spritesheet'
 import panda from './assets/PandaJumpAndRandom.png'
-
+import PropTypes from 'prop-types';
 
 import './StudentDashboard.scss'
 
@@ -78,6 +78,24 @@ function StudentDashboard(props) {
       }
     </section>
   )
+}
+
+StudentDashboard.propTypes = {
+  currentQuestion: PropTypes.number.isRequired,
+  getLesson: PropTypes.func.isRequired,
+  getStudent: PropTypes.func,
+  hasErrored: PropTypes.string.isRequired,
+  incrementCurrentQuestion: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  lesson: PropTypes.object.isRequired,
+  lessonId: PropTypes.string.isRequired,
+  lessonOver: PropTypes.bool.isRequired,
+  score: PropTypes.number.isRequired,
+  setLessonOver: PropTypes.func.isRequired,
+  student: PropTypes.object,
+  studentId: PropTypes.string,
+  students: PropTypes.array.isRequired,
+  teacherId: PropTypes.string.isRequired
 }
 
 const mapStateToProps = ({ setStudent, setLesson, setCurrentQuestion, setLessonOver, setScore, isLoading, hasErrored, setStudents, setStudentId}) => ({

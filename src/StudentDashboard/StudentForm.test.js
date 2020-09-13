@@ -10,7 +10,8 @@ import { createStore } from 'redux'
 import { rootReducer } from '../reducers';
 import { lesson } from '../mockData/mockData'
 
-
+const lessonId = '1'
+const teacherId = '1'
 const store = createStore(rootReducer, {
     setStudent: {
       id: 4,
@@ -18,15 +19,16 @@ const store = createStore(rootReducer, {
       last_name: 'Wilke'
     },
     setLesson: lesson,
-    setStudents: [{id: 4, first_name: 'Bill', lastName: 'Wilke'}],
-    // setStudentId: 2
+    setStudents: [{id: 4, first_name: 'Bill', last_name: 'Wilke'}],
+    setStudentId: "2",
+    // setLessonId: "1"
 })
 describe('StudentForm', () => {
   it('should render without crashing', () => {
     const { getByText } = render(
       <BrowserRouter>
         <Provider store={store}>
-          <StudentForm />
+          <StudentForm lessonId= {lessonId} teacherId={teacherId}/>
         </Provider>
       </BrowserRouter>
     );
@@ -39,7 +41,7 @@ describe('StudentForm', () => {
    const { getByText, getByTestId } = render(
      <MemoryRouter>
        <Provider store={store}>
-         <StudentForm/>
+         <StudentForm lessonId= {lessonId} teacherId={teacherId}/>
        </Provider>
      </MemoryRouter>
    )
@@ -54,7 +56,7 @@ describe('StudentForm', () => {
   const { getByDisplayValue, getByTestId } = render(
     <MemoryRouter>
       <Provider store={store}>
-        <StudentForm/>
+        <StudentForm lessonId= {lessonId} teacherId={teacherId}/>
       </Provider>
     </MemoryRouter>
    ) 
@@ -63,7 +65,7 @@ describe('StudentForm', () => {
 
   fireEvent.change(nameDropdown, {target: { value: 4}})
   
-  const nameChange = getByDisplayValue('Bill')
+  const nameChange = getByDisplayValue('Bill Wilke')
 
   expect(nameChange).toBeInTheDocument()
 
