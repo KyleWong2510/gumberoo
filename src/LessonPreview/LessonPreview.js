@@ -4,6 +4,7 @@ import QuestionCard from "./QuestionCard/QuestionCard";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addLesson } from "../actions";
+import PropTypes from 'prop-types'
 
 const LessonPreview = ({
   questions,
@@ -11,7 +12,7 @@ const LessonPreview = ({
   lessonTitleText,
   setLessonTitleText,
   deleteQuestion,
-  addLesson,
+  addLesson
 }) => {
   const teacherId = 1
   const isEnabled = lessonTitleText.trim() === '' || questions.length < 1
@@ -93,3 +94,12 @@ const mapDispatchToProps = (dispatch) =>
   );
 
 export default connect(null, mapDispatchToProps)(LessonPreview);
+
+LessonPreview.propTypes = {
+  questions: PropTypes.array.isRequired,
+  setQuestions: PropTypes.func.isRequired,
+  lessonTitleText: PropTypes.string.isRequired,
+  setLessonTitleText: PropTypes.func.isRequired,
+  deleteQuestion: PropTypes.func.isRequired,
+  addLesson: PropTypes.func.isRequired
+}
