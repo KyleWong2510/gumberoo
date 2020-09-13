@@ -14,6 +14,10 @@ export const lesson = {
   ]
 }
 
+export const student = {id: 42, first_name: 'Willie', last_name: 'Nelson'}
+
+export const teacher = {id: 12, first_name: 'Valerie', last_name: 'Frizzle'}
+
 export const teacherLesson = {
     name: 'North American Mammals',
     questions: [

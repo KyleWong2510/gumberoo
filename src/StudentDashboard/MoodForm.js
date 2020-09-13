@@ -20,7 +20,7 @@ function MoodForm(props) {
 
   const postScore = () => {
     setIsSumbitted(true)
-    const url = `https://cors-anywhere.herokuapp.com/https://gumberoo-backend.herokuapp.com/api/v1/lessons/${props.student.id}`
+    const url = `https://gumberoo-backend.herokuapp.com/api/v1/lessons/${props.student.id}`
     fetch(url, {
       method: 'POST',
       headers: {
@@ -37,7 +37,7 @@ function MoodForm(props) {
       {!isSubmitted && 
         <section className='students-mood-form'>
           
-         <h3 className='finished-message'>Great job {props.studentName}</h3>
+         <h3 className='finished-message'>Great job {props.student.first_name}!</h3>
           <br></br>
           <h3 className='finished-message'>How do you feel?</h3>
           <textarea
