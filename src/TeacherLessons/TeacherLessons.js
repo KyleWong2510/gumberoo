@@ -28,19 +28,6 @@ const TeacherLessons = ({ students, lessons }) => {
     } 
   }
 
-  // Upon load of test Teacher:
-  // a GET will occur to grab the existing lessons saved for a teacher.
-  // whenever a new lesson is created - it is saved to the store and will
-  // prompt a rerender on this page as we list out the lessons
-  // Lesson Title <- clickable for stats on the lesson
-  // Lesson Link
-
-  // State of the lessons added from Redux? Or delete from store via redux
-  // const deleteLesson = (e) => {
-  //   //eslint-disable-next-line
-  //   setLessons(lessons.filter(lesson => lesson.id != e.target.parentNode.id))
-  // }
-
   // eslint-disable-next-line
   let lessonCard;
   return (
