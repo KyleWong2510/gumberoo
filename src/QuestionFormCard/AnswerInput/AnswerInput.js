@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const AnswerInput = ({ correct, answerText, setAnswerText, testId }) => {
   return (
@@ -19,3 +20,10 @@ const AnswerInput = ({ correct, answerText, setAnswerText, testId }) => {
 // that has a delete capacity.
 
 export default AnswerInput
+
+AnswerInput.propTypes = {
+  correct: PropTypes.bool.isRequired,
+  answerText: PropTypes.string.isRequired,
+  setAnswerText: PropTypes.func.isRequired,
+  testId: PropTypes.string.isRequired
+}

@@ -3,6 +3,7 @@ import './CreateStudentForm.scss'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addStudent } from "../actions";
+import PropTypes from 'prop-types'
 
 const CreateStudentForm = ({ completeForm, addStudent }) => {
   const [studentFirstName, setStudentFirstName] = useState('')
@@ -88,3 +89,8 @@ const mapDispatchToProps = (dispatch) =>
   )
 
 export default connect(null, mapDispatchToProps)(CreateStudentForm)
+
+CreateStudentForm.propTypes = {
+  completeForm: PropTypes.func.isRequired,
+  addStudent: PropTypes.func.isRequired
+}

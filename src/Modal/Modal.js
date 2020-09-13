@@ -1,5 +1,6 @@
 import React from 'react'
 import './Modal.scss'
+import PropTypes from 'prop-types'
 
 const Modal = ({ content, toggleDisplay }) => {
   return (
@@ -11,3 +12,8 @@ const Modal = ({ content, toggleDisplay }) => {
 }
 
 export default Modal
+
+Modal.propTypes = {
+  content: PropTypes.element.isRequired,
+  toggleDisplay: PropTypes.func.isRequired
+}

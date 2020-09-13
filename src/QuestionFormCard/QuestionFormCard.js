@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./QuestionFormCard.scss";
 import AnswerInput from "./AnswerInput/AnswerInput";
 import QuestionInput from "./QuestionInput/QuestionInput";
+import PropTypes from 'prop-types'
 
 const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQuestions}) => {
   const [questionText, setQuestionText] = useState("");
@@ -112,3 +113,10 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
 };
 
 export default QuestionFormCard;
+
+QuestionFormCard.propTypes = {
+  lessonTitleText: PropTypes.string.isRequired, 
+  setLessonTitleText: PropTypes.func.isRequired, 
+  questions: PropTypes.array.isRequired, 
+  setQuestions: PropTypes.func.isRequired
+}
