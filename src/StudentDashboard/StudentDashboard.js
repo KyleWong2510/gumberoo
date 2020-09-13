@@ -49,8 +49,8 @@ function StudentDashboard(props) {
         <section className='student-dash'>
           <header className='student-header'>
             <h1 className='app-name'>gumberoo</h1>
-            <h2>{props.lesson.name}</h2>
-            <h4>{`${props.student.first_name} ${props.student.last_name}`}</h4>
+            <h2 className='lesson-name'>{props.lesson.name}</h2>
+            <h4 className='student-name'>{`${props.student.first_name} ${props.student.last_name}`}</h4>
           </header>
           <div className={props.lesson.questions[props.currentQuestion].reading ? 'reading' : 'hidden'}>
           {props.lesson.questions[props.currentQuestion].reading}
