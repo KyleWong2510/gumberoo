@@ -1,5 +1,6 @@
 export const lesson = {
   name: 'Test Title',
+  id: 123123,
   questions: [
     {
       question: 'Which is NOT a planet?',
@@ -18,26 +19,26 @@ export const student = {id: 42, first_name: 'Willie', last_name: 'Nelson'}
 
 export const teacher = {id: 12, first_name: 'Valerie', last_name: 'Frizzle'}
 
-export const teacherLesson = {
+export const lesson2 = {
     name: 'North American Mammals',
     questions: [
-      {desc: 'What is the largest North American Mammal',
+      {question: 'What is the largest North American Mammal',
         reading: 'Today we learned about North American Mammals, how cool!',
         answers:[
           {
-            desc: 'Dolphin',
+            answer: 'Dolphin',
             correct: false,
           },
           {
-            desc: 'Grizzly Bear',
+            answer: 'Grizzly Bear',
             correct: false,
           },
           {
-            desc: 'Bison',
+            answer: 'Bison',
             correct: true,
           },
           {
-            desc: 'Mountain Lion',
+            answer: 'Mountain Lion',
             correct: false
           }
         ]

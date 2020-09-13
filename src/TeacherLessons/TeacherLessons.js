@@ -28,13 +28,11 @@ const TeacherLessons = ({ students, lessons }) => {
     } 
   }
 
-  // eslint-disable-next-line
-  let lessonCard;
   return (
     <main className="teacher-lessons">
       <h1>Lessons</h1>
       {lessons.length ? (
-        (lessonCard = lessons.map((lesson) => {
+        (lessons.map((lesson) => {
           return (
             <LessonCard
               id={lesson.id}
