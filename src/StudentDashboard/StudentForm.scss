@@ -11,14 +11,17 @@
   background-color: #F0E442;
   border: 10px outset #D55E00;
   box-shadow: 3px 2px 6px;
+  font-size: 2em;
 }
 
 .student-names-input {
   margin-top: 10vh;
-  height: 7vh;
+  height: 14vh;
   width: 20vw;
   border: 4px ridge #0072B2;
   border-radius: 5px;
+  font-size: .6em;
+  font-family: 'OpenDyslexic-regular';
 }
 
 .parent-section {
@@ -26,12 +29,23 @@
 }
 
 .submit-name-button {
-  margin-top: 15vh;
-  height: 5vh;
-  width: 15vw;
+  margin-top: 10vh;
+  height: 10vh;
+  width: 18vw;
   background-color: #CC79A7;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  border: 4px ridge #0072B2
+  border: 4px ridge #0072B2;
+  font-family: 'OpenDyslexic-regular';
+  font-size: 1.5em;
+  padding-bottom: 13vh;
+  
+}
+
+.submit-name-button:hover {
+  cursor: pointer;
+  transform: scale(1.33);
+  transition: transform .7s;
+  opacity: .98;
 }
