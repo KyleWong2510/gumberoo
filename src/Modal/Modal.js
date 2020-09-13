@@ -5,7 +5,7 @@ const Modal = ({ content, toggleDisplay }) => {
   return (
     <section className='modal'>
       <button onClick={toggleDisplay}>X</button>
-      {content}
+      {content || <p data-testid='no-content'>Sorry, no content at this time.  Please try again.</p>}
     </section>
   )
 }
