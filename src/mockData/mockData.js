@@ -44,3 +44,24 @@ export const teacherLesson = {
       }
     ]
 }
+
+export const student1 = {
+  teacher: 1,
+  id: 1,
+  first_name: 'Bilbo',
+  last_name: 'Baggins'
+}
+
+export const student2 = {
+  teacher: 1,
+  id: 2,
+  first_name: 'Jack',
+  last_name: 'Sparrow'
+}
+
+export const student3 = {
+  teacher: 1,
+  id: 3,
+  first_name: 'Tilda',
+  last_name: 'Swinton'
+}

@@ -25,4 +25,3 @@ Please check the type of change your PR introduces:
 <!-- If this introduces a breaking change, please describe the impact and migration path for existing applications below. -->
 ## Other information
 <!-- Any other information that is important to this PR such as screenshots of how the component looks before and after the change. -->
-
