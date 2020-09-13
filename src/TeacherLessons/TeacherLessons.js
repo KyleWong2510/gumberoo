@@ -3,25 +3,27 @@ import "./TeacherLessons.scss";
 import LessonCard from "./LessonCard/LessonCard";
 import { connect } from "react-redux";
 import Modal from '../Modal/Modal'
+import LessonDetails from "../LessonDetails/LessonDetails"
 // import { setLessons } from "../actions";
 // import { bindActionCreators } from "redux";
 
 const TeacherLessons = ({ students, lessons }) => {
   const [foundLesson, setFoundLesson] = useState({})
+  const [isViewingLessonDetails, toggleLessonDetails] = useState(false)
+  const [isAddingLesson, toggleAddLesson] = useState(false)
 
   const findLesson = (e) => {
     const foundTheLesson = lessons.find(lesson => +e.target.parentNode.id === lesson.id)
     setFoundLesson(foundTheLesson)
-    // toggleLessonDetails(true)
+    toggleLessonDetails(true)
   }
 
   const renderLessonDetailsModal = () => {
-    if (isViewingStudentDetails) {
+    if (isViewingLessonDetails) {
       return (
         <Modal 
-        // need to create a lesson Details Component
           content={<LessonDetails lesson={foundLesson}/>}
-          toggleDisplay={() => toggleStudentDetails(false)}
+          toggleDisplay={() => toggleLessonDetails(false)}
         />
       )
     } 
@@ -58,9 +60,10 @@ const TeacherLessons = ({ students, lessons }) => {
         }))
       ) : (
         <p className="no-lessons-message">
-          Please click on the "Create a Lesson" Tab to create a lessson.
+          Please click on the "Create a Lesson" Tab to create a lesson.
         </p>
       )}
+      {renderLessonDetailsModal()}
       {/* <LessonCard deleteLesson={deleteLesson}/> */}
     </main>
   );
