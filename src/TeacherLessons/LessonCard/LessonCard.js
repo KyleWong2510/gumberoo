@@ -1,5 +1,6 @@
 import React from 'react'
 import './LessonCard.scss'
+import PropTypes from 'prop-types'
 
 const LessonCard = ({ id, lessonTitle, lessonLink, findLesson, deleteLesson})=> {
 
@@ -13,3 +14,11 @@ const LessonCard = ({ id, lessonTitle, lessonLink, findLesson, deleteLesson})=> 
 }
 
 export default LessonCard
+
+LessonCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  lessonTitle: PropTypes.string.isRequired,
+  lessonLink: PropTypes.string.isRequired,
+  findLesson: PropTypes.func.isRequired,
+  deleteLesson: PropTypes.func.isRequired
+}

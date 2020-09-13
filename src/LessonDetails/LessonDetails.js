@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const LessonDetails = ({ lesson }) => {
 return(
@@ -10,3 +11,7 @@ return(
 }
 
 export default LessonDetails
+
+LessonDetails.propTypes = {
+  lesson: PropTypes.object.isRequired
+}

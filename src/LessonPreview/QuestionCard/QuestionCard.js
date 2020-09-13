@@ -1,5 +1,6 @@
 import React from 'react'
 import './QuestionCard.scss'
+import PropTypes from 'prop-types'
 
 const QuestionCard = ({ id, question, allAnswers, reading, deleteQuestion })=> {
   let correctAnswer = allAnswers.find(answer => answer.correct === 'true').answer
@@ -20,3 +21,11 @@ const QuestionCard = ({ id, question, allAnswers, reading, deleteQuestion })=> {
 }
 
 export default QuestionCard
+
+QuestionCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  question: PropTypes.object.isRequired,
+  allAnswers: PropTypes.array.isRequired,
+  reading: PropTypes.string.isRequired,
+  deleteQuestion: PropTypes.func.isRequired
+}
