@@ -3,7 +3,6 @@ import { render, fireEvent, getByDisplayValue } from '@testing-library/react';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 import QuestionArea from './QuestionArea';
-import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 import { rootReducer } from '../reducers';
@@ -42,24 +41,4 @@ describe('QuestionArea', () => {
     expect(answer3).toBeInTheDocument();
     expect(answer4).toBeInTheDocument();
   })
-
-  // it('Should render the lessons second question and answers on click', () => {
-  //   const { getByText } = render(
-  //     <MemoryRouter>
-  //       <Provider store={store}>
-  //         <QuestionArea/>
-  //       </Provider>
-  //     </MemoryRouter>
-  //   )
-
-  //   const answer = getByText('Pluto')
-
-  //   fireEvent.click(answer)
-
-  //   const question2 = getByText('What is an adjective?')
-  //   const answer2 = getByText('Adverb')
-    
-  //   expect(question2).toBeInTheDocument()
-  //   expect(answer2).toBeInTheDocument()
-  // })
 })
