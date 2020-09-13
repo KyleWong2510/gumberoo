@@ -35,8 +35,8 @@ const TeacherLessons = ({ students, lessons }) => {
         (lessons.map((lesson) => {
           return (
             <LessonCard
-              id={lesson.id}
               key={lesson.id}
+              id={lesson.id}
               lessonLink={lesson.link}
               lessonTitle={lesson.name}
               findLesson={findLesson}
