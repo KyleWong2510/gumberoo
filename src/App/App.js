@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
+// eslint-disable-next-line
 import StudentDashboard from '../StudentDashboard/StudentDashboard'
 import { connect } from 'react-redux'
 import TeacherHeader from '../TeacherHeader/TeacherHeader'

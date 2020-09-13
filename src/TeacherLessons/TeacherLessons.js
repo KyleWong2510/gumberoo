@@ -10,7 +10,6 @@ import LessonDetails from "../LessonDetails/LessonDetails"
 const TeacherLessons = ({ students, lessons }) => {
   const [foundLesson, setFoundLesson] = useState({})
   const [isViewingLessonDetails, toggleLessonDetails] = useState(false)
-  const [isAddingLesson, toggleAddLesson] = useState(false)
 
   const findLesson = (e) => {
     const foundTheLesson = lessons.find(lesson => +e.target.parentNode.id === lesson.id)
@@ -42,6 +41,7 @@ const TeacherLessons = ({ students, lessons }) => {
   //   setLessons(lessons.filter(lesson => lesson.id != e.target.parentNode.id))
   // }
 
+  // eslint-disable-next-line
   let lessonCard;
   return (
     <main className="teacher-lessons">
