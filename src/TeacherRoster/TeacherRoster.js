@@ -4,6 +4,7 @@ import CreateStudentForm from '../CreateStudentForm/CreateStudentForm'
 import StudentDetails from '../StudentDetails/StudentDetails'
 import { connect } from "react-redux";
 import './TeacherRoster.scss'
+import PropTypes from 'prop-types'
 
 const TeacherRoster = ({ students }) => {
   const [ isAddingStudent, toggleAddStudent ] = useState(false)
@@ -62,3 +63,7 @@ const mapStateToProps = ({ setStudents }) => ({
 })
 
 export default connect(mapStateToProps)(TeacherRoster)
+
+TeacherRoster.propTypes = {
+  students: PropTypes.array.isRequired
+}

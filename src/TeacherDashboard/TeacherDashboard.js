@@ -5,14 +5,15 @@ import { bindActionCreators } from "redux";
 import { getLessons } from "../thunks/getLessons";
 import { getStudents } from "../thunks/getStudents"
 import { getTeacher } from "../thunks/getTeacher"
+import PropTypes from 'prop-types'
 
-const TeacherDashboard = (props) => {
+const TeacherDashboard = ({ getTeacher, getStudents, getLessons }) => {
 
   useEffect (() => {
     async function fetchData() {
-      await props.getTeacher()
-      await props.getStudents()
-      await props.getLessons()
+      await getTeacher()
+      await getStudents()
+      await getLessons()
     } 
     fetchData()
     // eslint-disable-next-line 
@@ -53,3 +54,9 @@ const mapDispatchToProps = (dispatch) =>
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherDashboard);
+
+TeacherDashboard.propTypes = {
+  getTeacher: PropTypes.func.isRequired,
+  getStudents: PropTypes.func.isRequired,
+  getLessons: PropTypes.func.isRequired
+}
