@@ -4,8 +4,7 @@ import LessonCard from "./LessonCard/LessonCard";
 import { connect } from "react-redux";
 import Modal from '../Modal/Modal'
 import LessonDetails from "../LessonDetails/LessonDetails"
-// import { setLessons } from "../actions";
-// import { bindActionCreators } from "redux";
+import PropTypes from 'prop-types'
 
 const TeacherLessons = ({ students, lessons }) => {
   const [foundLesson, setFoundLesson] = useState({})
@@ -27,7 +26,7 @@ const TeacherLessons = ({ students, lessons }) => {
       )
     } 
   }
-
+  
   return (
     <main className="teacher-lessons">
       <h1>Lessons</h1>
@@ -60,3 +59,8 @@ const mapStateToProps = ({ setStudents, setLessons }) => ({
 });
 
 export default connect(mapStateToProps)(TeacherLessons);
+
+TeacherLessons.propTypes = {
+  lessons: PropTypes.array.isRequired,
+  students: PropTypes.array.isRequired
+}
