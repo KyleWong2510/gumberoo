@@ -1,15 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Modal from '../Modal/Modal'
 import CreateStudentForm from '../CreateStudentForm/CreateStudentForm'
 import StudentDetails from '../StudentDetails/StudentDetails'
-import { connect } from "react-redux";
+import { getStudentsResults } from '../thunks/getStudentsResults'
+import { connect } from "react-redux"
+import { bindActionCreators } from 'redux'
 import './TeacherRoster.scss'
 import PropTypes from 'prop-types'
 
-const TeacherRoster = ({ students }) => {
+const TeacherRoster = ({ students, lessons, getStudentsResults }) => {
   const [ isAddingStudent, toggleAddStudent ] = useState(false)
   const [ isViewingStudentDetails, toggleStudentDetails] = useState(false)
   const [ foundStudent, setFoundStudent ] = useState({})
+  
+  const findStudentResults = async () => {
+    await lessons
+    await lessons.forEach(lesson => getStudentsResults(lesson.id))
+  }
+
+  useEffect (() => {
+    try {
+      findStudentResults()
+    } catch (error) {
+      console.error(error)
+    }
+  }, [])
 
   const renderStudentNames = () => {
     return students.map(student => {
@@ -28,6 +43,7 @@ const TeacherRoster = ({ students }) => {
   const findStudent = (e) => {
     const found = students.find(student => +e.target.id === student.id)
     setFoundStudent(found)
+    findStudentResults()
     toggleStudentDetails(true)
   }
 
@@ -64,11 +80,19 @@ const TeacherRoster = ({ students }) => {
   )
 }
 
-const mapStateToProps = ({ setStudents }) => ({
-  students: setStudents
+const mapStateToProps = ({ setStudents, setLessons }) => ({
+  students: setStudents,
+  lessons: setLessons
 })
 
-export default connect(mapStateToProps)(TeacherRoster)
+const mapDispatchToProps = (dispatch) => 
+  bindActionCreators(
+    {
+      getStudentsResults
+    }, dispatch
+  )
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeacherRoster)
 
 TeacherRoster.propTypes = {
   students: PropTypes.array.isRequired

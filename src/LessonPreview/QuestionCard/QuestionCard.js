@@ -24,7 +24,7 @@ export default QuestionCard
 
 QuestionCard.propTypes = {
   id: PropTypes.number.isRequired,
-  question: PropTypes.object.isRequired,
+  question: PropTypes.string.isRequired,
   allAnswers: PropTypes.array.isRequired,
   reading: PropTypes.string.isRequired,
   deleteQuestion: PropTypes.func.isRequired

@@ -1,22 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './TeacherDashboard.scss'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getLessons } from "../thunks/getLessons";
 import { getStudents } from "../thunks/getStudents"
 import { getTeacher } from "../thunks/getTeacher"
+import { getStudentsResults } from '../thunks/getStudentsResults'
 import PropTypes from 'prop-types'
 
-const TeacherDashboard = ({ getTeacher, getStudents, getLessons }) => {
+const TeacherDashboard = ({ getTeacher, getStudents, getLessons, getStudentsResults, lessons }) => {
+
+  // const getAllStudentsResults = () => {
+  //   return lessons.map(lesson => {
+  //     getStudentsResults(lesson.id)
+  //   })
+  // }
 
   useEffect (() => {
     async function fetchData() {
+      await getLessons()
       await getTeacher()
       await getStudents()
-      await getLessons()
-      
+      // await getAllStudentsResults()
     } 
+
     fetchData()
+    // getAllStudentsResults()
     // eslint-disable-next-line 
   }, [])
 
@@ -37,9 +46,9 @@ const TeacherDashboard = ({ getTeacher, getStudents, getLessons }) => {
 }
 
 const mapStateToProps = ({ setStudents, setLessons, setTeacher }) => ({
- students: setStudents,
- lessons: setLessons,
- teacher: setTeacher
+  // students: setStudents,
+  lessons: setLessons,
+  // teacher: setTeacher
 })
 
 const mapDispatchToProps = (dispatch) => 
@@ -47,7 +56,8 @@ const mapDispatchToProps = (dispatch) =>
     {
       getLessons, 
       getStudents,
-      getTeacher
+      getTeacher,
+      getStudentsResults,
       // getScores 
     },
     dispatch
@@ -59,5 +69,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(TeacherDashboard);
 TeacherDashboard.propTypes = {
   getTeacher: PropTypes.func.isRequired,
   getStudents: PropTypes.func.isRequired,
-  getLessons: PropTypes.func.isRequired
+  getLessons: PropTypes.func.isRequired,
+  getStudentsResults: PropTypes.func.isRequired,
+  lessons: PropTypes.array.isRequired
 }
