@@ -4,8 +4,7 @@ import './MoodForm.scss'
 import { setStudent, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-// import { lesson } from '../mockData/mockData'
-
+import PropTypes from 'prop-types'
 
 
 function MoodForm(props) {
@@ -19,6 +18,7 @@ function MoodForm(props) {
   const roundedScore = Math.round(score*100)
 
   const postScore = () => {
+    debugger
     setIsSumbitted(true)
     const url = `https://gumberoo-backend.herokuapp.com/api/v1/lessons/${props.student.id}`
     fetch(url, {
@@ -43,6 +43,7 @@ function MoodForm(props) {
           <textarea
             maxLength='100'
             className='student-mood-input' 
+            data-testid='mood-input'
             placeholder='Type here how you feel, or just hit submit'
             onChange={e => setStudentMoodInput(e.target.value)}>
           </textarea>
@@ -65,11 +66,23 @@ function MoodForm(props) {
   )
 }
 
-const mapStateToProps = ({ setLesson, setStudents,  setStudent, setScore }) => ({
+MoodForm.propTypes = {
+  lesson: PropTypes.object.isRequired,
+  score: PropTypes.number.isRequired,
+  setLesson: PropTypes.func.isRequired,
+  setStudent: PropTypes.func.isRequired,
+  student: PropTypes.object,
+  studentId: PropTypes.string,
+  students: PropTypes.array.isRequired,
+}
+
+
+const mapStateToProps = ({ setLesson, setStudents,  setStudent, setScore, setStudentId }) => ({
   student: setStudent,
   lesson: setLesson,
   students: setStudents,
-  score: setScore
+  score: setScore,
+  studentId: setStudentId
 })
 
 const mapDispatchToProps = dispatch => (

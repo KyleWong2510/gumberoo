@@ -11,7 +11,7 @@ import { lesson } from '../mockData/mockData'
 
 
 const store = createStore(rootReducer, {
-    setStudent:'Bill',
+    setStudent:{first_name: 'Bill', last_name: 'Wilke', id: '1'},
     setLesson: lesson
 })
 
@@ -27,5 +27,23 @@ describe('StudentForm', () => {
 
     const question = getByText('How do you feel?');
     expect(question).toBeInTheDocument();
+  });
+
+  it('should render an input field for the student to type into', () => {
+    const { getByTestId, getByDisplayValue } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <MoodForm />
+        </Provider>
+      </BrowserRouter>
+    );
+
+    const moodInput = getByTestId('mood-input')
+
+    fireEvent.change(moodInput, {target: {value: 'I am happy'}})
+
+    const text = getByDisplayValue('I am happy')
+    
+    expect(text).toBeInTheDocument()
   });
 })

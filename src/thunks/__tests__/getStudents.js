@@ -9,7 +9,7 @@ describe('getStudents', () => {
   let mockDispatch
 
   beforeEach(() => {
-    mockTeacherId = 1
+    mockTeacherId = 2
     mockStudents = [   
       {   
           "teacher": 1,   

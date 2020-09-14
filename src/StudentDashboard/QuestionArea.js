@@ -4,6 +4,8 @@ import AnswerButton from './AnswerButton'
 import { incrementScore, incrementCurrentQuestion, setLessonOver } from '../actions/index';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import PropTypes from 'prop-types';
+
 
 function QuestionArea(props) {
   const answers = []
@@ -34,6 +36,16 @@ function QuestionArea(props) {
    
     </section>
   )
+}
+
+QuestionArea.propTypes = {
+  incrementCurrentQuestion: PropTypes.func.isRequired,
+  incrementScore: PropTypes.func.isRequired,
+  lesson: PropTypes.object.isRequired,
+  question: PropTypes.object.isRequired,
+  score: PropTypes.number.isRequired,
+  setLessonOver: PropTypes.func.isRequired,
+
 }
 
 const mapStateToProps = ({ setCurrentQuestion, setLesson, setLessonOver, setScore }) => ({

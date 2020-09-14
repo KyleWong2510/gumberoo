@@ -2,6 +2,7 @@ import React from 'react'
 import { incrementScore, incrementCurrentQuestion, setLessonOver } from '../actions/index';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import PropTypes from 'prop-types';
 
 
 function AnswerButton (props) {
@@ -24,6 +25,17 @@ function AnswerButton (props) {
   return (
     <button className='question-button' value={props.answer.correct} onClick={e => answerClick(e)} type='submit'>{props.answer.answer}</button>
   )
+}
+
+AnswerButton.propTypes = {
+  answer: PropTypes.object.isRequired,
+  currentQuestion: PropTypes.number.isRequired,
+  incrementCurrentQuestion: PropTypes.func.isRequired,
+  incrementScore: PropTypes.func.isRequired,
+  lesson: PropTypes.object.isRequired,
+  lessonOver: PropTypes.bool.isRequired,
+  score: PropTypes.number.isRequired,
+  setLessonOver: PropTypes.func.isRequired
 }
 
 const mapStateToProps = ({ setCurrentQuestion, setLesson, setLessonOver, setScore }) => ({
