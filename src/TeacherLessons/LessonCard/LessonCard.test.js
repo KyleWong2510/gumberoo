@@ -23,4 +23,18 @@ describe('LessonCard', ()=> {
     expect(lessonTitle).toBeInTheDocument()
     expect(lessonLink).toBeInTheDocument()
   })
+
+  it('a function should be fired upon a click of a lesson title', () => {
+    const mockToggle = jest.fn()
+    const { getByText } = render(
+      <BrowserRouter>
+          <LessonCard lessonTitle={mockLesson.name}
+          findLesson={mockToggle}/>
+      </BrowserRouter>
+    )
+
+    const titleToClick = getByText('Mocked Lesson')
+    fireEvent.click(titleToClick)
+    expect(mockToggle).toHaveBeenCalled()
+  })
 })
