@@ -18,6 +18,7 @@ function MoodForm(props) {
   const roundedScore = Math.round(score*100)
 
   const postScore = () => {
+    debugger
     setIsSumbitted(true)
     const url = `https://gumberoo-backend.herokuapp.com/api/v1/lessons/${props.student.id}`
     fetch(url, {

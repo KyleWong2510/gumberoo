@@ -11,7 +11,6 @@ import { connect } from 'react-redux'
 import Spritesheet from 'react-responsive-spritesheet'
 import panda from './assets/PandaJumpAndRandom.png'
 import PropTypes from 'prop-types';
-import { lesson, student } from '../mockData/mockData'
 
 import './StudentDashboard.scss'
 
