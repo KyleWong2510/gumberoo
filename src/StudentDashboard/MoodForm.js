@@ -4,8 +4,6 @@ import './MoodForm.scss'
 import { setStudent, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import StudentDashboard from './StudentDashboard'
-// import { lesson } from '../mockData/mockData'
 import PropTypes from 'prop-types'
 
 

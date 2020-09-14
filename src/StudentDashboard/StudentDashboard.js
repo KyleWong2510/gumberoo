@@ -58,12 +58,12 @@ function StudentDashboard(props) {
           <div className='animation'>
             <div className='anim-container'>
               <Spritesheet
-                className='pig'
+                className='panda'
                 image={panda}
                 widthFrame={108.615}
                 heightFrame={109.69}
                 steps={11}
-                fps={5.6}
+                fps={5.8}
                 loop={true}
                 />
             </div>

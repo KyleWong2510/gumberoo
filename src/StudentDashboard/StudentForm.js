@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 function StudentForm(props) {
   const [studentNameInput, setStudentNameInput] = useState('')
 
-
   const students = props.students.map((student, i)=> {
     return (
       <option value={student.id} key={i++}>{`${student.first_name} ${student.last_name}`}</option>
@@ -27,7 +26,7 @@ function StudentForm(props) {
     {props.isLoading && <p>loading</p>}
     {!props.isLoading &&
       <section className='student-form'>
-        <h2>gumberoo</h2>
+        <h2 className='form-app-title'>gumberoo</h2>
         <select
           aria-label='select name'
           id='student-name-input'
@@ -40,7 +39,7 @@ function StudentForm(props) {
           {students}
         </select>
         <button className='submit-name-button' aria-label=
-        'submit name' type='submit' onClick={e => setStudentValues(e)}>Submit</button>
+        'submit name' type='submit' disabled={!studentNameInput} onClick={e => setStudentValues(e)}>Submit</button>
         </section>
         }
       </section>
@@ -49,7 +48,7 @@ function StudentForm(props) {
 
 StudentForm.propTypes = {
   getLesson: PropTypes.func.isRequired,
-  getStudent: PropTypes.func,
+  getStudents: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   lesson: PropTypes.object.isRequired,
   lessonId: PropTypes.string.isRequired,
