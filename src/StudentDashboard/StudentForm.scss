@@ -46,6 +46,10 @@
   transition: transform .7s;
   opacity: .98;
 }
+.student-names-input:focus,
+.submit-name-button:focus {
+  outline: 3px solid #D55E00
+}
 
 .form-app-title {
   font-size: 2em;

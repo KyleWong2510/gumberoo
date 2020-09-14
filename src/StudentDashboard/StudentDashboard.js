@@ -58,6 +58,7 @@ function StudentDashboard(props) {
           <div className='animation'>
             <div className='anim-container'>
               <Spritesheet
+                style={{width: '30%', height: '95%'}}
                 className='panda'
                 image={panda}
                 widthFrame={108.615}
