@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import StudentForm from './StudentForm'
 import MoodForm from './MoodForm'
-import { incrementCurrentQuestion, setLessonOver } from '../actions/index'
+import { incrementCurrentQuestion, setLessonOver, setLesson, setStudents } from '../actions/index'
 // import { Link, withRouter } from 'react-router-dom'
 import { getStudents } from '../thunks/getStudents'
 import { getLesson } from '../thunks/getLesson'
@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import Spritesheet from 'react-responsive-spritesheet'
 import panda from './assets/PandaJumpAndRandom.png'
 import PropTypes from 'prop-types';
+import { lesson, student } from '../mockData/mockData'
 
 import './StudentDashboard.scss'
 
@@ -31,7 +32,7 @@ function StudentDashboard(props) {
   const random = Math.floor(Math.random() * motivationalTalk.length);
   
   useEffect(() => {
-    try {
+      try {
       getTeachersStudents()
       getTeachersLesson()
     } catch (error) {
@@ -58,7 +59,7 @@ function StudentDashboard(props) {
           <div className='animation'>
             <div className='anim-container'>
               <Spritesheet
-                style={{width: '30%', height: '95%'}}
+                style={{width: '30vw', height: '30vh'}}
                 className='panda'
                 image={panda}
                 widthFrame={108.615}
@@ -112,7 +113,7 @@ const mapStateToProps = ({ setStudent, setLesson, setCurrentQuestion, setLessonO
 })
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ incrementCurrentQuestion, setLessonOver, getLesson, getStudents }, dispatch)
+  bindActionCreators({ incrementCurrentQuestion, setLessonOver, getLesson, getStudents, setLesson, setStudents }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps )(StudentDashboard);

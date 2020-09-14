@@ -28,4 +28,22 @@ describe('StudentForm', () => {
     const question = getByText('How do you feel?');
     expect(question).toBeInTheDocument();
   });
+
+  it('should render an input field for the student to type into', () => {
+    const { getByTestId, getByDisplayValue } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <MoodForm />
+        </Provider>
+      </BrowserRouter>
+    );
+
+    const moodInput = getByTestId('mood-input')
+
+    fireEvent.change(moodInput, {target: {value: 'I am happy'}})
+
+    const text = getByDisplayValue('I am happy')
+    
+    expect(text).toBeInTheDocument()
+  });
 })
