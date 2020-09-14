@@ -14,7 +14,13 @@ const TeacherRoster = ({ students }) => {
   const renderStudentNames = () => {
     return students.map(student => {
       return (
-        <p id={student.id} key={student.id} onClick={(e) => findStudent(e)}>{student.first_name} {student.last_name}</p>
+        <p 
+          id={student.id} 
+          key={student.id} 
+          onClick={(e) => findStudent(e)}
+        >
+          {student.first_name} {student.last_name}
+        </p>
       )
     })
   }

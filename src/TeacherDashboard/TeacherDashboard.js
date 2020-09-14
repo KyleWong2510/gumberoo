@@ -14,6 +14,7 @@ const TeacherDashboard = ({ getTeacher, getStudents, getLessons }) => {
       await getTeacher()
       await getStudents()
       await getLessons()
+      
     } 
     fetchData()
     // eslint-disable-next-line 

@@ -13,6 +13,11 @@ export const addStudent = student => ({
   student
 })
 
+export const setStudentsResults = results => ({
+  type: 'SET_STUDENT_RESULTS',
+  results
+})
+
 export const setStudentId = studentId => ({
   type: 'SET_STUDENT_ID',
   studentId

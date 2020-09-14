@@ -8,20 +8,20 @@ const StudentDetails = ({ student, lessons }) => {
   const studentScores = [
     {
      'lesson': 2,
-     'student': student.id,
+     'student': 1,
      'score': 6,
      'mood': "Mad"
-   }, {
+    }, {
      'lesson': 5,
-     'student': student.id,
+     'student': 1,
      'score': 2,
      'mood': "Happy"
-   }, {
+    }, {
      'lesson': 3,
-     'student': 155,
+     'student': 3,
      'score': 8,
      'mood': "Sad"
-   }
+    }
   ]
 
   const studentResults = studentScores.filter(score => score.student === student.id)
