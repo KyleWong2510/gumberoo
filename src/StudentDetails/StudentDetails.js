@@ -3,7 +3,7 @@ import './StudentDetails.scss'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-const StudentDetails = ({ student, lessons, results }) => {
+const StudentDetails = ({ student, lessons, results, studentAverage }) => {
   console.log(lessons, 'LESSONS')
   console.log(results, 'ALL RESULTS')
 
@@ -58,15 +58,16 @@ const StudentDetails = ({ student, lessons, results }) => {
   return (
     <section>
       <h1>{`${student.first_name} ${student.last_name}`}</h1>
-      <p>Student's Avg Score</p>
+      <p>Student's Avg Score: {studentAverage.average_score}%</p>
       {renderStudentResults()}
     </section>
   )
 }
 
-const mapStateToProps = ({ setLessons, setStudentsResults }) => ({
+const mapStateToProps = ({ setLessons, setStudentsResults, setStudentAverage }) => ({
   lessons: setLessons,
-  results: setStudentsResults
+  results: setStudentsResults,
+  studentAverage: setStudentAverage
 })
 
 export default connect(mapStateToProps)(StudentDetails)

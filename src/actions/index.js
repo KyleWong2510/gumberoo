@@ -22,6 +22,11 @@ export const resetStudentsResults = () => ({
   type: 'RESET_STUDENTS_RESULTS'
 })
 
+export const setStudentAverage = studentAverage => ({
+  type: 'SET_STUDENT_AVERAGE',
+  studentAverage
+})
+
 export const setStudentId = studentId => ({
   type: 'SET_STUDENT_ID',
   studentId

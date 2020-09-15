@@ -3,15 +3,17 @@ import Modal from '../Modal/Modal'
 import CreateStudentForm from '../CreateStudentForm/CreateStudentForm'
 import StudentDetails from '../StudentDetails/StudentDetails'
 import { getStudentsResults } from '../thunks/getStudentsResults'
+import { getStudentAverage } from '../thunks/getStudentAverage'
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
 import './TeacherRoster.scss'
 import PropTypes from 'prop-types'
 
-const TeacherRoster = ({ students, lessons, getStudentsResults }) => {
+const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverage }) => {
   const [ isAddingStudent, toggleAddStudent ] = useState(false)
   const [ isViewingStudentDetails, toggleStudentDetails] = useState(false)
   const [ foundStudent, setFoundStudent ] = useState({})
+  const [ foundStudentAverage, setFoundStudentAverage ] = useState(0)
 
   const findStudentResults = async () => {
       await lessons.forEach(lesson => getStudentsResults(lesson.id))
@@ -43,8 +45,8 @@ const TeacherRoster = ({ students, lessons, getStudentsResults }) => {
   const findStudent = (e) => {
     e.preventDefault()
     const found = students.find(student => +e.target.id === student.id)
+    getStudentAverage(e.target.id)
     setFoundStudent(found)
-    // findStudentResults()
     toggleStudentDetails(true)
   }
 
@@ -89,7 +91,8 @@ const mapStateToProps = ({ setStudents, setLessons }) => ({
 const mapDispatchToProps = (dispatch) => 
   bindActionCreators(
     {
-      getStudentsResults
+      getStudentsResults,
+      getStudentAverage
     }, dispatch
   )
 
@@ -98,5 +101,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(TeacherRoster)
 TeacherRoster.propTypes = {
   students: PropTypes.array.isRequired,
   lessons: PropTypes.array.isRequired,
-  getStudentsResults: PropTypes.func.isRequired
+  getStudentsResults: PropTypes.func.isRequired,
+  getStudentAverage: PropTypes.func.isRequired
 }
