@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 const StudentDetails = ({ student, lessons, results, studentAverage }) => {
-  console.log(lessons, 'LESSONS')
-  console.log(results, 'ALL RESULTS')
 
   const studentResults = results.filter(score => score.student === student.id)
 

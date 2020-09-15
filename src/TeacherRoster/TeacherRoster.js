@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Modal from '../Modal/Modal'
 import CreateStudentForm from '../CreateStudentForm/CreateStudentForm'
 import StudentDetails from '../StudentDetails/StudentDetails'
@@ -18,15 +18,6 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
   const findStudentResults = async () => {
       await lessons.forEach(lesson => getStudentsResults(lesson.id))
   }
-
-  useEffect (() => {
-    try {
-        findStudentResults()
-      }
-    catch (error) {
-      console.error(error)
-    }
-  })
 
   const closeModal = () => {
     toggleStudentDetails(false)
@@ -51,6 +42,7 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
     e.preventDefault()
     const found = students.find(student => +e.target.id === student.id)
     getStudentAverage(e.target.id)
+    findStudentResults()
     setFoundStudent(found)
     toggleStudentDetails(true)
   }
@@ -108,5 +100,6 @@ TeacherRoster.propTypes = {
   students: PropTypes.array.isRequired,
   lessons: PropTypes.array.isRequired,
   getStudentsResults: PropTypes.func.isRequired,
-  getStudentAverage: PropTypes.func.isRequired
+  getStudentAverage: PropTypes.func.isRequired,
+  resetStudentsResults: PropTypes.func.isRequired
 }
