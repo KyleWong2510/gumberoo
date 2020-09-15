@@ -25,7 +25,7 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
     catch (error) {
       console.error(error)
     }
-  }, [])
+  })
 
   const renderStudentNames = () => {
     return students.map(student => {

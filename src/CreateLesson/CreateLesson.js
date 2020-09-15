@@ -12,7 +12,7 @@ const CreateLesson = ({ resetStudentsResults }) => {
   
   useEffect (() => {
     resetStudentsResults()
-  }, [])
+  })
 
   const deleteQuestion = (e) => {
     //eslint-disable-next-line

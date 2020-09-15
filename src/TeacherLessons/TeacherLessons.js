@@ -15,7 +15,7 @@ const TeacherLessons = ({ students, lessons, resetStudentsResults }) => {
 
   useEffect (() => {
     resetStudentsResults()
-  }, [])
+  })
 
   const findLesson = (e) => {
     const foundTheLesson = lessons.find(lesson => +e.target.parentNode.id === lesson.id)
