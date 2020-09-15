@@ -19,21 +19,48 @@
 }
 
 .header-btn {
-  height: 100%;
-  padding: 1.5%;
+  background-color: #ede4d2;
+  padding: 2.5%;
   text-align: center;
   text-decoration: none;
-  width: 25%;
+  height: fit-content;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px #706F6F;
+  color: black;
+}
+// .header-title:hover,
+// .header-btn:hover {
+//   background-color: #edd7d2;
+//   cursor: pointer;
+//   transform: scale(1.22);
+//   transition: transform .7s;
+// }
 
+
+.header-btn-active {
+  color: tomato;
 }
 
 .header-btn:link,
 .header-btn:visited {
-  color: black;
+  // color: black;
   text-decoration: none
 }
 
 .header-title {
+  color: black;
   margin-left: 5vh;
   font-family: 'OpenDyslexic-regular';
+  background-color: #ede4d2;
+  padding: 5.5%;
+  text-align: center;
+  text-decoration: none;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px #706F6F;
+}
+
+.header-title:active {
+  color: tomato;
 }
