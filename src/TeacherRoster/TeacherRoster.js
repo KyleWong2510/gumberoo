@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Modal from '../Modal/Modal'
 import CreateStudentForm from '../CreateStudentForm/CreateStudentForm'
 import StudentDetails from '../StudentDetails/StudentDetails'
 import { getStudentsResults } from '../thunks/getStudentsResults'
 import { getStudentAverage } from '../thunks/getStudentAverage'
+import { resetStudentsResults } from '../actions'
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
 import './TeacherRoster.scss'
 import PropTypes from 'prop-types'
 
-const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverage }) => {
+const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverage, resetStudentsResults }) => {
   const [ isAddingStudent, toggleAddStudent ] = useState(false)
   const [ isViewingStudentDetails, toggleStudentDetails] = useState(false)
   const [ foundStudent, setFoundStudent ] = useState({})
@@ -18,14 +19,10 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
       await lessons.forEach(lesson => getStudentsResults(lesson.id))
   }
 
-  useEffect (() => {
-    try {
-        findStudentResults()
-      }
-    catch (error) {
-      console.error(error)
-    }
-  })
+  const closeModal = () => {
+    toggleStudentDetails(false)
+    resetStudentsResults()
+  }
 
   const renderStudentNames = () => {
     return students.map(student => {
@@ -45,6 +42,7 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
     e.preventDefault()
     const found = students.find(student => +e.target.id === student.id)
     getStudentAverage(e.target.id)
+    findStudentResults()
     setFoundStudent(found)
     toggleStudentDetails(true)
   }
@@ -54,7 +52,7 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
       return (
         <Modal 
           content={<StudentDetails student={foundStudent}/>}
-          toggleDisplay={() => toggleStudentDetails(false)}
+          toggleDisplay={closeModal}
         />
       )
     } 
@@ -91,7 +89,8 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       getStudentsResults,
-      getStudentAverage
+      getStudentAverage,
+      resetStudentsResults
     }, dispatch
   )
 
@@ -101,5 +100,6 @@ TeacherRoster.propTypes = {
   students: PropTypes.array.isRequired,
   lessons: PropTypes.array.isRequired,
   getStudentsResults: PropTypes.func.isRequired,
-  getStudentAverage: PropTypes.func.isRequired
+  getStudentAverage: PropTypes.func.isRequired,
+  resetStudentsResults: PropTypes.func.isRequired
 }
