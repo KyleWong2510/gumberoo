@@ -43,17 +43,12 @@ const TeacherDashboard = ({ getTeacher, getStudents, getLessons, teacher, isLoad
     )
   }
 
-<<<<<<< HEAD
-const mapStateToProps = ({ setLessons }) => ({
-  lessons: setLessons,
-=======
   
   const mapStateToProps = ({ setStudents, setLessons, setTeacher, isLoading }) => ({
  students: setStudents,
  lessons: setLessons,
  teacher: setTeacher,
  isLoading: isLoading
->>>>>>> master
 })
 
 const mapDispatchToProps = (dispatch) => 
