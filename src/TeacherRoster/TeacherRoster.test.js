@@ -63,7 +63,7 @@ describe('TeacherRoster', () => {
   it('should close the modal when clicking the X button', () => {
     const { getByRole, getByText } = render(
       <Provider store={store}>
-        <TeacherRoster students={mockStudents} />
+        <TeacherRoster students={mockStudents} getStudentAverage={jest.fn()}/>
       </Provider>
     )
     const student = getByText('Stacy Peralta')

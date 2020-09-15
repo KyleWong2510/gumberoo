@@ -14,28 +14,32 @@ const mockLessons =[lesson, lesson2]
 const store = createStore(rootReducer, {
   setLessons: mockLessons
 })
+let teacherLessons, lessons, mockResetResults
 
 describe('TeacherLesson', () => {
-  it('should render a Lessons header', () => {
-    const { getByText } = render(
+  beforeEach(() => {
+    lessons = mockLessons
+    mockResetResults = jest.fn()
+    teacherLessons = (
       <BrowserRouter>
-        <Provider store={store}>
-          <TeacherLessons />
-        </Provider>
-      </BrowserRouter>
-    ) 
+      <Provider store={store}>
+        <TeacherLessons 
+          lessons={mockLessons}
+          resetStudentsResults={mockResetResults}
+        />
+      </Provider>
+    </BrowserRouter>
+    )
+  })
+
+  it('should render a Lessons header', () => {
+    const { getByText } = render(teacherLessons) 
     const lessonsHeader = getByText('Lessons')
     expect(lessonsHeader).toBeInTheDocument()
   })
 
   it('should display all the teachers lessons', () => {
-    const { getByText } = render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <TeacherLessons />
-        </Provider>
-      </BrowserRouter>
-    ) 
+    const { getByText } = render(teacherLessons) 
     const lessonsHeader = getByText('Lessons')
     const lesson1 = getByText('Test Title')
     const lesson2 = getByText('North American Mammals')
@@ -46,13 +50,7 @@ describe('TeacherLesson', () => {
   })
 
   it('should display a lesson modal upon click of a lesson title', () => {
-    const { getByText, getByRole } = render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <TeacherLessons lessons={mockLessons}/>
-        </Provider>
-      </BrowserRouter>
-    ) 
+    const { getByText, getByRole } = render(teacherLessons) 
 
     const lesson1 = getByText('Test Title')
     fireEvent.click(lesson1)
@@ -61,13 +59,7 @@ describe('TeacherLesson', () => {
   })
 
   it('should display a lesson modal upon click of a lesson title', () => {
-    const { getByText, getByRole } = render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <TeacherLessons lessons={mockLessons}/>
-        </Provider>
-      </BrowserRouter>
-    ) 
+    const { getByText, getByRole } = render(teacherLessons) 
     const lesson1 = getByText('Test Title')
     fireEvent.click(lesson1)
     const modalHeader = getByRole('heading', { name: 'Test Title' })
@@ -75,13 +67,7 @@ describe('TeacherLesson', () => {
   })
 
   it('should be able to close the modal upon click of the X button', () => {
-    const { getByText, getByRole } = render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <TeacherLessons lessons={mockLessons}/>
-        </Provider>
-      </BrowserRouter>
-    ) 
+    const { getByText, getByRole } = render(teacherLessons) 
     const lesson1 = getByText('Test Title')
     fireEvent.click(lesson1)
     const modalHeader = getByRole('heading', { name: 'Test Title' })
@@ -90,5 +76,4 @@ describe('TeacherLesson', () => {
     fireEvent.click(closeBtn)
     expect(closeBtn).not.toBeInTheDocument()
   })
-
 })

@@ -9,13 +9,24 @@ const mockLesson = {
   name: 'Mocked Lesson'
 }
 
+let lessonCard, mockToggle
+
 describe('LessonCard', ()=> {
-  it('should be able to display lessons', () => {
-    const { getByText } = render(
-      <BrowserRouter>
-          <LessonCard lessonTitle={mockLesson.name}/>
-      </BrowserRouter>
+  beforeEach(() => {
+    mockToggle = jest.fn()
+
+    lessonCard = (
+      <LessonCard 
+        id = {mockLesson.id}
+        lessonTitle = {mockLesson.name}
+        lessonLink = ''
+        findLesson = {mockToggle}     
+      />
     )
+
+  })
+  it('should be able to display lessons', () => {
+    const { getByText } = render(lessonCard )
 
     const lessonTitle = getByText('Mocked Lesson')
     const lessonLink = getByText('Lesson Link:')
@@ -25,14 +36,7 @@ describe('LessonCard', ()=> {
   })
 
   it('a function should be fired upon a click of a lesson title', () => {
-    const mockToggle = jest.fn()
-    const { getByText } = render(
-      <BrowserRouter>
-          <LessonCard lessonTitle={mockLesson.name}
-          findLesson={mockToggle}/>
-      </BrowserRouter>
-    )
-
+    const { getByText } = render(lessonCard)
     const titleToClick = getByText('Mocked Lesson')
     fireEvent.click(titleToClick)
     expect(mockToggle).toHaveBeenCalled()

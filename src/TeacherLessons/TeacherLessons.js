@@ -4,13 +4,11 @@ import LessonCard from "./LessonCard/LessonCard";
 import { connect } from "react-redux";
 import Modal from '../Modal/Modal'
 import LessonDetails from "../LessonDetails/LessonDetails"
-// import { setLessons } from "../actions";
-// import { bindActionCreators } from "redux";
 import { resetStudentsResults } from '../actions'
 import { bindActionCreators } from "redux";
 import PropTypes from 'prop-types'
 
-const TeacherLessons = ({ students, lessons, resetStudentsResults }) => {
+const TeacherLessons = ({ lessons, resetStudentsResults }) => {
   const [foundLesson, setFoundLesson] = useState({})
   const [isViewingLessonDetails, toggleLessonDetails] = useState(false)
 
