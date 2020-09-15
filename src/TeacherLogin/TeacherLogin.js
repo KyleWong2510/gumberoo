@@ -9,7 +9,6 @@ const TeacherLogin = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('CLICKED')
   }
   
   return (

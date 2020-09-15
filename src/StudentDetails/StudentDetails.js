@@ -37,7 +37,11 @@ const StudentDetails = ({ student, lessons, results, studentAverage }) => {
   return (
     <section className='student-results'>
       <h1>{`${student.first_name} ${student.last_name}`}</h1>
-      <p>Student's Avg Score: {studentAverage.average_score}%</p>
+      {!studentAverage.average_score ? (
+        <p>No assessments collected</p>
+      ) : (
+        <p>Student's Avg Score: {studentAverage.average_score}%</p>
+      )}
       {renderStudentResults()}
     </section>
   )
