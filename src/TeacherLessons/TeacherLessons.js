@@ -2,44 +2,48 @@ import React, { useState } from "react";
 import "./TeacherLessons.scss";
 import LessonCard from "./LessonCard/LessonCard";
 import { connect } from "react-redux";
-import Modal from '../Modal/Modal'
-import LessonDetails from "../LessonDetails/LessonDetails"
-import PropTypes from 'prop-types'
-import { getLessonAverage } from "../thunks/getLessonAverage"
-import { bindActionCreators } from "redux"
+import Modal from "../Modal/Modal";
+import LessonDetails from "../LessonDetails/LessonDetails";
+import PropTypes from "prop-types";
+import { getLessonAverage } from "../thunks/getLessonAverage";
+import { bindActionCreators } from "redux";
 
 const TeacherLessons = ({ students, lessons, getLessonAverage, average }) => {
-  const [foundLesson, setFoundLesson] = useState({})
-  const [isViewingLessonDetails, toggleLessonDetails] = useState(false)
+  const [foundLesson, setFoundLesson] = useState({});
+  const [isViewingLessonDetails, toggleLessonDetails] = useState(false);
 
   const findLesson = (e) => {
-    e.preventDefault()
-    const foundTheLesson = lessons.find(lesson => +e.target.parentNode.id === lesson.id)
-    getLessonAverage(e.target.parentNode.id)
-    setFoundLesson(foundTheLesson)
-    toggleLessonDetails(true)
-  }
+    e.preventDefault();
+    const foundTheLesson = lessons.find(
+      (lesson) => +e.target.parentNode.id === lesson.id
+    );
+    getLessonAverage(e.target.parentNode.id);
+    setFoundLesson(foundTheLesson);
+    toggleLessonDetails(true);
+  };
 
   const renderLessonDetailsModal = () => {
     if (isViewingLessonDetails) {
       return (
-        <Modal 
-          content={<LessonDetails 
-            lesson={foundLesson} 
-            lessonLink={foundLesson}
-            lessonAverage={average}
-           />}
+        <Modal
+          content={
+            <LessonDetails
+              lesson={foundLesson}
+              lessonLink={foundLesson}
+              lessonAverage={average}
+            />
+          }
           toggleDisplay={() => toggleLessonDetails(false)}
         />
-      )
-    } 
-  }
-  
+      );
+    }
+  };
+
   return (
     <main className="teacher-lessons">
       <h1>Lessons</h1>
       {lessons.length ? (
-        (lessons.map((lesson) => {
+        lessons.map((lesson) => {
           return (
             <LessonCard
               key={lesson.id}
@@ -48,7 +52,7 @@ const TeacherLessons = ({ students, lessons, getLessonAverage, average }) => {
               findLesson={findLesson}
             />
           );
-        }))
+        })
       ) : (
         <p className="no-lessons-message">
           Please click on the "Create a Lesson" Tab to create a lesson.
@@ -62,21 +66,21 @@ const TeacherLessons = ({ students, lessons, getLessonAverage, average }) => {
 const mapStateToProps = ({ setStudents, setLessons, setLessonAverage }) => ({
   students: setStudents,
   lessons: setLessons,
-  average: setLessonAverage
+  average: setLessonAverage,
 });
 
-const mapDispatchToProps = (dispatch) => 
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
-      getLessonAverage
+      getLessonAverage,
     },
     dispatch
-  )
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherLessons);
 
 TeacherLessons.propTypes = {
   lessons: PropTypes.array.isRequired,
   students: PropTypes.array.isRequired,
-  getLessonAverage: PropTypes.func.isRequired
-}
+  getLessonAverage: PropTypes.func.isRequired,
+};
