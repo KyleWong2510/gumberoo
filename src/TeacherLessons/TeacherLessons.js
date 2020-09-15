@@ -12,6 +12,7 @@ const TeacherLessons = ({ students, lessons, getLessonAverage }) => {
   const [isViewingLessonDetails, toggleLessonDetails] = useState(false)
 
   const findLesson = (e) => {
+    e.preventDefault()
     const foundTheLesson = lessons.find(lesson => +e.target.parentNode.id === lesson.id)
     setFoundLesson(foundTheLesson)
     toggleLessonDetails(true)
@@ -72,5 +73,6 @@ export default connect(mapStateToProps, matchDispatchToProps)(TeacherLessons);
 
 TeacherLessons.propTypes = {
   lessons: PropTypes.array.isRequired,
-  students: PropTypes.array.isRequired
+  students: PropTypes.array.isRequired,
+  getLessonAverage: PropTypes.func.isRequired
 }
