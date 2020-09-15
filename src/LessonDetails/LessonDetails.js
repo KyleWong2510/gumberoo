@@ -20,7 +20,7 @@ const LessonDetails = ({ lesson, lessonAverage }) => {
       <h3>{lesson.name}</h3>
       <p>
         <span>Assessment Link: </span>
-        <a href="https://gumberoo.netlify.app/{lesson.teacher.id}/{lesson.id}">
+        <a href={`https://gumberoo.netlify.app/${lesson.teacher.id}/${lesson.id}`}>
           https://gumberoo.netlify.app/{lesson.teacher.id}/{lesson.id}
         </a>
       </p>
