@@ -14,6 +14,17 @@
   }
 
   button {
-    padding: 1%
+    align-self: center;
+    background-color: #D2Daed;
+    border-radius: 10px;
+    height: fit-content;
+    padding: 1%;
+    width: fit-content;
+  }
+
+  button:hover {
+    background-color: white;
+    cursor: pointer;
+    font-weight: 600;
   }
 }
