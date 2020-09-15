@@ -54,7 +54,7 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
         <input
           id='lesson-title'
           type="text"
-          placeholder="Enter Lesson Title..."
+          placeholder="Enter Assessment Title..."
           value={lessonTitleText}
           aria-label="Lesson Title Input"
           onChange={(e) => setLessonTitleText(e.target.value)}
