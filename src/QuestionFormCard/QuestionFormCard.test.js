@@ -22,7 +22,7 @@ describe('QuestionFormCard', () => {
 
   it('should render input labels', () => {
     const { getByText } = render(questionFormCard)
-    const lessonTitleLabel = getByText('Lesson Title:')
+    const lessonTitleLabel = getByText('Assessment Title:')
     const readingLabel = getByText('Reading:')
     const questionLabel = getByText('Question:')
     const correctLabel = getByText('Correct Answer:')
@@ -41,7 +41,7 @@ describe('QuestionFormCard', () => {
 
   it('should render inputs and a textarea', () => {
     const { getByPlaceholderText, getByTestId } = render(questionFormCard)
-    const lessonTitleInput = getByPlaceholderText('Enter Lesson Title...')
+    const lessonTitleInput = getByPlaceholderText('Enter Assessment Title...')
     const readingInput = getByPlaceholderText('Enter text...')
     const questionInput = getByPlaceholderText('Enter a Question...')
     const correctInput = getByPlaceholderText('Enter Correct Answer...')
@@ -66,7 +66,7 @@ describe('QuestionFormCard', () => {
 
   it('should change inputs when entering information', () => {
     const { getByPlaceholderText, getByTestId, getByDisplayValue } = render(questionFormCard)
-    const lessonTitleInput = getByPlaceholderText('Enter Lesson Title...')
+    const lessonTitleInput = getByPlaceholderText('Enter Assessment Title...')
     const readingInput = getByPlaceholderText('Enter text...')
     const questionInput = getByPlaceholderText('Enter a Question...')
     const correctInput = getByPlaceholderText('Enter Correct Answer...')
