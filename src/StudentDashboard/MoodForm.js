@@ -16,15 +16,15 @@ function MoodForm(props) {
   const score = (props.score / props.lesson.questions.length)
   
   const roundedScore = Math.round(score*100)
-
+  console.log(roundedScore)
   const postScore = () => {
     debugger
     setIsSumbitted(true)
-    const url = `https://gumberoo-backend.herokuapp.com/api/v1/lessons/${props.student.id}`
+    const url = `https://gumberoo-backend.herokuapp.com/api/v1/students/${props.student.id}/`
     fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-type': 'application/json'
+        "Content-type": "application/json"
       },
       body: JSON.stringify({lesson: props.lesson.id, score: roundedScore, mood: studentMoodInput})
     })
