@@ -2,6 +2,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  font-size: 1.25em;
   justify-content: space-around;
   height: 90%;
   width: 100%;
@@ -24,6 +25,17 @@
 }
 
 .create-student-submit-btn {
-  height: 10%;
-  width: 20%
+  align-self: center;
+  background-color: #D2Daed;
+  border-radius: 10px;
+  height: fit-content;
+  padding: 1%;
+  width: fit-content;
+}
+
+.create-student-submit-btn:hover {
+  background-color: #b8bfcf;
+  cursor: pointer;
+  font-size: .75em;
+  font-weight: 600;
 }
