@@ -28,6 +28,7 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
     return students.map(student => {
       return (
         <p 
+          className='student-names'
           id={student.id} 
           key={student.id} 
           onClick={(e) => findStudent(e)}
