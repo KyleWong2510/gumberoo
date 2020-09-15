@@ -3,14 +3,12 @@ import { lesson } from '../../mockData/mockData'
 import { isLoading, hasErrored, setLesson } from '../../actions'
 
 describe('getLesson', () => {
-  let mockTeacherId
   let mockLesson
   let mockLessonId
   let mockUrl
   let mockDispatch
 
   beforeEach(() => {
-    mockTeacherId = 1
     mockLessonId = 1
     mockLesson = lesson 
     mockUrl =  `https://gumberoo-backend.herokuapp.com/api/v1/lessons/${mockLessonId}`
@@ -22,7 +20,7 @@ describe('getLesson', () => {
   })
 
   it('calls dispatch with isLoading(true)', () => {
-    const thunk = getLesson(mockTeacherId, mockLessonId)
+    const thunk = getLesson(mockLessonId)
 
     thunk(mockDispatch)
 
@@ -30,7 +28,7 @@ describe('getLesson', () => {
   })
 
   it('calls fetch with the correct param', async () => {
-    const thunk = getLesson(mockTeacherId, mockLessonId, mockLessonId)
+    const thunk = getLesson(mockLessonId)
 
     await thunk(mockDispatch)
 
@@ -43,7 +41,7 @@ describe('getLesson', () => {
       statusText: 'Something went wrong'
     }))
     
-    const thunk = getLesson(mockTeacherId, mockLessonId) // again, this is the inner function that is returned
+    const thunk = getLesson(mockLessonId) // again, this is the inner function that is returned
     
     await thunk(mockDispatch)
     
@@ -51,14 +49,14 @@ describe('getLesson', () => {
   })
 
   it('should dispatch isLoading(false) if response was ok', async () => {
-    const thunk = getLesson(mockTeacherId, mockLessonId)
+    const thunk = getLesson(mockLessonId)
     await thunk(mockDispatch)
 
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
   })
 
   it('should dispatch setTeacher with the correct params', async () => {
-    const thunk = getLesson(mockTeacherId, mockLessonId)
+    const thunk = getLesson(mockLessonId)
 
     mockDispatch = jest.fn().mockImplementation(() => mockLesson)
 
