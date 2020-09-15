@@ -1,32 +1,58 @@
 .teacherDashBoard {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  margin: 2%;
+  height: 85vh;
+  width: 100vw;
+  // margin: 10vw;
+  background-color: #C6C6C6
 }
 
-.jokeWrapper {
-  padding: 4rem 8rem;
-  display: inline-block;
-  border: 3px solid #333333;
-  font-size: 1rem;
-  border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
-  text-transform: uppercase;
-  letter-spacing: 0.3ch;
-  background: #ffffff;
-  position: relative;
-  width: 90%;
-  
-  &::before {
-      content: '';
-      border: 2px solid #353535;
-      display: block;
-      width: 90%;
-      height: 100%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
-      border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
-  }
+.app-bio {
+  margin: 2vw;
+
 }
+
+.welcome-letter {
+  margin: 5vh 30vh;
+  padding: 5vw;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  box-shadow: 6px 6px 15px #706f6f;
+  background-color: #FFFF;
+  border-radius: 3px;
+}
+
+.bio-title {
+  font-family: 'OpenDyslexic-Regular';
+  font-size: 24px;
+}
+
+.the-gumbaroo-team {
+  margin-left: 25vw;
+}
+
+// .jokeWrapper {
+//   padding: 4rem 8rem;
+//   display: inline-block;
+//   border: 3px solid #333333;
+//   font-size: 1rem;
+//   border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+//   text-transform: uppercase;
+//   letter-spacing: 0.3ch;
+//   background: #ffffff;
+//   position: relative;
+//   width: 100vw;
+  
+//   &::before {
+//       content: '';
+//       border: 2px solid #353535;
+//       display: block;
+//       width: 100vw;
+//       height: 100vh;
+//       position: absolute;
+//       top: 50%;
+//       left: 50%;
+//       transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
+//       border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
+//   }
+// }

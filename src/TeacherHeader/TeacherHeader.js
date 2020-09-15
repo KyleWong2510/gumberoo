@@ -1,23 +1,35 @@
 import React from 'react'
 import './TeacherHeader.scss'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const TeacherHeader = () => {
   return (
     <header className='teacher-header'>
-      <Link to='/'>
+      <NavLink to='/' 
+        className='main-nav' 
+        activeClassName='main-nav-active' 
+        style={{ textDecoration: 'none' }}>
       <h1 className='header-title'>gumberoo</h1>
-      </Link>
+      </NavLink>
       <section className='header-btn-container'>
-        <Link to='students' className='header-btn'>
+        <NavLink 
+          to='students' 
+          className='header-btn'
+          activeClassName='header-btn-active'>
           Students
-        </Link>
-        <Link to='lessons' className='header-btn'>
-          Lessons
-        </Link>
-        <Link to='/createlesson' className='header-btn'>
-          Create a Lesson
-        </Link>
+        </NavLink>
+        <NavLink 
+          to='lessons' 
+          className='header-btn'
+          activeClassName='header-btn-active'>
+          Assessments
+        </NavLink>
+        <NavLink 
+          to='/createlesson' 
+          className='header-btn'
+          activeClassName='header-btn-active'>
+          Create an Assessment
+        </NavLink>
       </section>
     </header>
   )

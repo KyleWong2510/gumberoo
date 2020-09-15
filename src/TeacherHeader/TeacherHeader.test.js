@@ -11,8 +11,8 @@ describe('TeacherHeader', () => {
     
     const title = getByText('gumberoo')
     const studentsBtn = getByText('Students')
-    const lessonsBtn = getByText('Lessons')
-    const createLessonBtn = getByText('Create a Lesson')
+    const lessonsBtn = getByText('Assessments')
+    const createLessonBtn = getByText('Create an Assessment')
  
     expect(title).toBeInTheDocument()
     expect(studentsBtn).toBeInTheDocument()
