@@ -1,8 +1,14 @@
 .teacher-lessons {
+  background-color: #C6C6C6;
   display: flex;
   flex-direction: column;
   height: 85vh;
   width: 100vw;
+
+  h1 {
+    margin: .5% 0%;
+    text-align: center;
+  }
 
   h3 {
     display: flex;
@@ -13,6 +19,7 @@
   }
 
   p {
+    margin: .5% 0%;
     text-align: center
   }
 }
