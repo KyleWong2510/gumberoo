@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import QuestionCard from '../LessonPreview/QuestionCard/QuestionCard'
 
 const LessonDetails = ({ lesson, lessonAverage }) => {
-  console.log('lesson', lesson);
-  console.log('lesson.questions)', lesson.questions);
   const lessonCardDetails = lesson.questions.map(question => {
     return (
     <QuestionCard 
