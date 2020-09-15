@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './MoodForm.scss'
-// import { Link, withRouter } from 'react-router-dom'
 import { setStudent, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -17,7 +16,6 @@ function MoodForm(props) {
   
   const roundedScore = Math.round(score*100)
   const postScore = () => {
-    debugger
     setIsSumbitted(true)
     const url = `https://gumberoo-backend.herokuapp.com/api/v1/students/${props.student.id}/`
     fetch(url, {
