@@ -16,7 +16,6 @@ function MoodForm(props) {
   const score = (props.score / props.lesson.questions.length)
   
   const roundedScore = Math.round(score*100)
-  console.log(roundedScore)
   const postScore = () => {
     debugger
     setIsSumbitted(true)
