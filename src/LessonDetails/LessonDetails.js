@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import QuestionCard from "../LessonPreview/QuestionCard/QuestionCard";
+import './LessonDetails.scss'
 
 const LessonDetails = ({ lesson, lessonAverage }) => {
   const lessonCardDetails = lesson.questions.map((question) => {
@@ -16,7 +17,7 @@ const LessonDetails = ({ lesson, lessonAverage }) => {
   });
 
   return (
-    <section>
+    <section className='lesson-results'>
       <h3>{lesson.name}</h3>
       <p>
         <span>Assessment Link: </span>
