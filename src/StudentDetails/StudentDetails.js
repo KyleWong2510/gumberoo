@@ -34,7 +34,8 @@ const StudentDetails = ({ student, lessons, results }) => {
         acc.push({
           lesson: lesson.name,
           score: result.score,
-          mood: result.mood
+          response: result.mood,
+          mood: result.mood_analyzer
         })
       }
     })
@@ -47,6 +48,7 @@ const StudentDetails = ({ student, lessons, results }) => {
         <section>
           <h4>Lesson: {result.lesson}</h4>
           <p>Score: {result.score}%</p>
+          <p>Response: {result.response}</p>
           <p>Mood: {result.mood}</p>
         </section>
       )
