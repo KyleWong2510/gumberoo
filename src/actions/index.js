@@ -33,6 +33,11 @@ export const setTeacher = teacher => ({
   teacher
 })
 
+export const setLessonAverage= lesson => ({
+  type: 'SET_LESSON_AVERAGE',
+  lesson
+})
+
 export const hasErrored = message => ({
   type: 'HAS_ERRORED',
   message
