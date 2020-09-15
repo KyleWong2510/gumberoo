@@ -55,5 +55,5 @@ StudentDetails.propTypes = {
   student: PropTypes.object.isRequired,
   lessons: PropTypes.array.isRequired,
   results: PropTypes.array.isRequired,
-  studentAverage: PropTypes.number.isRequired
+  studentAverage: PropTypes.object.isRequired
 }
