@@ -1,4 +1,4 @@
-import { isLoading, hasErrored, getLessonAverage } from '../actions'
+import { isLoading, hasErrored, setLessonAverage } from '../actions'
 
 export const getLessonAverage = (lessonID) => {
   const url =`https://gumberoo-backend.herokuapp.com/api/v1/lessons/${lessonID}/average_score/`

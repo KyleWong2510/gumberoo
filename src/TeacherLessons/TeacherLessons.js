@@ -16,7 +16,7 @@ const TeacherLessons = ({ students, lessons, getLessonAverage }) => {
     const foundTheLesson = lessons.find(lesson => +e.target.parentNode.id === lesson.id)
     setFoundLesson(foundTheLesson)
     toggleLessonDetails(true)
-    // Add get for lesson average
+    // getLessonAverage()
   }
 
   const renderLessonDetailsModal = () => {
