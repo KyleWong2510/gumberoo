@@ -8,6 +8,7 @@ const LessonDetails = ({ lesson, lessonAverage }) => {
     return (
       <QuestionCard
         id={question.id}
+        key={question.id}
         question={question.question}
         allAnswers={question.answers}
         reading={question.reading}
