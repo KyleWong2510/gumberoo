@@ -1,14 +1,14 @@
 .display-question {
-  font-size: 2.2em;
+  font-size: 3.5vw;
   justify-content: space-evenly;
   margin-bottom: 5px;
 }
 
 .question-button {
   width: 40%;
-  height: 5%;
+  height: 9vh;
   // padding: 10px;
-  font-size: 2em;
+  font-size: xx-large;
   border-radius: 5px;
   margin: 20px;
   background-color: #CC79A7;
@@ -24,6 +24,10 @@
   transform: scale(1.33);
   transition: transform .7s;
   opacity: .98;
+}
+
+.question-button:focus {
+  outline: 3px solid #D55E00
 }
 
 

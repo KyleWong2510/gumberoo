@@ -10,9 +10,6 @@ import TeacherRoster from '../TeacherRoster/TeacherRoster'
 import TeacherLessons from '../TeacherLessons/TeacherLessons'
 import './App.scss';
 import CreateLesson from '../CreateLesson/CreateLesson'
-import { getStudents } from '../thunks/getStudents'
-import { getLesson } from '../thunks/getLesson'
-// import { Link, withRouter } from 'react-router-dom'
 import { setStudent, setLesson } from '../actions/index'
 import { bindActionCreators } from 'redux'
 
@@ -63,7 +60,7 @@ const mapStateToProps = ({ setStudent, setStudents }) => ({
 })
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ setStudent, setLesson, getLesson, getStudents }, dispatch)
+  bindActionCreators({ setStudent, setLesson }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -8,23 +8,24 @@ import { createStore } from 'redux'
 import { rootReducer } from '../reducers';
 import { lesson } from '../mockData/mockData'
 
-
+const lessonId='1'
+const teacherId='2'
 const store = createStore(rootReducer, {
   setStudent: {
     id: 4,
     first_name: 'Bill',
     last_name: 'Wilke'
   },
+  setStudentId: '2',
   setLesson: lesson,
-  setStudents: [{id: 4, first_name: 'Bill', lastName: 'Wilke'}],
-  setStudentId: 4
+  setStudents: [{id: 4, first_name: 'Bill', last_name: 'Wilke'}],
 })
 describe('StudentDashboards', () => {
   it('Should render the app name and student name', () => {
     const { getByText } = render(
       <MemoryRouter>
         <Provider store={store}>
-          <StudentDashboard/>
+          <StudentDashboard lessonId= {lessonId} teacherId={teacherId}/>
         </Provider>
       </MemoryRouter>
     )
@@ -39,7 +40,7 @@ describe('StudentDashboards', () => {
     const { getByText } = render(
       <MemoryRouter>
         <Provider store={store}>
-          <StudentDashboard/>
+          <StudentDashboard lessonId= {lessonId} teacherId={teacherId}/>
         </Provider>
       </MemoryRouter>
     )
@@ -53,7 +54,7 @@ describe('StudentDashboards', () => {
     const { getByText } = render(
       <MemoryRouter>
         <Provider store={store}>
-          <StudentDashboard/>
+          <StudentDashboard lessonId= {lessonId} teacherId={teacherId}/>
         </Provider>
       </MemoryRouter>
     )
@@ -68,7 +69,7 @@ describe('StudentDashboards', () => {
     const { getByText } = render(
       <MemoryRouter>
         <Provider store={store}>
-          <StudentDashboard/>
+          <StudentDashboard lessonId= {lessonId} teacherId={teacherId}/>
         </Provider>
       </MemoryRouter>
     )

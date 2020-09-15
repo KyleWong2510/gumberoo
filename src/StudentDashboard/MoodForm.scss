@@ -3,11 +3,12 @@
   margin-top: 2vh;
   width: 50vw;
   font-family: 'OpenDyslexic-regular';
+  font-size: 2vw;
 }
 
 .submit-mood-button {
   margin-top: 10vh;
-  height: 10vh;
+  height: 9vh;
   width: 18vw;
   background-color: #CC79A7;
   border: none;
@@ -15,8 +16,7 @@
   cursor: pointer;
   border: 4px ridge #0072B2;
   font-family: 'OpenDyslexic-regular';
-  font-size: 1.9em;
-  padding-bottom: 13vh;
+  font-size: 95%;
 }
 
 .submit-mood-button:hover {
@@ -25,11 +25,9 @@
   transition: transform .7s;
   opacity: .98;
 }
-
-
-
-
-
+.submit-mood-button:focus {
+  outline: 5px solid #D55E00;
+}
 .students-mood-form {
   display: flex;
   text-align: center;
@@ -39,4 +37,8 @@
   justify-content: space-evenly;
   align-items: center;
   margin: 10px 10px 10px 10px;
+}
+
+.finished-message {
+  font-size: 2.5vw;
 }

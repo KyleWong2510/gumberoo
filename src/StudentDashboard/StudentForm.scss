@@ -30,17 +30,14 @@
 
 .submit-name-button {
   margin-top: 10vh;
-  height: 10vh;
+  height: 9vh;
   width: 18vw;
   background-color: #CC79A7;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
   border: 4px ridge #0072B2;
   font-family: 'OpenDyslexic-regular';
-  font-size: 1.5em;
-  padding-bottom: 13vh;
-  
+  font-size: 95%;
 }
 
 .submit-name-button:hover {
@@ -48,4 +45,12 @@
   transform: scale(1.33);
   transition: transform .7s;
   opacity: .98;
+}
+.student-names-input:focus,
+.submit-name-button:focus {
+  outline: 3px solid #D55E00
+}
+
+.form-app-title {
+  font-size: 2em;
 }
