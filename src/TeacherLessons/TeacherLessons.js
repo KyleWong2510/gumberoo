@@ -5,25 +5,30 @@ import { connect } from "react-redux";
 import Modal from '../Modal/Modal'
 import LessonDetails from "../LessonDetails/LessonDetails"
 import PropTypes from 'prop-types'
-import { getLessonAverage } from "../thunks/getTeacher"
+import { getLessonAverage } from "../thunks/getLessonAverage"
+import { bindActionCreators } from "redux"
 
-const TeacherLessons = ({ students, lessons, getLessonAverage }) => {
+const TeacherLessons = ({ students, lessons, getLessonAverage, average }) => {
   const [foundLesson, setFoundLesson] = useState({})
   const [isViewingLessonDetails, toggleLessonDetails] = useState(false)
 
-  const findLesson = (e) => {
+  const findLesson = async (e) => {
     e.preventDefault()
     const foundTheLesson = lessons.find(lesson => +e.target.parentNode.id === lesson.id)
+    await getLessonAverage(e.target.parentNode.id)
     setFoundLesson(foundTheLesson)
     toggleLessonDetails(true)
-    // getLessonAverage()
   }
 
   const renderLessonDetailsModal = () => {
     if (isViewingLessonDetails) {
       return (
         <Modal 
-          content={<LessonDetails lesson={foundLesson}/>}
+          content={<LessonDetails 
+            lesson={foundLesson} 
+            lessonLink={foundLesson}
+            lessonAverage={average}
+           />}
           toggleDisplay={() => toggleLessonDetails(false)}
         />
       )
@@ -39,7 +44,6 @@ const TeacherLessons = ({ students, lessons, getLessonAverage }) => {
             <LessonCard
               key={lesson.id}
               id={lesson.id}
-              lessonLink={lesson.link}
               lessonTitle={lesson.name}
               findLesson={findLesson}
             />
@@ -51,14 +55,14 @@ const TeacherLessons = ({ students, lessons, getLessonAverage }) => {
         </p>
       )}
       {renderLessonDetailsModal()}
-      {/* <LessonCard deleteLesson={deleteLesson}/> */}
     </main>
   );
 };
 
-const mapStateToProps = ({ setStudents, setLessons }) => ({
+const mapStateToProps = ({ setStudents, setLessons, setLessonAverage }) => ({
   students: setStudents,
   lessons: setLessons,
+  average: setLessonAverage
 });
 
 const mapDispatchToProps = (dispatch) => 
@@ -69,7 +73,7 @@ const mapDispatchToProps = (dispatch) =>
     dispatch
   )
 
-export default connect(mapStateToProps, matchDispatchToProps)(TeacherLessons);
+export default connect(mapStateToProps, mapDispatchToProps)(TeacherLessons);
 
 TeacherLessons.propTypes = {
   lessons: PropTypes.array.isRequired,

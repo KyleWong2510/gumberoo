@@ -33,9 +33,9 @@ export const setTeacher = teacher => ({
   teacher
 })
 
-export const setLessonAverage= lesson => ({
+export const setLessonAverage= average => ({
   type: 'SET_LESSON_AVERAGE',
-  lesson
+  average
 })
 
 export const hasErrored = message => ({

@@ -20,5 +20,5 @@ LessonCard.propTypes = {
   lessonTitle: PropTypes.string.isRequired,
   lessonLink: PropTypes.string.isRequired,
   findLesson: PropTypes.func.isRequired,
-  deleteLesson: PropTypes.func.isRequired
+  deleteLesson: PropTypes.func
 }

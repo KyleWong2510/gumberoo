@@ -12,7 +12,8 @@ export const getLessonAverage = (lessonID) => {
       }
       const data = await response.json()
       dispatch(isLoading(false))
-      dispatch(getLessonAverage(data))
+      console.log('thunk data', data);
+      dispatch(setLessonAverage(data))
     } catch (error) {
       dispatch(hasErrored(error.message))
     }
