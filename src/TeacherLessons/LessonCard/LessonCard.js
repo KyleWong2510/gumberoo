@@ -16,9 +16,9 @@ const LessonCard = ({ id, lessonTitle, lessonLink, findLesson, deleteLesson})=> 
 export default LessonCard
 
 LessonCard.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
   lessonTitle: PropTypes.string.isRequired,
-  lessonLink: PropTypes.string.isRequired,
+  lessonLink: PropTypes.string,
   findLesson: PropTypes.func.isRequired,
-  deleteLesson: PropTypes.func.isRequired
+  // deleteLesson: PropTypes.func.isRequired
 }

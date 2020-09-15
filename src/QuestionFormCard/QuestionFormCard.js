@@ -115,7 +115,7 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
 export default QuestionFormCard;
 
 QuestionFormCard.propTypes = {
-  lessonTitleText: PropTypes.string.isRequired, 
+  lessonTitleText: PropTypes.string, 
   setLessonTitleText: PropTypes.func.isRequired, 
   questions: PropTypes.array.isRequired, 
   setQuestions: PropTypes.func.isRequired

@@ -1,26 +1,23 @@
-import { getLesson } from '../getLesson'
-import { lesson } from '../../mockData/mockData'
-import { isLoading, hasErrored, setLesson } from '../../actions'
+import { getStudentAverage } from '../getStudentAverage'
+import { isLoading, hasErrored, setStudentAverage } from '../../actions'
+import { mockStudentAverage } from '../../mockData/mockData'
 
-describe('getLesson', () => {
-  let mockLesson
-  let mockLessonId
-  let mockUrl
-  let mockDispatch
+describe('getStudentAverage', () => {
+  let mockStudentId, mockUrl, mockDispatch, mockAverage
 
   beforeEach(() => {
-    mockLessonId = 1
-    mockLesson = lesson 
-    mockUrl =  `https://gumberoo-backend.herokuapp.com/api/v1/lessons/${mockLessonId}`
+    mockStudentId = 1
+    mockUrl =`https://gumberoo-backend.herokuapp.com/api/v1/students/${mockStudentId}/average_score/`
     mockDispatch = jest.fn()
+    mockAverage = mockStudentAverage
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
-      json: () => Promise.resolve(mockLesson)
+      json: () => Promise.resolve(mockAverage)
     }))
   })
 
   it('calls dispatch with isLoading(true)', () => {
-    const thunk = getLesson(mockLessonId)
+    const thunk = getStudentAverage(mockStudentId)
 
     thunk(mockDispatch)
 
@@ -28,7 +25,7 @@ describe('getLesson', () => {
   })
 
   it('calls fetch with the correct param', async () => {
-    const thunk = getLesson(mockLessonId)
+    const thunk = getStudentAverage(mockStudentId)
 
     await thunk(mockDispatch)
 
@@ -41,7 +38,7 @@ describe('getLesson', () => {
       statusText: 'Something went wrong'
     }))
     
-    const thunk = getLesson(mockLessonId) // again, this is the inner function that is returned
+    const thunk = getStudentAverage(mockStudentId)
     
     await thunk(mockDispatch)
     
@@ -49,19 +46,19 @@ describe('getLesson', () => {
   })
 
   it('should dispatch isLoading(false) if response was ok', async () => {
-    const thunk = getLesson(mockLessonId)
+    const thunk = getStudentAverage(mockStudentId)
     await thunk(mockDispatch)
 
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
   })
 
   it('should dispatch setTeacher with the correct params', async () => {
-    const thunk = getLesson(mockLessonId)
+    const thunk = getStudentAverage(mockStudentId)
 
-    mockDispatch = jest.fn().mockImplementation(() => mockLesson)
+    mockDispatch = jest.fn().mockImplementation(() => mockAverage)
 
     await thunk(mockDispatch)
 
-    expect(mockDispatch).toHaveBeenCalledWith(setLesson(mockLesson))
+    expect(mockDispatch).toHaveBeenCalledWith(setStudentAverage(mockAverage))
   })
 })
