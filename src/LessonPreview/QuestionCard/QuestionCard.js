@@ -3,9 +3,9 @@ import './QuestionCard.scss'
 import PropTypes from 'prop-types'
 
 const QuestionCard = ({ id, question, allAnswers, reading, deleteQuestion })=> {
-  let correctAnswer = allAnswers.find(answer => answer.correct === 'true').answer
+  let correctAnswer = allAnswers.find(answer => answer.correct === true || answer.correct === 'true').answer
   let incorrectAnswers = allAnswers
-    .filter(answer => answer.correct === 'false')
+    .filter(answer => answer.correct === false || answer.correct === 'false')
     .map((answer, i )=> <p key={i++} className='incorrect-answers'>{answer.answer}</p>)
 
   return (
@@ -15,7 +15,9 @@ const QuestionCard = ({ id, question, allAnswers, reading, deleteQuestion })=> {
       <p><span className='question-card-category'>Correct Answer:</span> {correctAnswer}</p>
       <p className='question-card-category'>Incorrect Answers:</p>
       {incorrectAnswers}
-      <button onClick={(e) => deleteQuestion(e)}>Delete</button>
+      {deleteQuestion &&  
+        <button onClick={(e) => deleteQuestion(e)}>Delete</button>
+      }
     </section>
   )
 }
@@ -27,5 +29,5 @@ QuestionCard.propTypes = {
   question: PropTypes.string.isRequired,
   allAnswers: PropTypes.array.isRequired,
   reading: PropTypes.string.isRequired,
-  deleteQuestion: PropTypes.func.isRequired
+  deleteQuestion: PropTypes.func
 }
