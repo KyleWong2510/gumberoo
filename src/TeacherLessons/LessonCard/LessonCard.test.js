@@ -29,10 +29,9 @@ describe('LessonCard', ()=> {
     const { getByText } = render(lessonCard )
 
     const lessonTitle = getByText('Mocked Lesson')
-    const lessonLink = getByText('Lesson Link:')
 
     expect(lessonTitle).toBeInTheDocument()
-    expect(lessonLink).toBeInTheDocument()
+
   })
 
   it('a function should be fired upon a click of a lesson title', () => {
