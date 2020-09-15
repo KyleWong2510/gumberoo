@@ -4,12 +4,13 @@ import CreateStudentForm from '../CreateStudentForm/CreateStudentForm'
 import StudentDetails from '../StudentDetails/StudentDetails'
 import { getStudentsResults } from '../thunks/getStudentsResults'
 import { getStudentAverage } from '../thunks/getStudentAverage'
+import { resetStudentsResults } from '../actions'
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
 import './TeacherRoster.scss'
 import PropTypes from 'prop-types'
 
-const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverage }) => {
+const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverage, resetStudentsResults }) => {
   const [ isAddingStudent, toggleAddStudent ] = useState(false)
   const [ isViewingStudentDetails, toggleStudentDetails] = useState(false)
   const [ foundStudent, setFoundStudent ] = useState({})
@@ -26,6 +27,11 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
       console.error(error)
     }
   })
+
+  const closeModal = () => {
+    toggleStudentDetails(false)
+    resetStudentsResults()
+  }
 
   const renderStudentNames = () => {
     return students.map(student => {
@@ -54,7 +60,7 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
       return (
         <Modal 
           content={<StudentDetails student={foundStudent}/>}
-          toggleDisplay={() => toggleStudentDetails(false)}
+          toggleDisplay={closeModal}
         />
       )
     } 
@@ -91,7 +97,8 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       getStudentsResults,
-      getStudentAverage
+      getStudentAverage,
+      resetStudentsResults
     }, dispatch
   )
 
