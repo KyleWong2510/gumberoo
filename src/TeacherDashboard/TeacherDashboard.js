@@ -39,11 +39,7 @@ const TeacherDashboard = ({ getTeacher, getStudents, getLessons, teacher, isLoad
     </section>
     )
   }
-  {/* <div className="jokeWrapper">
-    <h4>Joke of the day!</h4>
-    <h3>What did the ocean say to the Pirate?</h3>
-    <h3>Nothing, it just waved!</h3>
-  </div> */}
+
   
   const mapStateToProps = ({ setStudents, setLessons, setTeacher, isLoading }) => ({
  students: setStudents,
