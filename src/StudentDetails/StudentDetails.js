@@ -3,28 +3,11 @@ import './StudentDetails.scss'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-const StudentDetails = ({ student, lessons }) => {
+const StudentDetails = ({ student, lessons, results }) => {
+  console.log(lessons, 'LESSONS')
+  console.log(results, 'ALL RESULTS')
 
-  const studentScores = [
-    {
-     'lesson': 2,
-     'student': 1,
-     'score': 6,
-     'mood': "Mad"
-    }, {
-     'lesson': 5,
-     'student': 1,
-     'score': 2,
-     'mood': "Happy"
-    }, {
-     'lesson': 3,
-     'student': 3,
-     'score': 8,
-     'mood': "Sad"
-    }
-  ]
-
-  const studentResults = studentScores.filter(score => score.student === student.id)
+  const studentResults = results.filter(score => score.student === student.id)
 // NOT PASSING CONDITIONAL TO MATCH LESSON ID AND STUDENT SCORE LESSON
   // const studentScoresMood = studentLessons.map(score => {
   //   return lessons.find(lesson => {
@@ -45,17 +28,17 @@ const StudentDetails = ({ student, lessons }) => {
   //   })
   // })
 
-  const studentScoresMood = studentResults.reduce((results, result) => {
+  const studentScoresMood = studentResults.reduce((acc, result) => {
     lessons.forEach(lesson => {
       if(lesson.id === result.lesson) {
-        results.push({
+        acc.push({
           lesson: lesson.name,
           score: result.score,
           mood: result.mood
         })
       }
     })
-    return results
+    return acc
   }, [])
 
   const renderStudentResults = () => {
@@ -79,13 +62,15 @@ const StudentDetails = ({ student, lessons }) => {
   )
 }
 
-const mapStateToProps = ({ setLessons }) => ({
-  lessons: setLessons
+const mapStateToProps = ({ setLessons, setStudentsResults }) => ({
+  lessons: setLessons,
+  results: setStudentsResults
 })
 
 export default connect(mapStateToProps)(StudentDetails)
 
 StudentDetails.propTypes = {
   student: PropTypes.object.isRequired,
-  lessons: PropTypes.array.isRequired
+  lessons: PropTypes.array.isRequired,
+  results: PropTypes.array.isRequired
 }

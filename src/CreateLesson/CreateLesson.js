@@ -1,12 +1,19 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import './CreateLesson.scss'
 import QuestionFormCard from '../QuestionFormCard/QuestionFormCard'
 import LessonPreview from '../LessonPreview/LessonPreview'
+import { resetStudentsResults } from '../actions'
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-const CreateLesson = () => {
+const CreateLesson = ({ resetStudentsResults }) => {
   const [questions, setQuestions] = useState([])
   const [lessonTitleText, setLessonTitleText] = useState("");
   
+  useEffect (() => {
+    resetStudentsResults()
+  }, [])
+
   const deleteQuestion = (e) => {
     //eslint-disable-next-line
     setQuestions(questions.filter(ques => ques.id != e.target.parentNode.id))
@@ -34,4 +41,12 @@ const CreateLesson = () => {
   )
 }
 
-export default CreateLesson
+const mapDispatchToProps = (dispatch) => 
+  bindActionCreators(
+    {
+      resetStudentsResults
+    },
+    dispatch
+  )
+
+export default connect(null, mapDispatchToProps)(CreateLesson)

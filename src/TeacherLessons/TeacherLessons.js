@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TeacherLessons.scss";
 import LessonCard from "./LessonCard/LessonCard";
 import { connect } from "react-redux";
@@ -6,10 +6,16 @@ import Modal from '../Modal/Modal'
 import LessonDetails from "../LessonDetails/LessonDetails"
 // import { setLessons } from "../actions";
 // import { bindActionCreators } from "redux";
+import { resetStudentsResults } from '../actions'
+import { bindActionCreators } from "redux";
 
-const TeacherLessons = ({ students, lessons }) => {
+const TeacherLessons = ({ students, lessons, resetStudentsResults }) => {
   const [foundLesson, setFoundLesson] = useState({})
   const [isViewingLessonDetails, toggleLessonDetails] = useState(false)
+
+  useEffect (() => {
+    resetStudentsResults()
+  }, [])
 
   const findLesson = (e) => {
     const foundTheLesson = lessons.find(lesson => +e.target.parentNode.id === lesson.id)
@@ -74,4 +80,12 @@ const mapStateToProps = ({ setStudents, setLessons }) => ({
   lessons: setLessons,
 });
 
-export default connect(mapStateToProps)(TeacherLessons);
+const mapDispatchToProps = (dispatch) => 
+  bindActionCreators(
+    {
+      resetStudentsResults
+    },
+    dispatch
+  )
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeacherLessons);

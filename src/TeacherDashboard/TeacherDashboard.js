@@ -5,27 +5,20 @@ import { bindActionCreators } from "redux";
 import { getLessons } from "../thunks/getLessons";
 import { getStudents } from "../thunks/getStudents"
 import { getTeacher } from "../thunks/getTeacher"
-import { getStudentsResults } from '../thunks/getStudentsResults'
+import { resetStudentsResults } from '../actions'
 import PropTypes from 'prop-types'
 
-const TeacherDashboard = ({ getTeacher, getStudents, getLessons, getStudentsResults, lessons }) => {
-
-  // const getAllStudentsResults = () => {
-  //   return lessons.map(lesson => {
-  //     getStudentsResults(lesson.id)
-  //   })
-  // }
+const TeacherDashboard = ({ getTeacher, getStudents, getLessons, resetStudentsResults }) => {
 
   useEffect (() => {
     async function fetchData() {
       await getLessons()
       await getTeacher()
       await getStudents()
-      // await getAllStudentsResults()
+      await resetStudentsResults()
     } 
-
+    
     fetchData()
-    // getAllStudentsResults()
     // eslint-disable-next-line 
   }, [])
 
@@ -45,10 +38,8 @@ const TeacherDashboard = ({ getTeacher, getStudents, getLessons, getStudentsResu
   )
 }
 
-const mapStateToProps = ({ setStudents, setLessons, setTeacher }) => ({
-  // students: setStudents,
+const mapStateToProps = ({ setLessons }) => ({
   lessons: setLessons,
-  // teacher: setTeacher
 })
 
 const mapDispatchToProps = (dispatch) => 
@@ -57,8 +48,7 @@ const mapDispatchToProps = (dispatch) =>
       getLessons, 
       getStudents,
       getTeacher,
-      getStudentsResults,
-      // getScores 
+      resetStudentsResults
     },
     dispatch
   )
@@ -70,6 +60,6 @@ TeacherDashboard.propTypes = {
   getTeacher: PropTypes.func.isRequired,
   getStudents: PropTypes.func.isRequired,
   getLessons: PropTypes.func.isRequired,
-  getStudentsResults: PropTypes.func.isRequired,
+  resetStudentsResults: PropTypes.func.isRequired,
   lessons: PropTypes.array.isRequired
 }

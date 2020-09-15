@@ -14,8 +14,12 @@ export const addStudent = student => ({
 })
 
 export const setStudentsResults = results => ({
-  type: 'SET_STUDENT_RESULTS',
+  type: 'SET_STUDENTS_RESULTS',
   results
+})
+
+export const resetStudentsResults = () => ({
+  type: 'RESET_STUDENTS_RESULTS'
 })
 
 export const setStudentId = studentId => ({

@@ -12,16 +12,16 @@ const TeacherRoster = ({ students, lessons, getStudentsResults }) => {
   const [ isAddingStudent, toggleAddStudent ] = useState(false)
   const [ isViewingStudentDetails, toggleStudentDetails] = useState(false)
   const [ foundStudent, setFoundStudent ] = useState({})
-  
+
   const findStudentResults = async () => {
-    await lessons
-    await lessons.forEach(lesson => getStudentsResults(lesson.id))
+      await lessons.forEach(lesson => getStudentsResults(lesson.id))
   }
 
   useEffect (() => {
     try {
-      findStudentResults()
-    } catch (error) {
+        findStudentResults()
+      }
+    catch (error) {
       console.error(error)
     }
   }, [])
@@ -41,9 +41,10 @@ const TeacherRoster = ({ students, lessons, getStudentsResults }) => {
   }
 
   const findStudent = (e) => {
+    e.preventDefault()
     const found = students.find(student => +e.target.id === student.id)
     setFoundStudent(found)
-    findStudentResults()
+    // findStudentResults()
     toggleStudentDetails(true)
   }
 
@@ -95,5 +96,7 @@ const mapDispatchToProps = (dispatch) =>
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherRoster)
 
 TeacherRoster.propTypes = {
-  students: PropTypes.array.isRequired
+  students: PropTypes.array.isRequired,
+  lessons: PropTypes.array.isRequired,
+  getStudentsResults: PropTypes.func.isRequired
 }
