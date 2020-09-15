@@ -12,10 +12,10 @@ const TeacherLessons = ({ students, lessons, getLessonAverage, average }) => {
   const [foundLesson, setFoundLesson] = useState({})
   const [isViewingLessonDetails, toggleLessonDetails] = useState(false)
 
-  const findLesson = async (e) => {
+  const findLesson = (e) => {
     e.preventDefault()
     const foundTheLesson = lessons.find(lesson => +e.target.parentNode.id === lesson.id)
-    await getLessonAverage(e.target.parentNode.id)
+    getLessonAverage(e.target.parentNode.id)
     setFoundLesson(foundTheLesson)
     toggleLessonDetails(true)
   }
