@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const LessonCard = ({ id, lessonTitle, findLesson})=> {
   return (
     <section id={id} key={id} className='lesson-card'>
-      <p onClick={(e) => findLesson(e)}> {lessonTitle}</p>
+      <p className="lesson-name" onClick={(e) => findLesson(e)}> {lessonTitle}</p>
     </section>
   )
 }
