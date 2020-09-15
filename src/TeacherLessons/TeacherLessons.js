@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import Modal from '../Modal/Modal'
 import LessonDetails from "../LessonDetails/LessonDetails"
 import PropTypes from 'prop-types'
+import { getLessonAverage } from "../thunks/getTeacher"
 
-const TeacherLessons = ({ students, lessons }) => {
+const TeacherLessons = ({ students, lessons, getLessonAverage }) => {
   const [foundLesson, setFoundLesson] = useState({})
   const [isViewingLessonDetails, toggleLessonDetails] = useState(false)
 
@@ -14,6 +15,7 @@ const TeacherLessons = ({ students, lessons }) => {
     const foundTheLesson = lessons.find(lesson => +e.target.parentNode.id === lesson.id)
     setFoundLesson(foundTheLesson)
     toggleLessonDetails(true)
+    // Add get for lesson average
   }
 
   const renderLessonDetailsModal = () => {
@@ -58,7 +60,15 @@ const mapStateToProps = ({ setStudents, setLessons }) => ({
   lessons: setLessons,
 });
 
-export default connect(mapStateToProps)(TeacherLessons);
+const mapDispatchToProps = (dispatch) => 
+  bindActionCreators(
+    {
+      getLessonAverage
+    },
+    dispatch
+  )
+
+export default connect(mapStateToProps, matchDispatchToProps)(TeacherLessons);
 
 TeacherLessons.propTypes = {
   lessons: PropTypes.array.isRequired,
