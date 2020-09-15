@@ -15,8 +15,15 @@
   }
 
   p {
+    font-size: 1.25em;
     margin-bottom: 1%;
-    text-align: center
+    text-align: center;
+  }
+  
+  p:hover {
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: 600;
   }
 }
 
@@ -24,7 +31,15 @@
   align-self: center;
   background-color: #D2Daed;
   border-radius: 10px;
+  font-size: 1.25em;
   height: fit-content;
   padding: 1%;
   width: fit-content;
+}
+
+.add-student-btn:hover {
+  background-color: #b8bfcf;
+  cursor: pointer;
+  font-size: 1.5em;
+  font-weight: 600;
 }
