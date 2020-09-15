@@ -5,16 +5,19 @@ import { bindActionCreators } from "redux";
 import { getLessons } from "../thunks/getLessons";
 import { getStudents } from "../thunks/getStudents"
 import { getTeacher } from "../thunks/getTeacher"
+import { resetStudentsResults } from '../actions'
 import PropTypes from 'prop-types'
 
 const TeacherDashboard = ({ getTeacher, getStudents, getLessons, teacher, isLoading }) => {
 
   useEffect (() => {
     async function fetchData() {
+      await getLessons()
       await getTeacher()
       await getStudents()
-      await getLessons()
+      await resetStudentsResults()
     } 
+    
     fetchData()
     // eslint-disable-next-line 
   }, [])
@@ -53,8 +56,8 @@ const mapDispatchToProps = (dispatch) =>
     {
       getLessons, 
       getStudents,
-      getTeacher
-      // getScores 
+      getTeacher,
+      resetStudentsResults
     },
     dispatch
   )
@@ -65,5 +68,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(TeacherDashboard);
 TeacherDashboard.propTypes = {
   getTeacher: PropTypes.func.isRequired,
   getStudents: PropTypes.func.isRequired,
-  getLessons: PropTypes.func.isRequired
+  getLessons: PropTypes.func.isRequired,
+  resetStudentsResults: PropTypes.func.isRequired,
+  lessons: PropTypes.array.isRequired
 }

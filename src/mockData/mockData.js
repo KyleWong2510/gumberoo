@@ -66,3 +66,46 @@ export const student3 = {
   first_name: 'Tilda',
   last_name: 'Swinton'
 }
+
+export const mockStudentsResults = [
+  {
+      "student": 17,
+      "lesson": 15,
+      "score": 67,
+      "mood": "I did good",
+      "mood_analyzer": "Joy"
+  },
+  {
+      "student": 18,
+      "lesson": 15,
+      "score": 93,
+      "mood": "I don't like grammar :(",
+      "mood_analyzer": "Sadness"
+  },
+  {
+      "student": 19,
+      "lesson": 15,
+      "score": 76,
+      "mood": "I did good",
+      "mood_analyzer": "Joy"
+  },
+  {
+      "student": 20,
+      "lesson": 15,
+      "score": 50,
+      "mood": "English grammar sucks",
+      "mood_analyzer": "Unable to analyze"
+  },
+  {
+      "student": 21,
+      "lesson": 15,
+      "score": 33,
+      "mood": "I feel not very smart",
+      "mood_analyzer": "Tentative"
+  }
+]
+
+export const mockStudentAverage = {
+  "lesson_id": 15,
+  "average_score": 63
+}

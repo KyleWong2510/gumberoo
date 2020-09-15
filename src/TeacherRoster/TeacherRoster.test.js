@@ -3,17 +3,18 @@ import '@testing-library/jest-dom/extend-expect';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import TeacherRoster from './TeacherRoster';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import { rootReducer } from '../reducers';
 
-const mockStudents = [
+const mockStudents = [ 
   {id: 1, teacher: 1, first_name: 'Stacy', last_name: 'Peralta'},
   {id: 2, teacher: 1, first_name: 'Stevie', last_name: 'Nicks'}
 ]
 
 const store = createStore(rootReducer, {
-  setStudents: mockStudents
-})
+  setStudents: mockStudents,
+}, applyMiddleware(thunk))
 
 describe('TeacherRoster', () => {
   it('should render a header, student names and a button', async () => {
@@ -63,7 +64,7 @@ describe('TeacherRoster', () => {
   it('should close the modal when clicking the X button', () => {
     const { getByRole, getByText } = render(
       <Provider store={store}>
-        <TeacherRoster students={mockStudents} />
+        <TeacherRoster students={mockStudents} getStudentAverage={jest.fn()}/>
       </Provider>
     )
     const student = getByText('Stacy Peralta')

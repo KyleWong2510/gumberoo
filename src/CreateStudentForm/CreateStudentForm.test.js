@@ -9,14 +9,22 @@ import { rootReducer } from '../reducers';
 const store = createStore(rootReducer, {
 
 })
+let createStudentForm
+let mockCompleteForm
 
 describe('CreateStudent', () => {
-  it('should render a header, two inputs, and a submit btn', () => {
-    const { getByText, getByPlaceholderText, getByDisplayValue } = render(
+  beforeEach(() => {
+
+    mockCompleteForm = jest.fn()
+    createStudentForm = (
       <Provider store={store}>
-        <CreateStudentForm />
+        <CreateStudentForm completeForm={mockCompleteForm}/>
       </Provider>
     )
+  })
+
+  it('should render a header, two inputs, and a submit btn', () => {
+    const { getByText, getByPlaceholderText, getByDisplayValue } = render(createStudentForm)
 
     const header = getByText('Add a Student to Your Roster')
     const firstNameInput = getByPlaceholderText('Enter Student First Name...')
@@ -30,11 +38,7 @@ describe('CreateStudent', () => {
   })
 
   it('should change inputs when typing', () => {
-    const { getByPlaceholderText, getByDisplayValue } = render(
-      <Provider store={store}>
-        <CreateStudentForm />
-      </Provider>
-    )
+    const { getByPlaceholderText, getByDisplayValue } = render(createStudentForm)
 
     const firstNameInput = getByPlaceholderText('Enter Student First Name...')
     const lastNameInput = getByPlaceholderText('Enter Student Last Name...')
@@ -50,12 +54,7 @@ describe('CreateStudent', () => {
   })
 
   it('should fire a function onSubmit', () => {
-    const mockCompleteForm = jest.fn()
-    const { getByPlaceholderText, getByDisplayValue } = render(
-      <Provider store={store}>
-        <CreateStudentForm completeForm={mockCompleteForm}/>
-      </Provider>
-    )
+    const { getByPlaceholderText, getByDisplayValue } = render(createStudentForm)
 
     const firstNameInput = getByPlaceholderText('Enter Student First Name...')
     const lastNameInput = getByPlaceholderText('Enter Student Last Name...')
@@ -69,12 +68,7 @@ describe('CreateStudent', () => {
   })
 
   it('should not fire a function onSubmit when one or both inputs are empty', () => {
-    const mockCompleteForm = jest.fn()
-    const { getByPlaceholderText, getByDisplayValue } = render(
-      <Provider store={store}>
-        <CreateStudentForm completeForm={mockCompleteForm}/>
-      </Provider>
-    )
+    const { getByPlaceholderText, getByDisplayValue } = render(createStudentForm)
 
     const firstNameInput = getByPlaceholderText('Enter Student First Name...')
     const submitBtn = getByDisplayValue('Add Student')

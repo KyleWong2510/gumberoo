@@ -50,11 +50,11 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
   return (
     <form className="question-form-card">
       <section className='question-form-input'>
-        <label htmlFor='lesson-title'>Lesson Title:</label>
+        <label htmlFor='lesson-title'>Assessment Title:</label>
         <input
           id='lesson-title'
           type="text"
-          placeholder="Enter Lesson Title..."
+          placeholder="Enter Assessment Title..."
           value={lessonTitleText}
           aria-label="Lesson Title Input"
           onChange={(e) => setLessonTitleText(e.target.value)}
@@ -115,7 +115,7 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
 export default QuestionFormCard;
 
 QuestionFormCard.propTypes = {
-  lessonTitleText: PropTypes.string.isRequired, 
+  lessonTitleText: PropTypes.string, 
   setLessonTitleText: PropTypes.func.isRequired, 
   questions: PropTypes.array.isRequired, 
   setQuestions: PropTypes.func.isRequired

@@ -14,7 +14,7 @@ const LessonPreview = ({
   deleteQuestion,
   addLesson
 }) => {
-  const teacherId = 1
+  const teacherId = 2
   const isEnabled = lessonTitleText.trim() === '' || questions.length < 1
 
   const createLesson = (e) => {
@@ -80,7 +80,7 @@ const LessonPreview = ({
         )}
       </section>
       <button disabled={isEnabled} onClick={createLesson} className="generate-lesson-btn">
-        Generate Lesson
+        Generate Assessment
       </button>
     </section>
   );

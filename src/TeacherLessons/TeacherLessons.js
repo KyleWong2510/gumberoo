@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TeacherLessons.scss";
 import LessonCard from "./LessonCard/LessonCard";
 import { connect } from "react-redux";
 import Modal from "../Modal/Modal";
 import LessonDetails from "../LessonDetails/LessonDetails";
-import PropTypes from "prop-types";
 import { getLessonAverage } from "../thunks/getLessonAverage";
 import { bindActionCreators } from "redux";
+import { resetStudentsResults } from '../actions'
+import PropTypes from 'prop-types'
 
 const TeacherLessons = ({ students, lessons, getLessonAverage, average }) => {
   const [foundLesson, setFoundLesson] = useState({});
   const [isViewingLessonDetails, toggleLessonDetails] = useState(false);
+
+  useEffect (() => {
+    resetStudentsResults()
+  })
 
   const findLesson = (e) => {
     e.preventDefault();

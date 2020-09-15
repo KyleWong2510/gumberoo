@@ -1,13 +1,28 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, fireEvent, getByTestId, getByPlaceholderText, getByDisplayValue } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import QuestionFormCard from './QuestionFormCard';
-import QuestionInput from './QuestionInput/QuestionInput';
+
+let questionFormCard, mockSetLessonTitleText, mockSetQuestions
+
 
 describe('QuestionFormCard', () => {
+  beforeEach(() => {
+    
+    mockSetLessonTitleText = jest.fn()
+    mockSetQuestions = jest.fn()
+    questionFormCard = (
+      <QuestionFormCard 
+        questions={[]}
+        setLessonTitleText={mockSetLessonTitleText}
+        setQuestions={mockSetQuestions}
+      />
+    )
+  })
+
   it('should render input labels', () => {
-    const { getByText } = render(<QuestionFormCard />)
-    const lessonTitleLabel = getByText('Lesson Title:')
+    const { getByText } = render(questionFormCard)
+    const lessonTitleLabel = getByText('Assessment Title:')
     const readingLabel = getByText('Reading:')
     const questionLabel = getByText('Question:')
     const correctLabel = getByText('Correct Answer:')
@@ -25,8 +40,8 @@ describe('QuestionFormCard', () => {
   })
 
   it('should render inputs and a textarea', () => {
-    const { getByPlaceholderText, getByTestId } = render(<QuestionFormCard />)
-    const lessonTitleInput = getByPlaceholderText('Enter Lesson Title...')
+    const { getByPlaceholderText, getByTestId } = render(questionFormCard)
+    const lessonTitleInput = getByPlaceholderText('Enter Assessment Title...')
     const readingInput = getByPlaceholderText('Enter text...')
     const questionInput = getByPlaceholderText('Enter a Question...')
     const correctInput = getByPlaceholderText('Enter Correct Answer...')
@@ -44,15 +59,14 @@ describe('QuestionFormCard', () => {
   })
 
   it('should render a button to submit a question', () => {
-    const { getByRole } = render(<QuestionFormCard />)
+    const { getByRole } = render(questionFormCard)
     const addQuestionBtn = getByRole('button')
     expect(addQuestionBtn).toBeInTheDocument()
   })
 
   it('should change inputs when entering information', () => {
-    const mockSetLessonTitleText = jest.fn()
-    const { getByPlaceholderText, getByTestId, getByDisplayValue } = render(<QuestionFormCard setLessonTitleText={mockSetLessonTitleText}/>)
-    const lessonTitleInput = getByPlaceholderText('Enter Lesson Title...')
+    const { getByPlaceholderText, getByTestId, getByDisplayValue } = render(questionFormCard)
+    const lessonTitleInput = getByPlaceholderText('Enter Assessment Title...')
     const readingInput = getByPlaceholderText('Enter text...')
     const questionInput = getByPlaceholderText('Enter a Question...')
     const correctInput = getByPlaceholderText('Enter Correct Answer...')
@@ -86,13 +100,7 @@ describe('QuestionFormCard', () => {
   })
 
   it('should fire a function on click after filling out the form', () => {
-    const mockSetQuestions = jest.fn()
-    const { getByPlaceholderText, getByTestId, getByRole } = render(
-      <QuestionFormCard 
-        questions={[]} 
-        setQuestions={mockSetQuestions}
-      />
-    )
+    const { getByPlaceholderText, getByTestId, getByRole } = render(questionFormCard)
     const questionInput = getByPlaceholderText('Enter a Question...')
     const correctInput = getByPlaceholderText('Enter Correct Answer...')
     const incorrect1Input = getByTestId('incorrect1')
@@ -107,13 +115,7 @@ describe('QuestionFormCard', () => {
   })
 
   it('should not allow a user to click if the required fields are incomplete', () => {
-    const mockSetQuestions = jest.fn()
-    const { getByRole } = render(
-      <QuestionFormCard 
-        questions={[]} 
-        setQuestions={mockSetQuestions}
-      />
-    )
+    const { getByRole } = render(questionFormCard)
     const addQuestionBtn = getByRole('button')
     fireEvent.click(addQuestionBtn)
     expect(mockSetQuestions).toHaveBeenCalledTimes(0)

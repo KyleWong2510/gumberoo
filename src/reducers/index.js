@@ -12,6 +12,8 @@ import { setStudentId } from './setStudentId'
 import { setLessons } from './setLessons'
 import { setTeacher } from './setTeacher'
 import { setLessonAverage } from './setLessonAverage'
+import { setStudentsResults } from './setStudentsResults'
+import { setStudentAverage } from './setStudentAverage'
 
 export const rootReducer = combineReducers({
   setStudent,
@@ -26,5 +28,7 @@ export const rootReducer = combineReducers({
   setStudentId,
   setLessons,
   setTeacher,
-  setLessonAverage
+  setLessonAverage,
+  setStudentsResults,
+  setStudentAverage
 })

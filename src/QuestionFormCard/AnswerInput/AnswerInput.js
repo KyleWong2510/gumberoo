@@ -15,9 +15,6 @@ const AnswerInput = ({ correct, answerText, setAnswerText, testId }) => {
     />
   )
 }
-// answers need to pushed in to answers array
-// answers are greater than 2, render an input
-// that has a delete capacity.
 
 export default AnswerInput
 

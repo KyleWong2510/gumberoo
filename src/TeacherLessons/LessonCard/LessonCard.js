@@ -13,7 +13,7 @@ const LessonCard = ({ id, lessonTitle, findLesson})=> {
 export default LessonCard
 
 LessonCard.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
   lessonTitle: PropTypes.string.isRequired,
   findLesson: PropTypes.func.isRequired,
 }

@@ -21,7 +21,7 @@ describe('CreateLesson', () => {
         </Provider>
       </BrowserRouter>
     )
-    const lessonTitle = getByPlaceholderText('Enter Lesson Title...')
+    const lessonTitle = getByPlaceholderText('Enter Assessment Title...')
     const reading = getByPlaceholderText('Enter text...')
     const question = getByPlaceholderText('Enter a Question...')
     const correctAnswer = getByPlaceholderText('Enter Correct Answer...')
@@ -72,7 +72,7 @@ describe('CreateLesson', () => {
         </Provider>
       </BrowserRouter>
     )
-    const lessonTitle = getByPlaceholderText('Enter Lesson Title...')
+    const lessonTitle = getByPlaceholderText('Enter Assessment Title...')
     const reading = getByPlaceholderText('Enter text...')
     const question = getByPlaceholderText('Enter a Question...')
     const correctAnswer = getByPlaceholderText('Enter Correct Answer...')
@@ -127,7 +127,7 @@ describe('CreateLesson', () => {
         </Provider>
       </BrowserRouter>
     )
-    const lessonTitle = getByPlaceholderText('Enter Lesson Title...')
+    const lessonTitle = getByPlaceholderText('Enter Assessment Title...')
     const reading = getByPlaceholderText('Enter text...')
     const question = getByPlaceholderText('Enter a Question...')
     const correctAnswer = getByPlaceholderText('Enter Correct Answer...')
@@ -135,7 +135,7 @@ describe('CreateLesson', () => {
     const incorrectAnswer2 = getByTestId('incorrect2')
     const incorrectAnswer3 = getByTestId('incorrect3')
     const button = getByText('Add Question')
-    const generateLessonBtn = getByText('Generate Lesson')
+    const generateLessonBtn = getByText('Generate Assessment')
 
     fireEvent.change(lessonTitle, {target: {value: 'Recycling'}})
     fireEvent.change(reading, {target: {value: 'Today we learning about recycling'}})
