@@ -23,11 +23,9 @@ describe('TeacherDashboard', () =>{
     )
 
     const welcomeMessage = getByText('Welcome', {exact: false})
-    const gumberooBio = getByText('gumberoo is an app', {exact: false})
-    const joke = getByText('What did the', {exact: false})
+    const gumberooBio = getByText('is an app', {exact: false})
 
     expect(welcomeMessage).toBeInTheDocument()
     expect(gumberooBio).toBeInTheDocument()
-    expect(joke).toBeInTheDocument()
   })
 })

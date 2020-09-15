@@ -8,7 +8,7 @@ import { getTeacher } from "../thunks/getTeacher"
 import { resetStudentsResults } from '../actions'
 import PropTypes from 'prop-types'
 
-const TeacherDashboard = ({ getTeacher, getStudents, getLessons, resetStudentsResults }) => {
+const TeacherDashboard = ({ getTeacher, getStudents, getLessons, teacher, isLoading }) => {
 
   useEffect (() => {
     async function fetchData() {
@@ -24,22 +24,36 @@ const TeacherDashboard = ({ getTeacher, getStudents, getLessons, resetStudentsRe
 
   return (
     <section className="teacherDashBoard">
-      <h1>Welcome Teacher </h1>
-      <h3>gumberoo is an app aimed to help Teachers achieve a check of understanding from their students.  A teacher may create a lesson 
-        based on topics taught, and the app will auto generate a link that may be shared for all students.  Based on the results of the 
-        lesson, the teacher will be able to review results to see how well a student was able to digest that topic. 
-      </h3>
-    <div className="jokeWrapper">
-      <h4>Joke of the day!</h4>
-      <h3>What did the ocean say to the Pirate?</h3>
-      <h3>Nothing, it just waved!</h3>
-    </div>
+    {isLoading && <p>Loading</p>}
+    {!isLoading && 
+      <div className='welcome-letter'>
+        <h1 className='welcome-message'>{`Welcome ${teacher.first_name},`} </h1>
+        <p className='app-bio'>
+          <span className='bio-title'>gumberoo</span> is an app aimed to help elementary educators create assessments inclusive to all students. 
+          These assessments are easy for young students to access via a simple link generation that teachers can drop in their virtual classrooms.
+          Based on the results of the assessment, the teacher will be able to review results to see how well a student was able to digest that topic.
+          The assessments come in a colorblind friendly palette designed by the esteemed creative director of the Broad Institute at MIT, Bang Wong.
+          Assessments are written in the OpenDyslexia font, and are completely mobility and disability friendly. Included as well, are an animations with
+          reassuring sentiments being said to help anxious students. Thank you for choosing us to be your companion in the classroom.
+          <br></br>
+        </p>
+          <span className='the-gumbaroo-team'>- The <span className='bio-title'>gumberoo</span> team</span>  
+      </div>}
     </section>
-  )
-}
+    )
+  }
 
+<<<<<<< HEAD
 const mapStateToProps = ({ setLessons }) => ({
   lessons: setLessons,
+=======
+  
+  const mapStateToProps = ({ setStudents, setLessons, setTeacher, isLoading }) => ({
+ students: setStudents,
+ lessons: setLessons,
+ teacher: setTeacher,
+ isLoading: isLoading
+>>>>>>> master
 })
 
 const mapDispatchToProps = (dispatch) => 
