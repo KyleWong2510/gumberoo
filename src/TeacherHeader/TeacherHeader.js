@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const TeacherHeader = () => {
   return (
     <header className='teacher-header'>
-      <Link to='/'>
+      <Link to='/' style={{ textDecoration: 'none' }}>
       <h1 className='header-title'>gumberoo</h1>
       </Link>
       <section className='header-btn-container'>
