@@ -13,7 +13,6 @@ export const getStudentsResults = (lessonId) => {
       const data = await response.json()
       dispatch(isLoading(false))
       dispatch(setStudentsResults(data))
-      console.log('THUNK')
     } catch (error) {
       dispatch(hasErrored(error.message))
     }
