@@ -50,7 +50,7 @@ const QuestionFormCard = ({lessonTitleText, setLessonTitleText, questions, setQu
   return (
     <form className="question-form-card">
       <section className='question-form-input'>
-        <label htmlFor='lesson-title'>Lesson Title:</label>
+        <label htmlFor='lesson-title'>Assessment Title:</label>
         <input
           id='lesson-title'
           type="text"

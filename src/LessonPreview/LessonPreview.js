@@ -80,7 +80,7 @@ const LessonPreview = ({
         )}
       </section>
       <button disabled={isEnabled} onClick={createLesson} className="generate-lesson-btn">
-        Generate Lesson
+        Generate Assessment
       </button>
     </section>
   );
