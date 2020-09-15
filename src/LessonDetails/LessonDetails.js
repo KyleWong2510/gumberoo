@@ -19,8 +19,8 @@ const LessonDetails = ({ lesson, lessonAverage }) => {
 
   return (
     <section className='lesson-results'>
-      <h3>{lesson.name}</h3>
-      <p>
+      <h3 className="lesson-details-h3">{lesson.name}</h3>
+      <p className="lesson-details-p">
         <span>Assessment Link: </span>
         <a href={`https://gumberoo.netlify.app/${lesson.teacher.id}/${lesson.id}`}>
           https://gumberoo.netlify.app/{lesson.teacher.id}/{lesson.id}
