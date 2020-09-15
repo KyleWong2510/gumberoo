@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './TeacherDashboard.scss'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";

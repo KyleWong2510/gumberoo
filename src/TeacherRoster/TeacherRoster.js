@@ -13,7 +13,6 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
   const [ isAddingStudent, toggleAddStudent ] = useState(false)
   const [ isViewingStudentDetails, toggleStudentDetails] = useState(false)
   const [ foundStudent, setFoundStudent ] = useState({})
-  const [ foundStudentAverage, setFoundStudentAverage ] = useState(0)
 
   const findStudentResults = async () => {
       await lessons.forEach(lesson => getStudentsResults(lesson.id))
