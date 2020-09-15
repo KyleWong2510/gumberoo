@@ -44,7 +44,6 @@ const LessonPreview = ({
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(lesson)
     })
-      .then(res => console.log(res))
       .catch(err => console.error(err))
   }
 
