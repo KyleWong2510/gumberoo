@@ -21,7 +21,6 @@ const CreateLesson = ({ resetStudentsResults }) => {
 
   return (
     <section className='create-lesson'>
-      <h1 className='page-title'>Create a Lesson</h1>
       <section className='create-lesson-body'>
         <QuestionFormCard 
           lessonTitleText={lessonTitleText} 
