@@ -20,4 +20,10 @@
     padding: 1%;
     width: fit-content;
   }
+
+  button:hover {
+    background-color: white;
+    cursor: pointer;
+    font-weight: 600;
+  }
 }
