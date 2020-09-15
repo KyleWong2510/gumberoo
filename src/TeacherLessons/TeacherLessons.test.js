@@ -6,14 +6,17 @@ import { BrowserRouter } from 'react-router-dom';
 import { rootReducer } from '../reducers';
 import { lesson } from '../mockData/mockData'
 import { lesson2 } from '../mockData/mockData'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk'
+// import '@testing-library/jest-dom/extend-expect';
 
 const mockLessons =[lesson, lesson2]
-
+const mockLessonAverage = '62'
 const store = createStore(rootReducer, {
   setLessons: mockLessons
-})
+}, applyMiddleware(thunk))
+
 let teacherLessons, lessons, mockResetResults
 
 describe('TeacherLesson', () => {
@@ -26,6 +29,7 @@ describe('TeacherLesson', () => {
         <TeacherLessons 
           lessons={mockLessons}
           resetStudentsResults={mockResetResults}
+          getLessonAverage={mockLessonAverage}
         />
       </Provider>
     </BrowserRouter>

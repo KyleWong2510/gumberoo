@@ -1,7 +1,7 @@
-import { isLoading, hasErrored, setStudents } from '../actions'
+import { isLoading, hasErrored, setLessonAverage } from '../actions'
 
-export const getStudents = () => {
-  const url = `https://gumberoo-backend.herokuapp.com/api/v1/teachers/1/students/`
+export const getLessonAverage = (lessonID) => {
+  const url =`https://gumberoo-backend.herokuapp.com/api/v1/lessons/${lessonID}/average_score/`
 
   return async (dispatch) => {
     try {
@@ -12,7 +12,8 @@ export const getStudents = () => {
       }
       const data = await response.json()
       dispatch(isLoading(false))
-      dispatch(setStudents(data))
+      console.log('thunk data', data);
+      dispatch(setLessonAverage(data))
     } catch (error) {
       dispatch(hasErrored(error.message))
     }

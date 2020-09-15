@@ -12,7 +12,10 @@ export const lesson = {
       reading: null,
       answers: [{answer: 'like a Pronoun', correct: false}, {answer: 'Adverb', correct: false}, {answer: 'Verb', correct: false}, {answer: 'Words that describe a noun', correct: true}]
     }
-  ]
+  ],
+  teacher : {
+    id: 13
+  }
 }
 
 export const student = {id: 42, first_name: 'Willie', last_name: 'Nelson'}
