@@ -14,7 +14,7 @@ const LessonPreview = ({
   deleteQuestion,
   addLesson
 }) => {
-  const teacherId = 2
+  const teacherId = 1
   const isEnabled = lessonTitleText.trim() === '' || questions.length < 1
 
   const createLesson = (e) => {
