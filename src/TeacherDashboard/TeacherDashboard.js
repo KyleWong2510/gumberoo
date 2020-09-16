@@ -33,8 +33,10 @@ const TeacherDashboard = ({ getTeacher, getStudents, getLessons, teacher, isLoad
           These assessments are easy for young students to access via a simple link generation that teachers can drop in their virtual classrooms.
           Based on the results of the assessment, the teacher will be able to review results to see how well a student was able to digest that topic.
           The assessments come in a colorblind friendly palette designed by the esteemed creative director of the Broad Institute at MIT, Bang Wong.
-          Assessments are written in the OpenDyslexia font, and are completely mobility and disability friendly. Included as well, are an animations with
-          reassuring sentiments being said to help anxious students. Thank you for choosing us to be your companion in the classroom.
+          Assessments are written in the OpenDyslexia font, and are completely mobility and disability friendly. Upon a students completion of an assessment,
+          they can submit how they are feeling and the message is run through IBM's Watson tone-analyzer AI and the analytics are sent back
+          to the teacher. Included as well, are an animations with reassuring sentiments being said to help anxious students. Thank you for choosing us to 
+          be your companion in the classroom.
           <br></br>
         </p>
           <span className='the-gumbaroo-team'>- The <span className='bio-title'>gumberoo</span> team</span>  

@@ -26,7 +26,7 @@ function StudentDashboard(props) {
     await props.getLesson(props.lessonId)
   }
   
-  const motivationalTalk = ['Good luck!', 'Great job!', 'You got this!', 'I want some bamboo', 'Nice pick!']
+  const motivationalTalk = ['Good luck!', 'Great job!', 'You got this!', 'I want some bamboo', 'Nice pick!', 'You\'re so smart!', 'Great work!', 'Believe in you!', 'Fantastic!', 'Wonderful!' ]
 
   const random = Math.floor(Math.random() * motivationalTalk.length);
   
