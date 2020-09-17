@@ -65,7 +65,7 @@ npm install
 ## GIF's
 
 ### Making an Assessment
-
+![Make an assessment](https://media.giphy.com/media/pmKMGFz0ey6RHBGDkO/giphy.gif)
 
 ### Viewing Student Data
 
