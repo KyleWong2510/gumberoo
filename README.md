@@ -75,3 +75,4 @@ npm install
 ### Student Assessment
 
 ### Submitting Mood for AI system
+![Submit mood](https://giphy.com/gifs/eTTZ11voxTYrvy5mQe)
