@@ -68,7 +68,7 @@ npm install
 ![Make an assessment](https://media.giphy.com/media/pmKMGFz0ey6RHBGDkO/giphy.gif)
 
 ### Viewing Student Data
-
+[Viewing students](https://media.giphy.com/media/1B6L3I4ECbBQD6DiiU/giphy.gif)
 ### Viewing Lesson Data
 ![Make assessment](https://media.giphy.com/media/QEuoSsTlrqVluQkxJm/giphy.gif)
 
