@@ -66,9 +66,11 @@ npm install
 
 ### Making an Assessment
 
+
 ### Viewing Student Data
 
 ### Viewing Lesson Data
+![Make assessment](https://media.giphy.com/media/QEuoSsTlrqVluQkxJm/giphy.gif)
 
 ### Student Assessment
 
