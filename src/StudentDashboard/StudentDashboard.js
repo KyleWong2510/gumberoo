@@ -4,14 +4,11 @@ import MoodForm from './MoodForm'
 import Animation from './Animation.js'
 import { incrementCurrentQuestion, setLessonOver, setLesson, setStudents } from '../actions/index'
 // import { Link, withRouter } from 'react-router-dom'
-import Moped from './Moped'
 import { getStudents } from '../thunks/getStudents'
 import { getLesson } from '../thunks/getLesson'
 import { bindActionCreators } from 'redux'
 import QuestionArea from './QuestionArea';
 import { connect } from 'react-redux'
-// import Spritesheet from 'react-responsive-spritesheet'
-// import panda from './assets/PandaJumpAndRandom.png'
 import PropTypes from 'prop-types';
 
 import './StudentDashboard.scss'
@@ -36,7 +33,7 @@ function StudentDashboard(props) {
       try {
       getTeachersStudents()
       getTeachersLesson()
-      setTimeout(<Moped />, 10000)
+  
     } catch (error) {
       setError(error)
     }

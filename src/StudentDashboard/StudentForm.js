@@ -26,6 +26,7 @@ if(limit && document.getElementsByClassName('eye-left-eye')){
         x: window.innerWidth/2, 
         y: window.innerHeight/2
     },
+     // eslint-disable-next-line
     limit = {
         left: - (limit.offsetWidth  - face.offsetWidth)  / 2,
         right:  (limit.offsetWidth  - face.offsetWidth)  / 2,
@@ -62,10 +63,7 @@ function interact (e) {
         margin = Math.round((eyeSize - size)/2);
     if(eye) {
 
-      eye.style.cssText = 'width:' + size + 'px; \
-                           height:' + size + 'px; \
-                           margin-left:' + margin +'px; \
-                           margin-top: ' + margin +'px;'; 
+      eye.style.cssText = 'width:' + size + 'px; height:' + size + 'px; margin-left:' + margin +'px; margin-top: ' + margin +'px;'; 
     }
     
     // fish.style.cssText = 
