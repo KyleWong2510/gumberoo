@@ -5,17 +5,20 @@ import { connect } from "react-redux";
 import Modal from "../Modal/Modal";
 import LessonDetails from "../LessonDetails/LessonDetails";
 import { getLessonAverage } from "../thunks/getLessonAverage";
+import { getLessons } from "../thunks/getLessons"
 import { bindActionCreators } from "redux";
 import { resetStudentsResults } from '../actions'
 import PropTypes from 'prop-types'
 
-const TeacherLessons = ({ students, lessons, getLessonAverage, average }) => {
+const TeacherLessons = ({ lessons, getLessonAverage, average, getLessons }) => {
   const [foundLesson, setFoundLesson] = useState({});
   const [isViewingLessonDetails, toggleLessonDetails] = useState(false);
 
   useEffect (() => {
+    getLessons()
     resetStudentsResults()
-  })
+    //eslint-disable-next-line
+  }, [])
 
   const findLesson = (e) => {
     e.preventDefault();
@@ -68,8 +71,7 @@ const TeacherLessons = ({ students, lessons, getLessonAverage, average }) => {
   );
 };
 
-const mapStateToProps = ({ setStudents, setLessons, setLessonAverage }) => ({
-  students: setStudents,
+const mapStateToProps = ({ setLessons, setLessonAverage }) => ({
   lessons: setLessons,
   average: setLessonAverage,
 });
@@ -78,6 +80,7 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       getLessonAverage,
+      getLessons
     },
     dispatch
   );
@@ -86,6 +89,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(TeacherLessons);
 
 TeacherLessons.propTypes = {
   lessons: PropTypes.array.isRequired,
-  students: PropTypes.array.isRequired,
   getLessonAverage: PropTypes.func.isRequired,
 };

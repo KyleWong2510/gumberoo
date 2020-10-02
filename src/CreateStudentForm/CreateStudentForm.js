@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addStudent } from "../actions";
 import PropTypes from 'prop-types'
+import { getStudents } from '../thunks/getStudents';
 
-const CreateStudentForm = ({ completeForm, addStudent }) => {
+const CreateStudentForm = ({ completeForm, addStudent, getStudents }) => {
   const [studentFirstName, setStudentFirstName] = useState('')
   const [studentLastName, setStudentLastName] = useState('')
   
@@ -42,6 +43,7 @@ const CreateStudentForm = ({ completeForm, addStudent }) => {
       last_name: studentLastName,
       age: null
     })
+    getStudents()
     completeForm()
   }
 
@@ -83,7 +85,8 @@ const CreateStudentForm = ({ completeForm, addStudent }) => {
 const mapDispatchToProps = (dispatch) => 
   bindActionCreators(
     {
-      addStudent
+      addStudent,
+      getStudents
     }, dispatch
   )
 
