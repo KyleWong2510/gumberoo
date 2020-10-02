@@ -18,7 +18,7 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
 
   useEffect (() => {
     getStudents()
-  })
+  }, [])
 
   const findStudentResults = async () => {
       await lessons.forEach(lesson => getStudentsResults(lesson.id))
