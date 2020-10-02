@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import StudentForm from './StudentForm'
 import MoodForm from './MoodForm'
+import Animation from './Animation'
 import { incrementCurrentQuestion, setLessonOver, setLesson, setStudents } from '../actions/index'
 // import { Link, withRouter } from 'react-router-dom'
 import { getStudents } from '../thunks/getStudents'
