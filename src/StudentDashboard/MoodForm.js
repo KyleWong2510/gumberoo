@@ -30,13 +30,52 @@ function MoodForm(props) {
   }
   
   return (
-     <section className='student-form'>
+     <section className='ice-sheet'>
+       <div className="icesheet2">
+  <div className="shadow2"></div>
+  <div className="edge2"></div>
+</div>
+<div className="container">
+  <div className="water"></div>
+  <div className="icesheet">
+    <div className="shadow"></div>
+    <div className="edge"></div>
+  </div>
+
+  <div className="bear">
+    <div className="leg1 posit3">
+      <div className="paw2"></div>
+    </div>
+    <div className="leg1 posit4">
+      <div className="paw2"></div>
+    </div>
+    <div className="head">
+      <div className="ears posi1"></div>
+      <div className="ears posi2"></div>
+      <div className="jaw">
+        <div className="eyes pos1"></div>
+        <div className="eyes pos2"></div>
+        <div className="nose"></div>
+      </div>
+    </div>
+    <div className="bearbody">
+      <div className="leg posit1">
+        <div className="paw1"></div>
+      </div>
+      <div className="leg posit2">
+        <div className="paw1"></div>
+      </div>
+    </div>
+  </div>
+</div>
       {!isSubmitted && 
         <section className='students-mood-form'>
-          
-         <h3 className='finished-message'>Great job {props.student.first_name}!</h3>
-          <br></br>
-          <h3 className='finished-message'>How do you feel?</h3>
+          <div className='mood-text'>
+            <h3 className='finished-message'>Great job {props.student.first_name}!</h3>
+              <h3 className='finished-message'>How do you feel?</h3>
+
+          </div>
+          <div className='mood-holder'>
           <textarea
             maxLength='100'
             className='student-mood-input' 
@@ -52,6 +91,8 @@ function MoodForm(props) {
           >
             Submit
           </button>
+
+          </div>
         </section>
     }
       {isSubmitted && 

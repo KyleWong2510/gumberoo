@@ -1,0 +1,117 @@
+.cursor {
+  height: 20px;
+  left: 100%;
+  margin: -20px 0 0 -20px;
+  position: absolute;
+  top: 100%;
+  width: 20px;
+  
+  // background-image: url(http://www.dallasjclark.com/wordpress/wp-content/uploads/2016/05/leaf.png);
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+
+.panda {
+  bottom: 0;
+  height: 220px;
+  margin: 40px auto 0 auto;
+  position: relative;
+  width: 200px;
+  z-index: 1;
+}
+
+.panda__body {
+  height: 100%;
+  left: 50%;
+  margin: 0 0 0 -100px;
+  position: absolute;
+  width: 100%;
+  
+  background-color: #FFFFFF;
+  border-radius: 200px 200px 0 0
+}
+
+.panda__ear {
+  height: 60px;
+  position: absolute;
+  top: 30px;
+  width: 60px;
+  
+  background-color: #FFFFFF;
+  border-radius: 100%;
+}
+
+.panda__ear--left {
+  left: -20px;
+}
+
+.panda__ear--right {
+  right: -20px;
+}
+
+.panda-mouth {
+  height: 60px;
+  left: 50%;
+  margin: 0 0 0 -20px;
+  position: absolute;
+  top: 120px;
+  width: 40px;
+  
+  background-color: #94BDDE;
+  border-radius: 20px;
+}
+
+.panda-mouth__eyes {
+  height: 10px;
+  margin: -30px 0 0 0;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  
+  background-color: #000000;
+  border-radius: 100%;
+}
+
+.panda-mouth__eyes--left {
+  left: 0;
+}
+
+.panda-mouth__eyes--right {
+  right: 0;
+}
+
+.panda-mouth__nose {
+  height: 30px;
+  left: 50%;
+  margin: -10px 0 0 -15px;
+  position: absolute;
+  top: 0;
+  width: 30px;
+  
+  background-color: #000000;
+  border-radius: 100%;
+}
+
+.panda-mouth__highlight {
+  height: 10px;
+  left: 50%;
+  margin: -8px 0 0 -8px;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  
+  background-color: #FFFFFF;
+  border-radius: 100%;
+}
+
+.panda-mouth__lips {
+  bottom: 14px;
+  height: 3px;
+  left: 50%;
+  margin: 0 0 0 -7px;
+  position: absolute;
+  width: 14px;
+  
+  background-color: #000000;
+  border-radius: 100%;
+}

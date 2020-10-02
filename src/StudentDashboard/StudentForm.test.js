@@ -25,7 +25,7 @@ let store = createStore(
     // setLessonId: "1"
 })
 describe('StudentForm', () => {
-  it('should render without crashing', () => {
+  it.skip('should render without crashing', () => {
     const { getByText } = render(
       <BrowserRouter>
         <Provider store={store}>
@@ -38,7 +38,7 @@ describe('StudentForm', () => {
     expect(header).toBeInTheDocument();
   });
 
-  it('Should render the app name with an input', () => {
+  it.skip('Should render the app name with an input', () => {
    const { getByText, getByTestId } = render(
      <MemoryRouter>
        <Provider store={store}>

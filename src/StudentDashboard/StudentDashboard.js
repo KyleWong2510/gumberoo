@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import StudentForm from './StudentForm'
 import MoodForm from './MoodForm'
+import Animation from './Animation.js'
 import { incrementCurrentQuestion, setLessonOver, setLesson, setStudents } from '../actions/index'
 // import { Link, withRouter } from 'react-router-dom'
 import { getStudents } from '../thunks/getStudents'
@@ -8,8 +9,6 @@ import { getLesson } from '../thunks/getLesson'
 import { bindActionCreators } from 'redux'
 import QuestionArea from './QuestionArea';
 import { connect } from 'react-redux'
-import Spritesheet from 'react-responsive-spritesheet'
-import panda from './assets/PandaJumpAndRandom.png'
 import PropTypes from 'prop-types';
 
 import './StudentDashboard.scss'
@@ -26,7 +25,7 @@ function StudentDashboard(props) {
     await props.getLesson(props.lessonId)
   }
   
-  const motivationalTalk = ['Good luck!', 'Great job!', 'You got this!', 'I want some bamboo', 'Nice pick!', 'You\'re so smart!', 'Great work!', 'Believe in you!', 'Fantastic!', 'Wonderful!' ]
+  const motivationalTalk = ['Good luck!', 'Great job!', 'You got this!', 'I want some fish', 'Nice pick!', 'You\'re so smart!', 'Great work!', 'I believe in you!', 'Fantastic!', 'Wonderful!' ]
 
   const random = Math.floor(Math.random() * motivationalTalk.length);
   
@@ -34,6 +33,7 @@ function StudentDashboard(props) {
       try {
       getTeachersStudents()
       getTeachersLesson()
+  
     } catch (error) {
       setError(error)
     }
@@ -55,23 +55,18 @@ function StudentDashboard(props) {
           <div className={props.lesson.questions[props.currentQuestion].reading ? 'reading' : 'hidden'}>
           {props.lesson.questions[props.currentQuestion].reading}
           </div>
-          <div className='animation'>
+          <section className='bear-thingy'>
             <div className='anim-container'>
-              <Spritesheet
-                style={{width: '30vw', height: '30vh'}}
-                className='panda'
-                image={panda}
-                widthFrame={108.615}
-                heightFrame={109.69}
-                steps={11}
-                fps={5.8}
-                loop={true}
-                />
+              <Animation/>
             </div>
-            <div className='speech-bubble'>
-            {motivationalTalk[random]}
+            <div className='bubble-container'>
+              <div className='speech-bubble'>
+              {motivationalTalk[random]}
+              </div>
+              <div className='tiny-bubble2'></div>
+              <div className='tiny-bubble1'></div>
             </div>
-          </div>
+          </section>
           <div className='question'>
             <QuestionArea question={props.lesson.questions[props.currentQuestion]} />
           </div>
