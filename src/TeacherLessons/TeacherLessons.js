@@ -17,6 +17,7 @@ const TeacherLessons = ({ lessons, getLessonAverage, average, getLessons }) => {
   useEffect (() => {
     getLessons()
     resetStudentsResults()
+    //eslint-disable-next-line
   }, [])
 
   const findLesson = (e) => {

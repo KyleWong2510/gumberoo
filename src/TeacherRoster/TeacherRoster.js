@@ -18,6 +18,7 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
 
   useEffect (() => {
     getStudents()
+    //eslint-disable-next-line
   }, [])
 
   const findStudentResults = async () => {
