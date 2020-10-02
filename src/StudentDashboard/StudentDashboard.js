@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import StudentForm from './StudentForm'
 import MoodForm from './MoodForm'
-import Animation from './Animation'
+import Animation from './Animation.js'
 import { incrementCurrentQuestion, setLessonOver, setLesson, setStudents } from '../actions/index'
 // import { Link, withRouter } from 'react-router-dom'
 import { getStudents } from '../thunks/getStudents'
@@ -9,8 +9,8 @@ import { getLesson } from '../thunks/getLesson'
 import { bindActionCreators } from 'redux'
 import QuestionArea from './QuestionArea';
 import { connect } from 'react-redux'
-import Spritesheet from 'react-responsive-spritesheet'
-import panda from './assets/PandaJumpAndRandom.png'
+// import Spritesheet from 'react-responsive-spritesheet'
+// import panda from './assets/PandaJumpAndRandom.png'
 import PropTypes from 'prop-types';
 
 import './StudentDashboard.scss'
@@ -56,23 +56,12 @@ function StudentDashboard(props) {
           <div className={props.lesson.questions[props.currentQuestion].reading ? 'reading' : 'hidden'}>
           {props.lesson.questions[props.currentQuestion].reading}
           </div>
-          <div className='animation'>
-            <div className='anim-container'>
-              <Spritesheet
-                style={{width: '30vw', height: '30vh'}}
-                className='panda'
-                image={panda}
-                widthFrame={108.615}
-                heightFrame={109.69}
-                steps={11}
-                fps={5.8}
-                loop={true}
-                />
-            </div>
             <div className='speech-bubble'>
             {motivationalTalk[random]}
             </div>
-          </div>
+            <div className='anim-container'>
+              <Animation/>
+            </div>
           <div className='question'>
             <QuestionArea question={props.lesson.questions[props.currentQuestion]} />
           </div>

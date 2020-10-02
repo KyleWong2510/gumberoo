@@ -98,6 +98,22 @@ document.addEventListener("resize", function () {
     {props.isLoading && <p>loading</p>}
     {!props.isLoading &&
       <section className='student-form'>
+        <p className='welcome-text'>Please Select Your Name!</p>
+        <select
+          aria-label='select name'
+          id='student-name-input'
+          name='studentNameInput' 
+          className='student-names-input' 
+          onChange={e => setStudentNameInput(e.target.value)}
+          data-testid='nameInput'
+        >
+          <option value={null}>Select Your Name</option>
+          {students}
+        </select>
+        <button className='submit-name-button' aria-label=
+        'submit name' type='submit' disabled={!studentNameInput} onClick={e => setStudentValues(e)}>Submit</button>
+        </section>
+        }
         <div className='parent-contain'>
         <section className='login-bear-container'>
           <div className='ears-container'>
@@ -120,22 +136,6 @@ document.addEventListener("resize", function () {
           </div>
         </section>
         </div>
-        <p className='welcome-text'>Please Select Your Name!</p>
-        <select
-          aria-label='select name'
-          id='student-name-input'
-          name='studentNameInput' 
-          className='student-names-input' 
-          onChange={e => setStudentNameInput(e.target.value)}
-          data-testid='nameInput'
-        >
-          <option value={null}>Select Your Name</option>
-          {students}
-        </select>
-        <button className='submit-name-button' aria-label=
-        'submit name' type='submit' disabled={!studentNameInput} onClick={e => setStudentValues(e)}>Submit</button>
-        </section>
-        }
       </section>
   )
 }
