@@ -4,7 +4,6 @@ $bluebell: #979fd0;
 .teacherDashBoard {
   display: flex;
   flex-direction: column;
-  height: 85vh;
   width: 100vw;
   background-color: #C6C6C6
 }
@@ -34,6 +33,7 @@ $bluebell: #979fd0;
 }
 
 .loading {
+  height: 85vh;
   display: flex;
   justify-content: center;
   margin-top: 20vh;
