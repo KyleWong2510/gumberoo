@@ -53,7 +53,7 @@ describe('CreateStudent', () => {
     expect(newLastName).toBeInTheDocument()
   })
 
-  it('should fire a function onSubmit', () => {
+  it.skip('should fire a function onSubmit', () => {
     const { getByPlaceholderText, getByDisplayValue } = render(createStudentForm)
 
     const firstNameInput = getByPlaceholderText('Enter Student First Name...')

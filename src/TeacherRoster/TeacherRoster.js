@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Modal from '../Modal/Modal'
 import CreateStudentForm from '../CreateStudentForm/CreateStudentForm'
 import StudentDetails from '../StudentDetails/StudentDetails'
@@ -9,11 +9,17 @@ import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
 import './TeacherRoster.scss'
 import PropTypes from 'prop-types'
+import { getStudents } from '../thunks/getStudents'
 
-const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverage, resetStudentsResults }) => {
+const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverage, resetStudentsResults, getStudents }) => {
   const [ isAddingStudent, toggleAddStudent ] = useState(false)
   const [ isViewingStudentDetails, toggleStudentDetails] = useState(false)
   const [ foundStudent, setFoundStudent ] = useState({})
+
+  useEffect (() => {
+    getStudents()
+    //eslint-disable-next-line
+  }, [])
 
   const findStudentResults = async () => {
       await lessons.forEach(lesson => getStudentsResults(lesson.id))
@@ -91,7 +97,8 @@ const mapDispatchToProps = (dispatch) =>
     {
       getStudentsResults,
       getStudentAverage,
-      resetStudentsResults
+      resetStudentsResults,
+      getStudents
     }, dispatch
   )
 
