@@ -4,6 +4,7 @@ import MoodForm from './MoodForm'
 import Animation from './Animation.js'
 import { incrementCurrentQuestion, setLessonOver, setLesson, setStudents } from '../actions/index'
 // import { Link, withRouter } from 'react-router-dom'
+import Moped from './Moped'
 import { getStudents } from '../thunks/getStudents'
 import { getLesson } from '../thunks/getLesson'
 import { bindActionCreators } from 'redux'
@@ -27,7 +28,7 @@ function StudentDashboard(props) {
     await props.getLesson(props.lessonId)
   }
   
-  const motivationalTalk = ['Good luck!', 'Great job!', 'You got this!', 'I want some bamboo', 'Nice pick!', 'You\'re so smart!', 'Great work!', 'Believe in you!', 'Fantastic!', 'Wonderful!' ]
+  const motivationalTalk = ['Good luck!', 'Great job!', 'You got this!', 'I want some fish', 'Nice pick!', 'You\'re so smart!', 'Great work!', 'I believe in you!', 'Fantastic!', 'Wonderful!' ]
 
   const random = Math.floor(Math.random() * motivationalTalk.length);
   
@@ -35,6 +36,7 @@ function StudentDashboard(props) {
       try {
       getTeachersStudents()
       getTeachersLesson()
+      setTimeout(<Moped />, 10000)
     } catch (error) {
       setError(error)
     }
@@ -56,12 +58,18 @@ function StudentDashboard(props) {
           <div className={props.lesson.questions[props.currentQuestion].reading ? 'reading' : 'hidden'}>
           {props.lesson.questions[props.currentQuestion].reading}
           </div>
-            <div className='speech-bubble'>
-            {motivationalTalk[random]}
-            </div>
+          <section className='bear-thingy'>
             <div className='anim-container'>
               <Animation/>
             </div>
+            <div className='bubble-container'>
+              <div className='speech-bubble'>
+              {motivationalTalk[random]}
+              </div>
+              <div className='tiny-bubble2'></div>
+              <div className='tiny-bubble1'></div>
+            </div>
+          </section>
           <div className='question'>
             <QuestionArea question={props.lesson.questions[props.currentQuestion]} />
           </div>

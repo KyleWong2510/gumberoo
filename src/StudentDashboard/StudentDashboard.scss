@@ -1,12 +1,19 @@
 .student-body {
   height: 100vh;
   width: 100vw;
+  overflow: none;
   display: flex;
   justify-content: center;
   align-content: center;
   background-color: #56B4E9;
   margin: 0;
   font-family: 'OpenDyslexic-regular';
+  // z-index: -2;
+  overflow-x: hidden;
+
+}
+.bear-thingy {
+  display: flex;
 }
 
 .lesson-name {
@@ -31,14 +38,33 @@
   align-items: center;
 }
 
+.tiny-bubble1 {
+  background-color: white;
+    width: 1vh;
+    height: 1vh;
+    margin-top: 14px;
+    border-radius: 10px;
+    margin-left: -20px;
+}
+
+.tiny-bubble2 {
+  background-color: white;
+    width: 2vh;
+    height: 2vh;
+    margin: -10px;
+    border-radius: 10px;
+    margin-top: -6px;
+}
+
 .speech-bubble {
   font-family: sans-serif;
   font-size: 1.7vw;
   line-height: 24px;
-  width: 10%;
+  width: fit-content;
+  height: fit-content;
   background: #fff;
   border-radius: 40px;
-  padding: 5px;
+  padding: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,6 +90,8 @@
   background-color: #F0E442;
   border-radius: 5px;
   box-shadow: 3px 2px 6px;
+  margin-top: -20px;
+  z-index: 2;
   // border: 5px outset #E69F00; 
 }
 
