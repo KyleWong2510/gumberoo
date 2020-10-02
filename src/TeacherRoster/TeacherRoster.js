@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Modal from '../Modal/Modal'
 import CreateStudentForm from '../CreateStudentForm/CreateStudentForm'
 import StudentDetails from '../StudentDetails/StudentDetails'
+import StudentCard from '../StudentCard/StudentCard'
 import { getStudentsResults } from '../thunks/getStudentsResults'
 import { getStudentAverage } from '../thunks/getStudentAverage'
 import { resetStudentsResults } from '../actions'
@@ -11,13 +12,15 @@ import './TeacherRoster.scss'
 import PropTypes from 'prop-types'
 import { getStudents } from '../thunks/getStudents'
 
-const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverage, resetStudentsResults, getStudents }) => {
+const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverage, resetStudentsResults, getStudents, studentAverage, results }) => {
   const [ isAddingStudent, toggleAddStudent ] = useState(false)
   const [ isViewingStudentDetails, toggleStudentDetails] = useState(false)
   const [ foundStudent, setFoundStudent ] = useState({})
 
   useEffect (() => {
     getStudents()
+    findStudentResults()
+    findStudentAverages()
     //eslint-disable-next-line
   }, [])
 
@@ -25,22 +28,38 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
       await lessons.forEach(lesson => getStudentsResults(lesson.id))
   }
 
+  const findStudentAverages = async () => {
+    await students.forEach(student => getStudentAverage(student.id))
+  }
+
   const closeModal = () => {
     toggleStudentDetails(false)
-    resetStudentsResults()
+    // resetStudentsResults()
   }
+  
+  const filterResults = (id) => {
+    return results.filter(result => result.student === id)
+  }
+  
+  const findAverage = (id) => {
+    return studentAverage.find(avg => {
+      return avg.student_id === id
+    })
+  }
+  
 
   const renderStudentNames = () => {
     return students.map(student => {
+      let studentAvg = findAverage(student.id)
+      let studentResults = filterResults(student.id)
+
       return (
-        <p 
-          className='student-names'
-          id={student.id} 
-          key={student.id} 
-          onClick={(e) => findStudent(e)}
-        >
-          {student.first_name} {student.last_name}
-        </p>
+        <StudentCard 
+          student={student}
+          average={studentAvg}
+          results={studentResults}
+          findStudent={findStudent}
+        />
       )
     })
   }
@@ -48,8 +67,8 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
   const findStudent = (e) => {
     e.preventDefault()
     const found = students.find(student => +e.target.id === student.id)
-    getStudentAverage(e.target.id)
-    findStudentResults()
+    // getStudentAverage(e.target.id)
+    // findStudentResults()
     setFoundStudent(found)
     toggleStudentDetails(true)
   }
@@ -87,9 +106,11 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
   )
 }
 
-const mapStateToProps = ({ setStudents, setLessons }) => ({
+const mapStateToProps = ({ setStudents, setLessons, setStudentAverage, setStudentsResults }) => ({
   students: setStudents,
-  lessons: setLessons
+  lessons: setLessons,
+  studentAverage: setStudentAverage,
+  results: setStudentsResults
 })
 
 const mapDispatchToProps = (dispatch) => 
