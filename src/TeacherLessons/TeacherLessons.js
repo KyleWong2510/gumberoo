@@ -9,7 +9,7 @@ import { bindActionCreators } from "redux";
 import { resetStudentsResults } from '../actions'
 import PropTypes from 'prop-types'
 
-const TeacherLessons = ({ students, lessons, getLessonAverage, average }) => {
+const TeacherLessons = ({ lessons, getLessonAverage, average }) => {
   const [foundLesson, setFoundLesson] = useState({});
   const [isViewingLessonDetails, toggleLessonDetails] = useState(false);
 
@@ -68,8 +68,7 @@ const TeacherLessons = ({ students, lessons, getLessonAverage, average }) => {
   );
 };
 
-const mapStateToProps = ({ setStudents, setLessons, setLessonAverage }) => ({
-  students: setStudents,
+const mapStateToProps = ({ setLessons, setLessonAverage }) => ({
   lessons: setLessons,
   average: setLessonAverage,
 });
@@ -86,6 +85,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(TeacherLessons);
 
 TeacherLessons.propTypes = {
   lessons: PropTypes.array.isRequired,
-  students: PropTypes.array.isRequired,
   getLessonAverage: PropTypes.func.isRequired,
 };
