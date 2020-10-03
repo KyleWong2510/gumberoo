@@ -1,9 +1,9 @@
-const initialState = 0;
+const initialState = [];
 
 export const setStudentAverage = (state = initialState, action) => {
   switch (action.type) {
   case 'SET_STUDENT_AVERAGE':
-    return action.studentAverage
+    return [...state, action.studentAverage]
   default: 
     return state
   }
