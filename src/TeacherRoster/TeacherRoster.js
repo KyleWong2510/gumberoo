@@ -18,6 +18,7 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
   const [ foundStudent, setFoundStudent ] = useState({})
 
   useEffect (() => {
+    resetStudentsResults()
     getStudents()
     findStudentResults()
     findStudentAverages()
@@ -46,7 +47,6 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
       return avg.student_id === id
     })
   }
-  
 
   const renderStudentNames = () => {
     return students.map(student => {
