@@ -34,13 +34,15 @@ const StudentDetails = ({ student, lessons, results, studentAverage }) => {
     })
   }
 
+  let average = studentAverage.find(avg => avg.student_id === student.id)
+  console.log(average)
   return (
     <section className='student-results'>
       <h1>{`${student.first_name} ${student.last_name}`}</h1>
-      {!studentAverage.average_score ? (
+      {!average.average_score ? (
         <p>No assessments collected</p>
       ) : (
-        <p>Student's Avg Score: {studentAverage.average_score}%</p>
+        <p>Student's Avg Score: {average.average_score}%</p>
       )}
       {renderStudentResults()}
     </section>
