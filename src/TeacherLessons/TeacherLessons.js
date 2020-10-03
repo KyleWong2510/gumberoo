@@ -49,7 +49,7 @@ const TeacherLessons = ({ lessons, getLessonAverage, average, getLessons }) => {
 
   return (
     <main className="teacher-lessons">
-      <h1>Assessments</h1>
+      {/* <h1>Assessments</h1> */}
       {lessons.length ? (
         lessons.map((lesson) => {
           return (
