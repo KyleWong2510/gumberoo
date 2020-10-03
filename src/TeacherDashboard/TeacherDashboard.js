@@ -22,7 +22,7 @@ const TeacherDashboard = ({ getTeacher, getLessons, teacher, isLoading }) => {
   return (
     <section className="teacherDashBoard">
       {isLoading && (
-        <div class="loading">
+        <div className="loading">
           <div></div>
           <div></div>
           <div></div>

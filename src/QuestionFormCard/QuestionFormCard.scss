@@ -4,7 +4,7 @@
   flex-direction: column;
   height: 85vh;
   justify-content: space-evenly;
-  background-color: #C6c6c6;
+  background-color: #88CCEE;
   width: 50vw;
 }
 
@@ -24,7 +24,8 @@
   input {
     padding: 1%;
     width: 70%;
-    border: 1px solid black;
+    // border: 1px solid black;
+    border: none;
     border-radius: 10px;
   }
 }
@@ -44,7 +45,8 @@
 
   textarea {
     padding: 1%;
-    width: 70%
+    width: 70%;
+    border: none;
   }
 }
 
@@ -54,4 +56,8 @@
   background-color: #D2Daed;
   padding: 1%;
   border-radius: 10px;
+  background-color: #DDCC77;
+  padding: 2%;
+  font-weight: bold;
+  border: none;
 }

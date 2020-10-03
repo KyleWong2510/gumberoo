@@ -2,15 +2,11 @@ $charade: #282a37;
 $bluebell: #979fd0;
 
 .teacherDashBoard {
-  align-items: end;
-  background-color: #c6c6c6;
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  height: 85vh;
-  justify-items: center;
-  overflow: scroll;
+  background-color: #88CCEE;
+  display: flex;
+  flex-direction: column;
   width: 100vw;
+  height: 85vh;
 }
 
 .app-bio {
