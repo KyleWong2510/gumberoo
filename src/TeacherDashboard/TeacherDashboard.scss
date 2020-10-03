@@ -1,9 +1,10 @@
+$charade: #282a37;
+$bluebell: #979fd0;
+
 .teacherDashBoard {
   display: flex;
   flex-direction: column;
-  height: 85vh;
   width: 100vw;
-  // margin: 10vw;
   background-color: #C6C6C6
 }
 
@@ -31,28 +32,33 @@
   margin-left: 25vw;
 }
 
-// .jokeWrapper {
-//   padding: 4rem 8rem;
-//   display: inline-block;
-//   border: 3px solid #333333;
-//   font-size: 1rem;
-//   border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
-//   text-transform: uppercase;
-//   letter-spacing: 0.3ch;
-//   background: #ffffff;
-//   position: relative;
-//   width: 100vw;
-  
-//   &::before {
-//       content: '';
-//       border: 2px solid #353535;
-//       display: block;
-//       width: 100vw;
-//       height: 100vh;
-//       position: absolute;
-//       top: 50%;
-//       left: 50%;
-//       transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
-//       border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
-//   }
-// }
+.loading {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 20vh;
+
+  div {
+    width: 1rem;
+    height: 1rem;
+    margin: 2rem 0.3rem;
+    background: $bluebell;
+    border-radius: 50%;
+    animation: 0.9s bounce infinite alternate;
+
+    &:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+  }
+}
+
+@keyframes bounce {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}
