@@ -6,7 +6,7 @@ const StudentCard = ({ student, average, results, findStudent }) => {
     return (
       average.average_score ? 
       <p id={student.id}>Assessment Average: {average.average_score}%</p> :
-      <p id={student.id}>Assessment Averate: N/A</p>
+      <p id={student.id}>Assessment Average: N/A</p>
     )
   }
 
