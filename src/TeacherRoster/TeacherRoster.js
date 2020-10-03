@@ -97,7 +97,6 @@ const TeacherRoster = ({ students, lessons, getStudentsResults, getStudentAverag
 
   return (
     <main className='teacher-roster'>
-      <h1>Students</h1>
       {renderStudentNames()}
       {renderAddStudentModal()}
       {renderStudentDetailsModal()}

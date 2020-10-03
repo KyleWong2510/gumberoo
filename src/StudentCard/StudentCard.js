@@ -1,11 +1,12 @@
 import React from 'react'
+import './StudentCard.scss'
 
 const StudentCard = ({ student, average, results, findStudent }) => {
   const renderAvg = () => {
     return (
       average.average_score ? 
-      <p>Assessment Average: {average.average_score}%</p> :
-      <p>Assessment Averate: N/A</p>
+      <p id={student.id}>Assessment Average: {average.average_score}%</p> :
+      <p id={student.id}>Assessment Averate: N/A</p>
     )
   }
 
@@ -16,11 +17,11 @@ const StudentCard = ({ student, average, results, findStudent }) => {
       key={student.id}
       onClick={(e) => findStudent(e)}
     >
-      <h2>{student.first_name} {student.last_name}</h2>
+      <h2 id={student.id}>{student.first_name} {student.last_name}</h2>
       
       {average && renderAvg()}
       
-      <p>Assessments Completed: {results.length}</p>
+      <p id={student.id}>Assessments Completed: {results.length}</p>
     </section>
   )
 }

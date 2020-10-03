@@ -1,9 +1,11 @@
 .teacher-roster {
-  align-items: center;
+  align-items: end;
   background-color: #c6c6c6;
-  display: flex;
-  flex-direction: column;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   height: 85vh;
+  justify-items: center;
   overflow: scroll;
   width: 100vw;
 
@@ -29,13 +31,13 @@
 }
 
 .add-student-btn {
-  align-self: center;
   background-color: #D2Daed;
-  border-radius: 10px;
+  box-shadow: 6px 6px 15px #706f6f;
   font-size: 1.25em;
-  height: fit-content;
+  font-weight: 600;
+  height: 75%;
   padding: 1%;
-  width: fit-content;
+  width: 85%;
 }
 
 .add-student-btn:hover {

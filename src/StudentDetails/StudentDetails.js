@@ -22,9 +22,9 @@ const StudentDetails = ({ student, lessons, results, studentAverage }) => {
   }, [])
 
   const renderStudentResults = () => {
-    return studentScoresMood.map(result => {
+    return studentScoresMood.map((result, i) => {
       return (
-        <section className='student-lesson-results'>
+        <section className='student-lesson-results' key={i}>
           <h4>Lesson: {result.lesson}</h4>
           <p>Score: {result.score}%</p>
           <p>Response: {result.response}</p>
@@ -59,5 +59,5 @@ StudentDetails.propTypes = {
   student: PropTypes.object.isRequired,
   lessons: PropTypes.array.isRequired,
   results: PropTypes.array.isRequired,
-  studentAverage: PropTypes.object.isRequired
+  studentAverage: PropTypes.array.isRequired
 }
