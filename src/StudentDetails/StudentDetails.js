@@ -22,9 +22,9 @@ const StudentDetails = ({ student, lessons, results, studentAverage }) => {
   }, [])
 
   const renderStudentResults = () => {
-    return studentScoresMood.map(result => {
+    return studentScoresMood.map((result, i) => {
       return (
-        <section className='student-lesson-results'>
+        <section className='student-lesson-results' key={i}>
           <h4>Lesson: {result.lesson}</h4>
           <p>Score: {result.score}%</p>
           <p>Response: {result.response}</p>
@@ -34,13 +34,15 @@ const StudentDetails = ({ student, lessons, results, studentAverage }) => {
     })
   }
 
+  let average = studentAverage.find(avg => avg.student_id === student.id)
+  console.log(average)
   return (
     <section className='student-results'>
       <h1>{`${student.first_name} ${student.last_name}`}</h1>
-      {!studentAverage.average_score ? (
+      {!average.average_score ? (
         <p>No assessments collected</p>
       ) : (
-        <p>Student's Avg Score: {studentAverage.average_score}%</p>
+        <p>Student's Avg Score: {average.average_score}%</p>
       )}
       {renderStudentResults()}
     </section>
@@ -59,5 +61,5 @@ StudentDetails.propTypes = {
   student: PropTypes.object.isRequired,
   lessons: PropTypes.array.isRequired,
   results: PropTypes.array.isRequired,
-  studentAverage: PropTypes.object.isRequired
+  studentAverage: PropTypes.array.isRequired
 }

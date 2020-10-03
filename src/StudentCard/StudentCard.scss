@@ -1,0 +1,20 @@
+.student-card {
+  align-items: center;
+  background-color: white;
+  box-shadow: 6px 6px 15px #706f6f;  display: flex;
+  flex-direction: column;
+  height: 75%;
+  justify-content: space-evenly;
+  transition: width .5s, height .5s;
+  width: 85%;
+
+  h2 {
+    align-self: center
+  }
+}
+
+.student-card:hover {
+  cursor: pointer;
+  height: 80%;
+  width: 90%;
+}
