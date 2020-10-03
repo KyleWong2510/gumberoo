@@ -6,12 +6,14 @@ import { getLessons } from "../thunks/getLessons";
 import { getTeacher } from "../thunks/getTeacher";
 import { resetStudentsResults } from "../actions";
 import PropTypes from "prop-types";
+import { getStudents } from "../thunks/getStudents";
 
-const TeacherDashboard = ({ getTeacher, getLessons, teacher, isLoading }) => {
+const TeacherDashboard = ({ getTeacher, getLessons, teacher, isLoading, getStudents }) => {
   useEffect(() => {
     async function fetchData() {
       await getLessons();
       await getTeacher();
+      await getStudents();
       await resetStudentsResults();
     }
 
@@ -79,6 +81,7 @@ const mapDispatchToProps = (dispatch) =>
       getLessons,
       getTeacher,
       resetStudentsResults,
+      getStudents
     },
     dispatch
   );
