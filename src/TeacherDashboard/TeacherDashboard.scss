@@ -5,8 +5,9 @@ $bluebell: #979fd0;
   background-color: #88CCEE;
   display: flex;
   flex-direction: column;
-  width: 100vw;
   height: 85vh;
+  overflow: scroll;
+  width: 100vw;
 }
 
 .app-bio {

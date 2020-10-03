@@ -8,11 +8,17 @@
   transition: width .5s, height .5s;
   width: 85%;
 
-  h2 {
-    align-self: center
+  h4 {
+    align-self: center;
+    margin-left: 1em;
   }
+
 }
 
+#lesson-link {
+  align-self: center;
+  font-size: x-small
+}
 
 .lesson-card:hover {
   cursor: pointer;
