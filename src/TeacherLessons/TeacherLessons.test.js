@@ -36,15 +36,15 @@ describe('TeacherLesson', () => {
     )
   })
 
-  it('should render a Lessons header', () => {
+  it('should render a Assessments header', () => {
     const { getByText } = render(teacherLessons) 
-    const lessonsHeader = getByText('Lessons')
+    const lessonsHeader = getByText('Assessments')
     expect(lessonsHeader).toBeInTheDocument()
   })
 
-  it('should display all the teachers lessons', () => {
+  it('should display all the teachers Assessments', () => {
     const { getByText } = render(teacherLessons) 
-    const lessonsHeader = getByText('Lessons')
+    const lessonsHeader = getByText('Assessments')
     const lesson1 = getByText('Test Title')
     const lesson2 = getByText('North American Mammals')
 
