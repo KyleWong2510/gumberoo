@@ -9,7 +9,7 @@ const TeacherHeader = () => {
         className='main-nav' 
         activeClassName='main-nav-active' 
         style={{ textDecoration: 'none' }}>
-      <h1 className='header-title'>gumberoo</h1>
+      <h1 className='header-title'><img src='https://i.postimg.cc/Z5JQX5Tw/Screen-Shot-2020-10-03-at-10-40-36-AM.png' alt='logo' className='logo-img'></img>gumberoo</h1>
       </NavLink>
       <section className='header-btn-container'>
         <NavLink 
