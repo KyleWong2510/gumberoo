@@ -6,12 +6,12 @@
   justify-content: space-evenly;
   overflow: scroll;
   width: 50vw;
-  background-color: #706f6f;
+  background-color: #44AA99;
 }
 
 .lesson-preview-title {
   
-  font-size: 16px;
+  font-size: 24px;
 }
 
 .question-cards-container {
@@ -27,10 +27,18 @@
   text-align: center;
 }
 
+.no-questions-message {
+  font-weight: bold;
+}
+
 .generate-lesson-btn {
   height: fit-content;
   width: fit-content;
   background-color: #D2Daed;
   padding: 1%;
   border-radius: 10px;
+  background-color: #DDCC77;
+    padding: 2%;
+    font-weight: bold;
+    border: none;
 }
