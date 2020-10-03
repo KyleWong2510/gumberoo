@@ -1,4 +1,4 @@
-.lesson-list {
+.lesson-card {
   align-items: center;
   background-color: white;
   box-shadow: 6px 6px 15px #706f6f;  display: flex;
@@ -14,8 +14,8 @@
 }
 
 
-.lesson-list:hover {
+.lesson-card:hover {
   cursor: pointer;
-  font-size: 1.5em;
-  font-weight: 600;
+  height: 80%;
+  width: 90%;
 }

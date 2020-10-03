@@ -6,6 +6,7 @@ const LessonCard = ({ id, lessonTitle, findLesson})=> {
   return (
     <section id={id} key={id} className='lesson-card'>
       <p className="lesson-list" onClick={(e) => findLesson(e)}> {lessonTitle}</p>
+      <p className="lesson-link">https://gumberoo.netlify.app/1/{id} </p>
     </section>
   )
 }
