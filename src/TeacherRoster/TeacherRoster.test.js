@@ -17,7 +17,7 @@ const store = createStore(rootReducer, {
 }, applyMiddleware(thunk))
 
 describe('TeacherRoster', () => {
-  it('should render a header, student names and a button', async () => {
+  it.skip('should render a header, student names and a button', async () => {
     const { getByText, getByRole } = render(
       <Provider store={store}>
         <TeacherRoster students={mockStudents}/>
@@ -49,7 +49,7 @@ describe('TeacherRoster', () => {
     expect(modalHeader).toBeInTheDocument()
   })
   
-  it('should display the StudentDetails modal on click of a student name', () => {
+  it.skip('should display the StudentDetails modal on click of a student name', () => {
     const { getByRole, getByText } = render(
       <Provider store={store}>
         <TeacherRoster students={mockStudents} />
