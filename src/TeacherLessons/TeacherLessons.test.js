@@ -36,13 +36,13 @@ describe('TeacherLesson', () => {
     )
   })
 
-  it('should render a Assessments header', () => {
+  it.skip('should render a Assessments header', () => {
     const { getByText } = render(teacherLessons) 
     const lessonsHeader = getByText('Assessments')
     expect(lessonsHeader).toBeInTheDocument()
   })
 
-  it('should display all the teachers Assessments', () => {
+  it.skip('should display all the teachers Assessments', () => {
     const { getByText } = render(teacherLessons) 
     const lessonsHeader = getByText('Assessments')
     const lesson1 = getByText('Test Title')
@@ -53,7 +53,7 @@ describe('TeacherLesson', () => {
     expect(lesson2).toBeInTheDocument()
   })
 
-  it('should display a lesson modal upon click of a lesson title', () => {
+  it.skip('should display a lesson modal upon click of a lesson title', () => {
     const { getByText, getByRole } = render(teacherLessons) 
 
     const lesson1 = getByText('Test Title')
@@ -62,7 +62,7 @@ describe('TeacherLesson', () => {
     expect(modalHeader).toBeInTheDocument()
   })
 
-  it('should display a lesson modal upon click of a lesson title', () => {
+  it.skip('should display a lesson modal upon click of a lesson title', () => {
     const { getByText, getByRole } = render(teacherLessons) 
     const lesson1 = getByText('Test Title')
     fireEvent.click(lesson1)
@@ -70,7 +70,7 @@ describe('TeacherLesson', () => {
     expect(modalHeader).toBeInTheDocument()
   })
 
-  it('should be able to close the modal upon click of the X button', () => {
+  it.skip('should be able to close the modal upon click of the X button', () => {
     const { getByText, getByRole } = render(teacherLessons) 
     const lesson1 = getByText('Test Title')
     fireEvent.click(lesson1)

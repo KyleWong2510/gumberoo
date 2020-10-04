@@ -2,11 +2,12 @@ $charade: #282a37;
 $bluebell: #979fd0;
 
 .teacherDashBoard {
+  background-color: #88CCEE;
   display: flex;
   flex-direction: column;
-  width: 100vw;
   height: 85vh;
-  background-color: #88CCEE;
+  overflow: scroll;
+  width: 100vw;
 }
 
 .app-bio {

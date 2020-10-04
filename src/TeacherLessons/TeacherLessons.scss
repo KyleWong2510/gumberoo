@@ -1,8 +1,12 @@
 .teacher-lessons {
-  background-color: #C6C6C6;
-  display: flex;
-  flex-direction: column;
+  align-items: end;
+  background-color: #88CCEE;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   height: 85vh;
+  justify-items: center;
+  overflow: scroll;
   width: 100vw;
 
   h1 {

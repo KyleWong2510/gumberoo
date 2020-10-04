@@ -5,7 +5,8 @@ import PropTypes from 'prop-types'
 const LessonCard = ({ id, lessonTitle, findLesson})=> {
   return (
     <section id={id} key={id} className='lesson-card'>
-      <p className="lesson-list" onClick={(e) => findLesson(e)}> {lessonTitle}</p>
+      <h4 className="lesson-list" onClick={(e) => findLesson(e)}> {lessonTitle}</h4>
+      <p id="lesson-link">https://gumberoo.netlify.app/1/{id} </p>
     </section>
   )
 }
