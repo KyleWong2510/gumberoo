@@ -72,7 +72,5 @@ npm install
 ### Viewing Lesson Data
 ![Make assessment](https://media.giphy.com/media/QEuoSsTlrqVluQkxJm/giphy.gif)
 
-### Student Assessment
-![Student Assessment](https://media.giphy.com/media/AznicNmSwCYfu9Irr1/giphy.gif)
-### Submitting Mood for AI system
-![Submit mood](https://media.giphy.com/media/eTTZ11voxTYrvy5mQe/giphy.gif)
+### Student Assessment & submitting mood
+![Student Assessment](https://media.giphy.com/media/Rkz4SijUkaXHvmLAbw/giphy.gif)
